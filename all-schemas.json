@@ -1,0 +1,501 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "AuthRepository": {
+            "type": "object"
+        },
+        "AuthRepositoryImpl": {
+            "type": "object"
+        },
+        "CompanyCreateEntities": {
+            "properties": {
+                "logo": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CompanyEntities": {
+            "properties": {
+                "createdAt": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "id": {
+                    "type": "number"
+                },
+                "logo": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "format": "date-time",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CompanyQueryEntities": {
+            "properties": {
+                "isDelete": {
+                    "type": "number"
+                },
+                "limit": {
+                    "type": "number"
+                },
+                "page": {
+                    "type": "number"
+                },
+                "search": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CompanyRepository": {
+            "type": "object"
+        },
+        "CompanyRepositoryImpl": {
+            "type": "object"
+        },
+        "QueryEntities": {
+            "properties": {
+                "isDelete": {
+                    "type": "number"
+                },
+                "limit": {
+                    "type": "number"
+                },
+                "page": {
+                    "type": "number"
+                },
+                "search": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "RRoleSidebarCreateEntities": {
+            "properties": {
+                "roleId": {
+                    "type": "number"
+                },
+                "sidebarId": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "RRoleSidebarEntities": {
+            "properties": {
+                "id": {
+                    "type": "number"
+                },
+                "roleId": {
+                    "type": "number"
+                },
+                "sidebarId": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "RRoleSidebarUpdateEntities": {
+            "properties": {
+                "roleId": {
+                    "type": "number"
+                },
+                "sidebarId": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "RRoleUserCreateEntities": {
+            "properties": {
+                "roleId": {
+                    "type": "number"
+                },
+                "username": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "RRoleUserEntities": {
+            "properties": {
+                "id": {
+                    "type": "number"
+                },
+                "roleId": {
+                    "type": "number"
+                },
+                "username": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "RRoleUserUpdateEntities": {
+            "type": "object"
+        },
+        "RefreshTokenCreate": {
+            "properties": {
+                "expiresAt": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "refreshToken": {
+                    "type": "string"
+                },
+                "username": {
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                }
+            },
+            "type": "object"
+        },
+        "RefreshTokenEntities": {
+            "properties": {
+                "createdAt": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "expiredAt": {
+                    "anyOf": [
+                        {
+                            "format": "date-time",
+                            "type": "string"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "id": {
+                    "type": "number"
+                },
+                "refreshToken": {
+                    "type": "string"
+                },
+                "userId": {
+                    "type": [
+                        "null",
+                        "number"
+                    ]
+                }
+            },
+            "type": "object"
+        },
+        "RefreshTokenUpdate": {
+            "properties": {
+                "expiresAt": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "refreshToken": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ResponseEntities": {
+            "properties": {
+                "data": {},
+                "paging": {
+                    "$ref": "#/definitions/ResponsePagingEntities"
+                }
+            },
+            "type": "object"
+        },
+        "ResponsePagingEntities": {
+            "properties": {
+                "pageNow": {
+                    "type": "number"
+                },
+                "totalData": {
+                    "type": "number"
+                },
+                "totalPage": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "ResponseWithoutPagingEntities": {
+            "properties": {
+                "data": {}
+            },
+            "type": "object"
+        },
+        "RoleCreateEntities": {
+            "properties": {
+                "name": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "RoleEntities": {
+            "properties": {
+                "id": {
+                    "type": "number"
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "RoleRepository": {
+            "type": "object"
+        },
+        "RoleRepositoryImpl": {
+            "type": "object"
+        },
+        "RoleSidebarCreateOrUpdateEntities": {
+            "properties": {
+                "create": {
+                    "type": "boolean"
+                },
+                "delete": {
+                    "type": "boolean"
+                },
+                "read": {
+                    "type": "boolean"
+                },
+                "roleId": {
+                    "type": "number"
+                },
+                "sidebarId": {
+                    "type": "number"
+                },
+                "update": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "RoleSidebarDetailedEntities": {
+            "properties": {
+                "create": {
+                    "type": "boolean"
+                },
+                "delete": {
+                    "type": "boolean"
+                },
+                "id": {
+                    "type": "number"
+                },
+                "read": {
+                    "type": "boolean"
+                },
+                "roleId": {
+                    "type": "number"
+                },
+                "sidebarId": {
+                    "type": "number"
+                },
+                "update": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "RoleSidebarQueryEntities": {
+            "properties": {
+                "detail": {
+                    "type": "string"
+                },
+                "isDelete": {
+                    "type": "number"
+                },
+                "limit": {
+                    "type": "number"
+                },
+                "page": {
+                    "type": "number"
+                },
+                "roleId": {
+                    "type": "number"
+                },
+                "search": {
+                    "type": "string"
+                },
+                "sidebarId": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "RoleSidebarRepository": {
+            "type": "object"
+        },
+        "RoleSidebarRepositoryImpl": {
+            "type": "object"
+        },
+        "RoleUserRepository": {
+            "type": "object"
+        },
+        "RoleUserRepositoryImpl": {
+            "type": "object"
+        },
+        "SidebarCreateEntities": {
+            "properties": {
+                "icon": {
+                    "type": "string"
+                },
+                "link": {
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "name": {
+                    "type": "string"
+                },
+                "path": {
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                }
+            },
+            "type": "object"
+        },
+        "SidebarEntities": {
+            "properties": {
+                "icon": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "number"
+                },
+                "link": {
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "name": {
+                    "type": "string"
+                },
+                "path": {
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                }
+            },
+            "type": "object"
+        },
+        "SidebarRepository": {
+            "type": "object"
+        },
+        "SidebarRepositoryImpl": {
+            "type": "object"
+        },
+        "UserCreateEntities": {
+            "properties": {
+                "email": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "signature": {
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "status": {
+                    "type": [
+                        "null",
+                        "number"
+                    ]
+                },
+                "unitId": {
+                    "type": [
+                        "null",
+                        "number"
+                    ]
+                },
+                "username": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UserEntities": {
+            "properties": {
+                "createdAt": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "username": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UserQueryEntities": {
+            "properties": {
+                "isDelete": {
+                    "type": "number"
+                },
+                "limit": {
+                    "type": "number"
+                },
+                "page": {
+                    "type": "number"
+                },
+                "search": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UserRepository": {
+            "type": "object"
+        },
+        "UserRepositoryImpl": {
+            "type": "object"
+        },
+        "authEntities": {
+            "properties": {
+                "email": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}
+

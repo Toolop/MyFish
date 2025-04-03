@@ -1,0 +1,2293 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "E-Inspection Api",
+    "description": "Description",
+    "version": "1.0.0"
+  },
+  "host": "localhost:3000",
+  "servers": [
+    {
+      "url": "http://localhost:8000/be",
+      "description": "main server"
+    },
+    {
+      "url": "http://10.88.1.23/be/v1",
+      "description": "main server"
+    }
+  ],
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/v1/users": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Create a new user",
+        "description": "Adds a new user to the database.",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "The new user data to be added",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/UserCreateEntities"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "User created successfully",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/UserEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Get all users",
+        "description": "Fetch all users from the database.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "description": "Query parameters for filtering users",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/queryEntities"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get users successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UserEntities"
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/user": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Get current user",
+        "description": "Fetch currently authenticated user.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get user successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/UserEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/users/:username": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Get user by username",
+        "description": "Fetch user by username.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "username",
+            "in": "query",
+            "description": "User username",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get user successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/UserEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Update user of username",
+        "description": "Update user of username.",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "username",
+            "in": "query",
+            "description": "User username",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "The new data for the user",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/UserCreateEntities"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Update user successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/UserEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Delete user by username",
+        "description": "Delete user by username.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "username",
+            "in": "query",
+            "description": "User username",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Delete user successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/UserEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/login": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Login",
+        "description": "Login as a user",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "The new user data to be added",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/authEntities"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Login successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "accessToken": {
+                  "type": "string",
+                  "example": "string"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/refresh": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Refresh Access Token",
+        "description": "Refresh access token",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Cookie",
+            "in": "cookie",
+            "description": "Refresh token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Token refreshed successfully",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "accessToken": {
+                  "type": "string",
+                  "example": "string"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/roles": {
+      "post": {
+        "tags": [
+          "Roles"
+        ],
+        "summary": "Create a new role",
+        "description": "Adds a new role to the database.",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "The new role data to be added",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/RoleCreateEntities"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Role created successfully",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/RoleEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Roles"
+        ],
+        "summary": "Get all roles",
+        "description": "Fetch all roles from the database.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Get roles successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RoleEntities"
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/role": {
+      "get": {
+        "tags": [
+          "Roles"
+        ],
+        "summary": "Get current role",
+        "description": "Fetch currently authenticated role.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get role successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/RoleEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/roles/:id": {
+      "get": {
+        "tags": [
+          "Roles"
+        ],
+        "summary": "Get role by ID",
+        "description": "Fetch role by ID.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Role ID",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get role successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/RoleEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Roles"
+        ],
+        "summary": "Update role of ID",
+        "description": "Update role of ID.",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Role ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "The new data for the role",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/RoleCreateEntities"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Update role successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/RoleEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Roles"
+        ],
+        "summary": "Delete role by ID",
+        "description": "Delete role by ID.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Role ID",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Delete role successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/RoleEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sidebars": {
+      "post": {
+        "tags": [
+          "Sidebars"
+        ],
+        "summary": "Create a new sidebar",
+        "description": "Adds a new sidebar to the database.",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "The new sidebar data to be added",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/SidebarCreateEntities"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Sidebar created successfully",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/SidebarEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Sidebars"
+        ],
+        "summary": "Get all sidebar",
+        "description": "Fetch all sidebars.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Get sidebar successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SidebarEntities"
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sidebar": {
+      "get": {
+        "tags": [
+          "Sidebars"
+        ],
+        "summary": "Get current user",
+        "description": "Fetch current user",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get sidebar successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SidebarEntities"
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sidebars/:id": {
+      "get": {
+        "tags": [
+          "Sidebars"
+        ],
+        "summary": "Get sidebar by ID",
+        "description": "Fetch sidebar by ID.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Sidebar ID",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get sidebar successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/SidebarEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Sidebars"
+        ],
+        "summary": "Update sidebar of ID",
+        "description": "Update sidebar of ID.",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Sidebar ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "The new data for sidebar",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/SidebarCreateEntities"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Update sidebar successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/SidebarEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Sidebars"
+        ],
+        "summary": "Delete sidebar by ID",
+        "description": "Delete sidebar by ID.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Sidebar ID",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Delete sidebar successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/SidebarEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/roleusers": {
+      "post": {
+        "tags": [
+          "Role User"
+        ],
+        "summary": "Create a new Role User connection",
+        "description": "Adds a new role-user entry to the database.",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "The new data to be added",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/RRoleUserCreateEntities"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Role-User created successfully",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/RRoleUserEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Role User"
+        ],
+        "summary": "Get all Role User connections",
+        "description": "Fetch all role-user entries from the database.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Get Role-User successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RRoleUserEntities"
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/roleusers/:id": {
+      "get": {
+        "tags": [
+          "Role User"
+        ],
+        "summary": "Get Role User connection by ID",
+        "description": "Fetch role-user entry by ID.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the role-user entry to fetch",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get Role-User successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/RRoleUserEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Role User"
+        ],
+        "summary": "Update Role User of ID",
+        "description": "Update role-user entry of ID.",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the role-user entry to update",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "The new data to be added",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/RRoleUserCreateEntities"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get Role-User successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/RRoleUserEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Role User"
+        ],
+        "summary": "Delete Role User by ID",
+        "description": "Delete role-user entry by ID.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the role-user entry to delete",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Delete Role-User successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/RRoleUserEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/rolesidebars": {
+      "post": {
+        "tags": [
+          "Role Sidebars"
+        ],
+        "summary": "Create a new Role Sidebar connection",
+        "description": "Adds a new role-sidebar entry to the database.",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "The new data to be added",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/RRoleSidebarCreateEntities"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Role-Sidebar created successfully",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/RRoleSidebarEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Role Sidebars"
+        ],
+        "summary": "Get all Role Sidebar connection",
+        "description": "Fetch all role-sidebar entries from the database.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Get Role-Sidebar successfully",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RRoleSidebarEntities"
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/rolesidebar": {
+      "get": {
+        "tags": [
+          "Role Sidebars"
+        ],
+        "summary": "Get current user",
+        "description": "Fetch current user",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get Role-Sidebar successfully",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RRoleSidebarEntities"
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/rolesidebars/:id": {
+      "get": {
+        "tags": [
+          "Role Sidebars"
+        ],
+        "summary": "Get Role Sidebars by ID",
+        "description": "Fetch role-sidebar data by ID.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the role-sidebar to fetch",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get Role-Sidebar successfully",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/RRoleSidebarEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Role Sidebars"
+        ],
+        "summary": "Update Role Sidebars of ID",
+        "description": "Update role-sidebar of ID.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the role-sidebar to update",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "The new data to be used for update",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/RRoleSidebarCreateEntities"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Update Role-Sidebar successfully",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/RRoleSidebarEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Role Sidebars"
+        ],
+        "summary": "Delete Role Sidebars by ID",
+        "description": "Delete role-sidebar by ID.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the role-sidebar to delete",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Delete Role-Sidebar successfully",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/RRoleSidebarEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/rolesidebars/upsert-batch": {
+      "post": {
+        "tags": [
+          "Role Sidebars"
+        ],
+        "summary": "Upsert Batch Role Sidebars",
+        "description": "Update role-sidebar (if already exists) or create new role-sidebar.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Array of data to be used for upsert",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/RoleSidebarCreateOrUpdateEntities"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Upsert Batch Role-Sidebar successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/RRoleSidebarEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/companies": {
+      "post": {
+        "tags": [
+          "companies"
+        ],
+        "summary": "Create a new company",
+        "description": "Adds a new company to the database.",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "The new company data to be added",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/CompanyCreateEntities"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Company created successfully",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/CompanyEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "companies"
+        ],
+        "summary": "Get all companies",
+        "description": "Fetch all companies from the database.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Get companies successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CompanyEntities"
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/company": {
+      "get": {
+        "tags": [
+          "companies"
+        ],
+        "summary": "Get current company",
+        "description": "Fetch currently authenticated company.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get company successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/CompanyEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/companies/:id": {
+      "get": {
+        "tags": [
+          "companies"
+        ],
+        "summary": "Get company by ID",
+        "description": "Fetch company by ID.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Company ID",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get company successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/CompanyEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "companies"
+        ],
+        "summary": "Update company of ID",
+        "description": "Update company of ID.",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Company ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "The new data for the company",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/CompanyCreateEntities"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Update company successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/CompanyEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "companies"
+        ],
+        "summary": "Delete company by ID",
+        "description": "Delete company by ID.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Company ID",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Delete company successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/CompanyEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AuthRepository": {
+        "type": "object"
+      },
+      "AuthRepositoryImpl": {
+        "type": "object"
+      },
+      "CompanyCreateEntities": {
+        "properties": {
+          "logo": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "CompanyEntities": {
+        "properties": {
+          "createdAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "id": {
+            "type": "number"
+          },
+          "logo": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "CompanyQueryEntities": {
+        "properties": {
+          "isDelete": {
+            "type": "number"
+          },
+          "limit": {
+            "type": "number"
+          },
+          "page": {
+            "type": "number"
+          },
+          "search": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "CompanyRepository": {
+        "type": "object"
+      },
+      "CompanyRepositoryImpl": {
+        "type": "object"
+      },
+      "QueryEntities": {
+        "properties": {
+          "isDelete": {
+            "type": "number"
+          },
+          "limit": {
+            "type": "number"
+          },
+          "page": {
+            "type": "number"
+          },
+          "search": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "RRoleSidebarCreateEntities": {
+        "properties": {
+          "roleId": {
+            "type": "number"
+          },
+          "sidebarId": {
+            "type": "number"
+          }
+        },
+        "type": "object"
+      },
+      "RRoleSidebarEntities": {
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "roleId": {
+            "type": "number"
+          },
+          "sidebarId": {
+            "type": "number"
+          }
+        },
+        "type": "object"
+      },
+      "RRoleSidebarUpdateEntities": {
+        "properties": {
+          "roleId": {
+            "type": "number"
+          },
+          "sidebarId": {
+            "type": "number"
+          }
+        },
+        "type": "object"
+      },
+      "RRoleUserCreateEntities": {
+        "properties": {
+          "roleId": {
+            "type": "number"
+          },
+          "username": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "RRoleUserEntities": {
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "roleId": {
+            "type": "number"
+          },
+          "username": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "RRoleUserUpdateEntities": {
+        "type": "object"
+      },
+      "RefreshTokenCreate": {
+        "properties": {
+          "expiresAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "refreshToken": {
+            "type": "string"
+          },
+          "username": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": "object"
+      },
+      "RefreshTokenEntities": {
+        "properties": {
+          "createdAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "expiredAt": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "id": {
+            "type": "number"
+          },
+          "refreshToken": {
+            "type": "string"
+          },
+          "userId": {
+            "type": [
+              "null",
+              "number"
+            ]
+          }
+        },
+        "type": "object"
+      },
+      "RefreshTokenUpdate": {
+        "properties": {
+          "expiresAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "refreshToken": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "ResponseEntities": {
+        "properties": {
+          "data": {},
+          "paging": {
+            "$ref": "#/definitions/ResponsePagingEntities"
+          }
+        },
+        "type": "object"
+      },
+      "ResponsePagingEntities": {
+        "properties": {
+          "pageNow": {
+            "type": "number"
+          },
+          "totalData": {
+            "type": "number"
+          },
+          "totalPage": {
+            "type": "number"
+          }
+        },
+        "type": "object"
+      },
+      "ResponseWithoutPagingEntities": {
+        "properties": {
+          "data": {}
+        },
+        "type": "object"
+      },
+      "RoleCreateEntities": {
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "RoleEntities": {
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "RoleRepository": {
+        "type": "object"
+      },
+      "RoleRepositoryImpl": {
+        "type": "object"
+      },
+      "RoleSidebarCreateOrUpdateEntities": {
+        "properties": {
+          "create": {
+            "type": "boolean"
+          },
+          "delete": {
+            "type": "boolean"
+          },
+          "read": {
+            "type": "boolean"
+          },
+          "roleId": {
+            "type": "number"
+          },
+          "sidebarId": {
+            "type": "number"
+          },
+          "update": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "RoleSidebarDetailedEntities": {
+        "properties": {
+          "create": {
+            "type": "boolean"
+          },
+          "delete": {
+            "type": "boolean"
+          },
+          "id": {
+            "type": "number"
+          },
+          "read": {
+            "type": "boolean"
+          },
+          "roleId": {
+            "type": "number"
+          },
+          "sidebarId": {
+            "type": "number"
+          },
+          "update": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "RoleSidebarQueryEntities": {
+        "properties": {
+          "detail": {
+            "type": "string"
+          },
+          "isDelete": {
+            "type": "number"
+          },
+          "limit": {
+            "type": "number"
+          },
+          "page": {
+            "type": "number"
+          },
+          "roleId": {
+            "type": "number"
+          },
+          "search": {
+            "type": "string"
+          },
+          "sidebarId": {
+            "type": "number"
+          }
+        },
+        "type": "object"
+      },
+      "RoleSidebarRepository": {
+        "type": "object"
+      },
+      "RoleSidebarRepositoryImpl": {
+        "type": "object"
+      },
+      "RoleUserRepository": {
+        "type": "object"
+      },
+      "RoleUserRepositoryImpl": {
+        "type": "object"
+      },
+      "SidebarCreateEntities": {
+        "properties": {
+          "icon": {
+            "type": "string"
+          },
+          "link": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "name": {
+            "type": "string"
+          },
+          "path": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": "object"
+      },
+      "SidebarEntities": {
+        "properties": {
+          "icon": {
+            "type": "string"
+          },
+          "id": {
+            "type": "number"
+          },
+          "link": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "name": {
+            "type": "string"
+          },
+          "path": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": "object"
+      },
+      "SidebarRepository": {
+        "type": "object"
+      },
+      "SidebarRepositoryImpl": {
+        "type": "object"
+      },
+      "UserCreateEntities": {
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "signature": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "status": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "unitId": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "username": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "UserEntities": {
+        "properties": {
+          "createdAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "UserQueryEntities": {
+        "properties": {
+          "isDelete": {
+            "type": "number"
+          },
+          "limit": {
+            "type": "number"
+          },
+          "page": {
+            "type": "number"
+          },
+          "search": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "UserRepository": {
+        "type": "object"
+      },
+      "UserRepositoryImpl": {
+        "type": "object"
+      },
+      "authEntities": {
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      }
+    }
+  }
+}

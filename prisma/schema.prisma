@@ -1,0 +1,227 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  username     String         @id @db.VarChar(100)
+  email        String         @unique @db.VarChar(100)
+  name         String         @db.VarChar(100)
+  password     String         @db.VarChar(100)
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+  refreshToken RefreshToken[]
+  RoleUser     RoleUser[]
+
+  @@map("users")
+}
+
+model Role {
+  id           Int            @id @default(autoincrement())
+  name         String         @unique @db.VarChar(50)
+  RRoleSidebar RRoleSidebar[]
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+  RoleUser     RoleUser[]
+
+  @@map("roles")
+}
+
+model RoleUser {
+  id        Int      @id @default(autoincrement())
+  Role      Role?    @relation(fields: [roleId], references: [id], onUpdate: Cascade, onDelete: Cascade)
+  roleId    Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  isDelete  Boolean  @default(false)
+  User      User?    @relation(fields: [username], references: [username], onUpdate: Cascade, onDelete: Cascade)
+  username  String   @db.VarChar(100)
+
+  @@map("role_user")
+}
+
+model Sidebar {
+  id            Int            @id @default(autoincrement())
+  name          String         @unique @db.VarChar(100)
+  icon          String         @db.VarChar(100)
+  path          String?        @db.VarChar(100)
+  link          String?        @db.VarChar(100)
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  rRoleSiderbar RRoleSidebar[]
+  isDelete      Boolean        @default(false)
+
+  @@map("sidebars")
+}
+
+model RRoleSidebar {
+  id        Int      @id @default(autoincrement())
+  Sidebar   Sidebar? @relation(fields: [sidebarId], references: [id], onUpdate: Cascade, onDelete: Cascade)
+  sidebarId Int
+  Role      Role?    @relation(fields: [roleId], references: [id], onUpdate: Cascade, onDelete: Cascade)
+  roleId    Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  create    Boolean  @default(false)
+  read      Boolean  @default(false)
+  update    Boolean  @default(false)
+  delete    Boolean  @default(false)
+  validate  Boolean  @default(false)
+  isDelete  Boolean  @default(false)
+
+  @@unique([sidebarId, roleId])
+  @@map("r_role_sidebar")
+}
+
+model Company {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique @db.VarChar(100)
+  logo      String   @db.VarChar(500)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("companies")
+}
+
+model Location {
+  id        Int      @id @default(autoincrement())
+  name      String   @db.VarChar(100)
+  city      String   @db.VarChar(100)
+  address   String   @db.VarChar(500)
+  latitude  Float
+  longitude Float
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("locations")
+}
+
+model Greenhouse {
+  id          Int      @id @default(autoincrement())
+  name        String   @db.VarChar(100)
+  description String?  @db.VarChar(300)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("greenhouses")
+}
+
+model Pond {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique @db.VarChar(100)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  Things    Things[]
+  isDelete  Boolean  @default(false)
+}
+
+model Things {
+  id         Int         @id @default(autoincrement())
+  name       String      @db.VarChar(100)
+  icon       String?     @db.VarChar(100)
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @updatedAt
+  Pond       Pond?       @relation(fields: [pondId], references: [id], onUpdate: Cascade, onDelete: Cascade)
+  pondId     Int?
+  ThingsLog  ThingsLog[]
+  Actuator   Actuator[]
+  Sennsor    Sensor[]
+  isSeperate Boolean     @default(true)
+
+  @@map("things")
+}
+
+model ThingsLog {
+  id              Int      @id @default(autoincrement())
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  statusLifeCycle Int
+  Things          Things?  @relation(fields: [thingsId], references: [id])
+  thingsId        Int?
+
+  @@map("things_log")
+}
+
+model Sensor {
+  id        Int      @id @default(autoincrement())
+  name      String   @db.VarChar(100)
+  icon      String?  @db.VarChar(100)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  Things    Things?  @relation(fields: [thingsId], references: [id], onUpdate: Cascade, onDelete: Cascade)
+  thingsId  Int?
+
+  @@map("sensors")
+}
+
+model Actuator {
+  id              Int           @id @default(autoincrement())
+  name            String
+  statusLifeCycle Int
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+  icon            String
+  color           String
+  ActuatorLog     ActuatorLog[]
+  Things          Things?       @relation(fields: [thingsId], references: [id], onUpdate: Cascade, onDelete: Cascade)
+  thingsId        Int?
+
+  @@map("actuators")
+}
+
+model ActuatorLog {
+  id              Int       @id @default(autoincrement())
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  statusLifeCycle Int
+  Actuator        Actuator? @relation(fields: [actuatorId], references: [id], onUpdate: Cascade, onDelete: Cascade)
+  actuatorId      Int?
+
+  @@map("actuator_log")
+}
+
+model Schedule {
+  id_actuator     Int
+  start_time      String
+  repeat          Int
+  id_schedule     Int      @id @default(autoincrement())
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  duration        Int
+  interval        Int
+  status_schedule Int
+  hour            Int[]
+  minute          Int[]
+  dayOfWeek       Int[]    @default([0, 1, 2, 3, 4, 5, 6, 7])
+
+  @@map("schedules")
+}
+
+model Automation {
+  id_actuator      Int
+  id_sensor        Int
+  condition        String
+  status_lifecycle Int
+  id_automation    Int      @id @default(autoincrement())
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  constanta        Int
+  range            Int
+
+  @@map("automations")
+}
+
+model RefreshToken {
+  id           Int       @id @default(autoincrement())
+  refreshToken String
+  createdAt    DateTime  @default(now())
+  expiresAt    DateTime?
+  User         User?     @relation(fields: [userUsername], references: [username], onUpdate: Cascade, onDelete: Cascade)
+  userUsername String?   @db.VarChar(100)
+
+  @@map("refresh_tokens")
+}
