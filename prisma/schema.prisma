@@ -104,33 +104,25 @@ model Greenhouse {
   id          Int      @id @default(autoincrement())
   name        String   @db.VarChar(100)
   description String?  @db.VarChar(300)
+  Things      Things[]
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
   @@map("greenhouses")
 }
 
-model Pond {
-  id        Int      @id @default(autoincrement())
-  name      String   @unique @db.VarChar(100)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  Things    Things[]
-  isDelete  Boolean  @default(false)
-}
-
 model Things {
-  id         Int         @id @default(autoincrement())
-  name       String      @db.VarChar(100)
-  icon       String?     @db.VarChar(100)
-  createdAt  DateTime    @default(now())
-  updatedAt  DateTime    @updatedAt
-  Pond       Pond?       @relation(fields: [pondId], references: [id], onUpdate: Cascade, onDelete: Cascade)
-  pondId     Int?
-  ThingsLog  ThingsLog[]
-  Actuator   Actuator[]
-  Sennsor    Sensor[]
-  isSeperate Boolean     @default(true)
+  id           Int         @id @default(autoincrement())
+  name         String      @db.VarChar(100)
+  icon         String?     @db.VarChar(100)
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+  ThingsLog    ThingsLog[]
+  Actuator     Actuator[]
+  Sennsor      Sensor[]
+  isSeperate   Boolean     @default(true)
+  Greenhouse   Greenhouse? @relation(fields: [greenhouseId], references: [id])
+  greenhouseId Int?
 
   @@map("things")
 }
@@ -220,8 +212,8 @@ model RefreshToken {
   refreshToken String
   createdAt    DateTime  @default(now())
   expiresAt    DateTime?
-  User         User?     @relation(fields: [userUsername], references: [username], onUpdate: Cascade, onDelete: Cascade)
-  userUsername String?   @db.VarChar(100)
+  User         User?     @relation(fields: [username], references: [username], onUpdate: Cascade, onDelete: Cascade)
+  username     String?   @db.VarChar(100)
 
   @@map("refresh_tokens")
 }

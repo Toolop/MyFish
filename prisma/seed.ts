@@ -1,15 +1,17 @@
 import { PrismaClient } from "@prisma/client";
 import { RoleMasterData } from "./masterData/role";
 import { MenuMasterData } from "./masterData/menu";
+import { HashService } from "../src/domain/service/hash.service";
 
 const prisma = new PrismaClient();
 
 const main = async () => {
+  const HashedPassword = await HashService("password");
   const userCreate = await prisma.user.createMany({
     data: {
       username: "toolop2312",
       name: "Rafi Arya Nugraha",
-      password: "password",
+      password: HashedPassword,
       email: "toolop2312@gmail.com",
     },
     skipDuplicates: true,

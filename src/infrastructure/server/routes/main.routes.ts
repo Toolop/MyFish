@@ -1,11 +1,11 @@
-import { AuthRouter } from "./di/auth_route";
-import { CompanyRouter } from "./di/company_route";
+import { AuthRouter } from "./di/auth.routes";
+import { CompanyRouter } from "./di/company.routes";
 import { LocationRouter } from "./di/location.routes";
-import { RoleRouter } from "./di/role_route";
-import { RoleSidebarRouter } from "./di/role_sidebar_route";
-import { RoleUserRouter } from "./di/role_user_route";
-import { SidebarRouter } from "./di/sidebar_route";
-import { UsersRouter } from "./di/user_route";
+import { RoleRouter } from "./di/role.routes";
+import { RoleSidebarRouter } from "./di/role_sidebar.routes";
+import { RoleUserRouter } from "./di/role_user.routes";
+import { SidebarRouter } from "./di/sidebar.routes";
+import { UsersRouter } from "./di/user.routes";
 
 const MainRoute = (app: any, route: any) => {
   app.use("/v1", UsersRouter(route));

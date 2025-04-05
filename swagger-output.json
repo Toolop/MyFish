@@ -8,11 +8,11 @@
   "host": "localhost:3000",
   "servers": [
     {
-      "url": "http://localhost:8000/be",
+      "url": "http://localhost:3000/v1",
       "description": "main server"
     },
     {
-      "url": "http://10.88.1.23/be/v1",
+      "url": "http://10.88.1.23/v1",
       "description": "main server"
     }
   ],

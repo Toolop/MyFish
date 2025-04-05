@@ -6,9 +6,6 @@ export const RoleMasterData = [
     name: "Admin",
   },
   {
-    name: "Supervisor",
-  },
-  {
     name: "Petugas",
   },
 ];

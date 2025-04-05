@@ -63,6 +63,142 @@
         "CompanyRepositoryImpl": {
             "type": "object"
         },
+        "GreenhouseCreateEntities": {
+            "properties": {
+                "deescription": {
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GreenhouseEntities": {
+            "properties": {
+                "createdAt": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "deescription": {
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "id": {
+                    "type": "number"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "format": "date-time",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GreenhouseQueryEntities": {
+            "properties": {
+                "isDelete": {
+                    "type": "number"
+                },
+                "limit": {
+                    "type": "number"
+                },
+                "page": {
+                    "type": "number"
+                },
+                "search": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GreenhouseRepository": {
+            "type": "object"
+        },
+        "GreenhouseRepositoryImpl": {
+            "type": "object"
+        },
+        "LocationCreateEntities": {
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "city": {
+                    "type": "string"
+                },
+                "latitude": {
+                    "type": "number"
+                },
+                "longitude": {
+                    "type": "number"
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "LocationEntities": {
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "city": {
+                    "type": "string"
+                },
+                "createdAt": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "id": {
+                    "type": "number"
+                },
+                "latitude": {
+                    "type": "number"
+                },
+                "longitude": {
+                    "type": "number"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "format": "date-time",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "LocationQueryEntities": {
+            "properties": {
+                "isDelete": {
+                    "type": "number"
+                },
+                "limit": {
+                    "type": "number"
+                },
+                "page": {
+                    "type": "number"
+                },
+                "search": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "LocationRepository": {
+            "type": "object"
+        },
+        "LocationRepositoryImpl": {
+            "type": "object"
+        },
         "QueryEntities": {
             "properties": {
                 "isDelete": {
