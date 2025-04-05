@@ -1,18 +1,18 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "E-Inspection Api",
+    "title": "E-myfish Api",
     "description": "Description",
     "version": "1.0.0"
   },
   "host": "localhost:3000",
   "servers": [
     {
-      "url": "http://localhost:3000/v1",
+      "url": "http://localhost:8000/be",
       "description": "main server"
     },
     {
-      "url": "http://10.88.1.23/v1",
+      "url": "http://10.88.1.23/be/v1",
       "description": "main server"
     }
   ],
@@ -86,7 +86,7 @@
             "description": "Query parameters for filtering users",
             "required": false,
             "schema": {
-              "$ref": "#/components/schemas/queryEntities"
+              "$ref": "#/components/schemas/UserQueryEntities"
             }
           }
         ],
@@ -1789,6 +1789,556 @@
           }
         }
       }
+    },
+    "/v1/locations": {
+      "post": {
+        "tags": [
+          "locations"
+        ],
+        "summary": "Create a new location",
+        "description": "Adds a new location to the database.",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "The new location data to be added",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/LocationCreateEntities"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Location created successfully",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/LocationEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "locations"
+        ],
+        "summary": "Get all locations",
+        "description": "Fetch all locations from the database.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Get locations successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/LocationEntities"
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/location": {
+      "get": {
+        "tags": [
+          "locations"
+        ],
+        "summary": "Get current location",
+        "description": "Fetch currently authenticated location.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get location successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/LocationEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/locations/:id": {
+      "get": {
+        "tags": [
+          "locations"
+        ],
+        "summary": "Get location by ID",
+        "description": "Fetch location by ID.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Location ID",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get location successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/LocationEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "locations"
+        ],
+        "summary": "Update location of ID",
+        "description": "Update location of ID.",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Location ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "The new data for the location",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/LocationCreateEntities"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Update location successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/LocationEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "locations"
+        ],
+        "summary": "Delete location by ID",
+        "description": "Delete location by ID.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Location ID",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Delete location successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/LocationEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/greenhouses": {
+      "post": {
+        "tags": [
+          "greenhouses"
+        ],
+        "summary": "Create a new greenhouse",
+        "description": "Adds a new greenhouse to the database.",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "The new greenhouse data to be added",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/GreenhouseCreateEntities"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Greenhouse created successfully",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/GreenhouseEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "greenhouses"
+        ],
+        "summary": "Get all greenhouses",
+        "description": "Fetch all greenhouses from the database.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Get greenhouses successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GreenhouseEntities"
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/greenhouse": {
+      "get": {
+        "tags": [
+          "greenhouses"
+        ],
+        "summary": "Get current greenhouse",
+        "description": "Fetch currently authenticated greenhouse.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get greenhouse successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/GreenhouseEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/greenhouses/:id": {
+      "get": {
+        "tags": [
+          "greenhouses"
+        ],
+        "summary": "Get greenhouse by ID",
+        "description": "Fetch greenhouse by ID.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Greenhouse ID",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get greenhouse successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/GreenhouseEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "greenhouses"
+        ],
+        "summary": "Update greenhouse of ID",
+        "description": "Update greenhouse of ID.",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Greenhouse ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "The new data for the greenhouse",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/GreenhouseCreateEntities"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Update greenhouse successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/GreenhouseEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "greenhouses"
+        ],
+        "summary": "Delete greenhouse by ID",
+        "description": "Delete greenhouse by ID.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Greenhouse ID",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Delete greenhouse successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/GreenhouseEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -1853,6 +2403,142 @@
         "type": "object"
       },
       "CompanyRepositoryImpl": {
+        "type": "object"
+      },
+      "GreenhouseCreateEntities": {
+        "properties": {
+          "deescription": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "GreenhouseEntities": {
+        "properties": {
+          "createdAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "deescription": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "GreenhouseQueryEntities": {
+        "properties": {
+          "isDelete": {
+            "type": "number"
+          },
+          "limit": {
+            "type": "number"
+          },
+          "page": {
+            "type": "number"
+          },
+          "search": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "GreenhouseRepository": {
+        "type": "object"
+      },
+      "GreenhouseRepositoryImpl": {
+        "type": "object"
+      },
+      "LocationCreateEntities": {
+        "properties": {
+          "address": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "latitude": {
+            "type": "number"
+          },
+          "longitude": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "LocationEntities": {
+        "properties": {
+          "address": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "id": {
+            "type": "number"
+          },
+          "latitude": {
+            "type": "number"
+          },
+          "longitude": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "LocationQueryEntities": {
+        "properties": {
+          "isDelete": {
+            "type": "number"
+          },
+          "limit": {
+            "type": "number"
+          },
+          "page": {
+            "type": "number"
+          },
+          "search": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "LocationRepository": {
+        "type": "object"
+      },
+      "LocationRepositoryImpl": {
         "type": "object"
       },
       "QueryEntities": {

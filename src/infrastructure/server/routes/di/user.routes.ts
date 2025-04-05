@@ -49,7 +49,7 @@ export const UsersRouter = (router: any) => {
             description: 'Query parameters for filtering users',
             required: false,
             schema: {
-                $ref: '#/components/schemas/queryEntities'
+                $ref: '#/components/schemas/UserQueryEntities'
             }
         }
 
