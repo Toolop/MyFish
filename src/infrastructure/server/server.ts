@@ -15,7 +15,7 @@ export const Server = async () => {
 
     const app: Express = express();
     const router = express.Router();
-    const port = process.env.PORT || 3000;
+    const port = process.env.PORT || 3001;
 
     app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 

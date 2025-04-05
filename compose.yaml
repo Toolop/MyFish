@@ -6,7 +6,7 @@ services:
     restart: unless-stopped
     command: npm run dev
     ports:
-      - 3000:3000
+      - ${PORT}:${PORT}
     volumes:
       - .:/usr/src/myfish
       - /usr/src/myfish/node_modules 
