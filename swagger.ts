@@ -9,7 +9,7 @@ const schemas = JSON.parse(
 
 const doc = {
   info: {
-    title: "E-myfish Api",
+    title: "myFish Api",
     description: "Description",
   },
   servers: [

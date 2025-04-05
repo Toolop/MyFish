@@ -1,19 +1,19 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "E-myfish Api",
+    "title": "myFish Api",
     "description": "Description",
     "version": "1.0.0"
   },
-  "host": "localhost:3000",
+  "host": "https://myfish.agriciatech.com",
   "servers": [
     {
-      "url": "http://localhost:8000/be",
+      "url": "https://myfish.agriciatech.com/api/v1",
       "description": "main server"
     },
     {
       "url": "http://10.88.1.23/be/v1",
-      "description": "main server"
+      "description": "main server 2"
     }
   ],
   "basePath": "/",
