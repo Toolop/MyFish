@@ -5,3 +5,5 @@ node_modules
 /report/*
 !report
 temp
+swagger-output.json
+all-schemas.json
