@@ -14,15 +14,14 @@ const doc = {
   },
   servers: [
     {
-      url: `https://myfish.agriciatech.com/`,
+      url: `https://myfish.agriciatech.com`,
       description: "main server",
     },
     {
-      url: `http://10.88.1.23/be/v1`,
-      description: "main server",
+      url: `http://localhost:3001/v1`,
+      description: "local server",
     },
   ],
-  schemes: ["http"],
   components: {
     schemas: schemas.definitions,
   },
