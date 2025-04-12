@@ -8,7 +8,7 @@
   },
   "scripts": {
     "build": "npx tsc",
-    "start": "npx prisma migrate deploy && npx ts-node ./swagger.ts",
+    "start": "npx prisma migrate deploy && typescript-json-schema tsconfig.json '*' --out all-schemas.json && npx ts-node ./swagger.ts",
     "dev": "npx typescript-json-schema tsconfig.json '*' --out all-schemas.json && nodemon ./src/index.ts"
   },
   "author": "",
