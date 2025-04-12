@@ -5,15 +5,15 @@
     "description": "Description",
     "version": "1.0.0"
   },
-  "host": "https://myfish.agriciatech.com",
+  "host": "localhost:3000",
   "servers": [
     {
-      "url": "https://myfish.agriciatech.com/api/v1",
+      "url": "https://myfish.agriciatech.com/",
       "description": "main server"
     },
     {
       "url": "http://10.88.1.23/be/v1",
-      "description": "main server 2"
+      "description": "main server"
     }
   ],
   "basePath": "/",
@@ -2065,6 +2065,807 @@
         }
       }
     },
+    "/v1/actuator-logs": {
+      "post": {
+        "tags": [
+          "ActuatorLogs"
+        ],
+        "summary": "Create a new sidebar",
+        "description": "Adds a new sidebar to the database.",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "The new sidebar data to be added",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/ActuatorLogsCreateEntities"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "ActuatorLogs created successfully",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/ActuatorLogsEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "ActuatorLogs"
+        ],
+        "summary": "Get all sidebar",
+        "description": "Fetch all actuator-logs.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get sidebar successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ActuatorLogsEntities"
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/actuator-logs/:id": {
+      "get": {
+        "tags": [
+          "ActuatorLogs"
+        ],
+        "summary": "Get sidebar by ID",
+        "description": "Fetch sidebar by ID.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "ActuatorLogs ID",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get sidebar successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/ActuatorLogsEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "ActuatorLogs"
+        ],
+        "summary": "Update sidebar of ID",
+        "description": "Update sidebar of ID.",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "ActuatorLogs ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "The new data for sidebar",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/ActuatorLogsCreateEntities"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Update sidebar successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/ActuatorLogsEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "ActuatorLogs"
+        ],
+        "summary": "Delete sidebar by ID",
+        "description": "Delete sidebar by ID.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "ActuatorLogs ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Delete sidebar successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/ActuatorLogsEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/actuator": {
+      "post": {
+        "tags": [
+          "Actuator"
+        ],
+        "summary": "Create a new sidebar",
+        "description": "Adds a new sidebar to the database.",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "The new sidebar data to be added",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/ActuatorCreateEntities"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Actuator created successfully",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/ActuatorEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Actuator"
+        ],
+        "summary": "Get all sidebar",
+        "description": "Fetch all actuator.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get sidebar successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ActuatorEntities"
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/actuator/:id": {
+      "get": {
+        "tags": [
+          "Actuator"
+        ],
+        "summary": "Get sidebar by ID",
+        "description": "Fetch sidebar by ID.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Actuator ID",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get sidebar successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/ActuatorEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Actuator"
+        ],
+        "summary": "Update sidebar of ID",
+        "description": "Update sidebar of ID.",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Actuator ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "The new data for sidebar",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/ActuatorCreateEntities"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Update sidebar successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/ActuatorEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Actuator"
+        ],
+        "summary": "Delete sidebar by ID",
+        "description": "Delete sidebar by ID.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Actuator ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Delete sidebar successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/ActuatorEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/automations": {
+      "post": {
+        "tags": [
+          "Automation"
+        ],
+        "summary": "Create a new sidebar",
+        "description": "Adds a new sidebar to the database.",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "The new sidebar data to be added",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/AutomationCreateEntities"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Automation created successfully",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/AutomationEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Automation"
+        ],
+        "summary": "Get all sidebar",
+        "description": "Fetch all automations.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get sidebar successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AutomationEntities"
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/automations/:id": {
+      "get": {
+        "tags": [
+          "Automation"
+        ],
+        "summary": "Get sidebar by ID",
+        "description": "Fetch sidebar by ID.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Automation ID",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get sidebar successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/AutomationEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Automation"
+        ],
+        "summary": "Update sidebar of ID",
+        "description": "Update sidebar of ID.",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Automation ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "The new data for sidebar",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/AutomationCreateEntities"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Update sidebar successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/AutomationEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Automation"
+        ],
+        "summary": "Delete sidebar by ID",
+        "description": "Delete sidebar by ID.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Automation ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Delete sidebar successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/AutomationEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/greenhouses": {
       "post": {
         "tags": [
@@ -2339,14 +3140,1601 @@
           }
         }
       }
+    },
+    "/v1/schedules": {
+      "post": {
+        "tags": [
+          "Schedule"
+        ],
+        "summary": "Create a new sidebar",
+        "description": "Adds a new sidebar to the database.",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "The new sidebar data to be added",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/ScheduleCreateEntities"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Schedule created successfully",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/ScheduleEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Schedule"
+        ],
+        "summary": "Get all sidebar",
+        "description": "Fetch all schedules.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get sidebar successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ScheduleEntities"
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/schedules/:id": {
+      "get": {
+        "tags": [
+          "Schedule"
+        ],
+        "summary": "Get sidebar by ID",
+        "description": "Fetch sidebar by ID.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Schedule ID",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get sidebar successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/ScheduleEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Schedule"
+        ],
+        "summary": "Update sidebar of ID",
+        "description": "Update sidebar of ID.",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Schedule ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "The new data for sidebar",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/ScheduleCreateEntities"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Update sidebar successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/ScheduleEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Schedule"
+        ],
+        "summary": "Delete sidebar by ID",
+        "description": "Delete sidebar by ID.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Schedule ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Delete sidebar successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/ScheduleEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sensors": {
+      "post": {
+        "tags": [
+          "Sensor"
+        ],
+        "summary": "Create a new sidebar",
+        "description": "Adds a new sidebar to the database.",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "The new sidebar data to be added",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/SensorCreateEntities"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Sensor created successfully",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/SensorEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Sensor"
+        ],
+        "summary": "Get all sidebar",
+        "description": "Fetch all sensors.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get sidebar successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SensorEntities"
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sensors/:id": {
+      "get": {
+        "tags": [
+          "Sensor"
+        ],
+        "summary": "Get sidebar by ID",
+        "description": "Fetch sidebar by ID.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Sensor ID",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get sidebar successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/SensorEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Sensor"
+        ],
+        "summary": "Update sidebar of ID",
+        "description": "Update sidebar of ID.",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Sensor ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "The new data for sidebar",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/SensorCreateEntities"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Update sidebar successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/SensorEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Sensor"
+        ],
+        "summary": "Delete sidebar by ID",
+        "description": "Delete sidebar by ID.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Sensor ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Delete sidebar successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/SensorEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/things-log": {
+      "post": {
+        "tags": [
+          "ThingsLog"
+        ],
+        "summary": "Create a new sidebar",
+        "description": "Adds a new sidebar to the database.",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "The new sidebar data to be added",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/ThingsLogCreateEntities"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "ThingsLog created successfully",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/ThingsLogEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "ThingsLog"
+        ],
+        "summary": "Get all sidebar",
+        "description": "Fetch all things-log.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get sidebar successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ThingsLogEntities"
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/things-log/:id": {
+      "get": {
+        "tags": [
+          "ThingsLog"
+        ],
+        "summary": "Get sidebar by ID",
+        "description": "Fetch sidebar by ID.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "ThingsLog ID",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get sidebar successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/ThingsLogEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "ThingsLog"
+        ],
+        "summary": "Update sidebar of ID",
+        "description": "Update sidebar of ID.",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "ThingsLog ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "The new data for sidebar",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/ThingsLogCreateEntities"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Update sidebar successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/ThingsLogEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "ThingsLog"
+        ],
+        "summary": "Delete sidebar by ID",
+        "description": "Delete sidebar by ID.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "ThingsLog ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Delete sidebar successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/ThingsLogEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/things": {
+      "post": {
+        "tags": [
+          "Things"
+        ],
+        "summary": "Create a new sidebar",
+        "description": "Adds a new sidebar to the database.",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "The new sidebar data to be added",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/ThingsCreateEntities"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Things created successfully",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/ThingsEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Things"
+        ],
+        "summary": "Get all sidebar",
+        "description": "Fetch all things.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get sidebar successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ThingsEntities"
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/things/:id": {
+      "get": {
+        "tags": [
+          "Things"
+        ],
+        "summary": "Get sidebar by ID",
+        "description": "Fetch sidebar by ID.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Things ID",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get sidebar successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/ThingsEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Things"
+        ],
+        "summary": "Update sidebar of ID",
+        "description": "Update sidebar of ID.",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Things ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "The new data for sidebar",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/ThingsCreateEntities"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Update sidebar successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/ThingsEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Things"
+        ],
+        "summary": "Delete sidebar by ID",
+        "description": "Delete sidebar by ID.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Things ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Delete sidebar successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/ThingsEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/type-sensor": {
+      "post": {
+        "tags": [
+          "TypeSensor"
+        ],
+        "summary": "Create a new sidebar",
+        "description": "Adds a new sidebar to the database.",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "The new sidebar data to be added",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/TypeSensorCreateEntities"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "TypeSensor created successfully",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/TypeSensorEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "TypeSensor"
+        ],
+        "summary": "Get all sidebar",
+        "description": "Fetch all type-sensor.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get sidebar successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TypeSensorEntities"
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/type-sensor/:id": {
+      "get": {
+        "tags": [
+          "TypeSensor"
+        ],
+        "summary": "Get sidebar by ID",
+        "description": "Fetch sidebar by ID.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "TypeSensor ID",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get sidebar successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/TypeSensorEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "TypeSensor"
+        ],
+        "summary": "Update sidebar of ID",
+        "description": "Update sidebar of ID.",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "TypeSensor ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "The new data for sidebar",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/TypeSensorCreateEntities"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Update sidebar successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/TypeSensorEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "TypeSensor"
+        ],
+        "summary": "Delete sidebar by ID",
+        "description": "Delete sidebar by ID.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "TypeSensor ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Delete sidebar successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/TypeSensorEntities"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
     "schemas": {
+      "ActuatorCreateEntities": {
+        "properties": {
+          "color": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "icon": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "name": {
+            "type": "string"
+          },
+          "thingsId": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "ActuatorEntities": {
+        "properties": {
+          "color": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "icon": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "thingsId": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "ActuatorLogRepository": {
+        "type": "object"
+      },
+      "ActuatorLogRepositoryImpl": {
+        "type": "object"
+      },
+      "ActuatorLogsCreateEntities": {
+        "properties": {
+          "actuatorId": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "status": {
+            "type": "boolean"
+          },
+          "statusLifeCycle": {
+            "type": "number"
+          }
+        },
+        "type": "object"
+      },
+      "ActuatorLogsEntities": {
+        "properties": {
+          "actuatorId": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "id": {
+            "type": "number"
+          },
+          "status": {
+            "type": "boolean"
+          },
+          "statusLifeCycle": {
+            "type": "number"
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "ActuatorLogsQueryEntities": {
+        "properties": {
+          "isDelete": {
+            "type": "number"
+          },
+          "limit": {
+            "type": "number"
+          },
+          "page": {
+            "type": "number"
+          },
+          "search": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "ActuatorQueryEntities": {
+        "properties": {
+          "isDelete": {
+            "type": "number"
+          },
+          "limit": {
+            "type": "number"
+          },
+          "page": {
+            "type": "number"
+          },
+          "search": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "ActuatorRepository": {
+        "type": "object"
+      },
+      "ActuatorRepositoryImpl": {
+        "type": "object"
+      },
       "AuthRepository": {
         "type": "object"
       },
       "AuthRepositoryImpl": {
+        "type": "object"
+      },
+      "AutomationCreateEntities": {
+        "properties": {
+          "actutaorId": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "condition": {
+            "type": "string"
+          },
+          "constanta": {
+            "type": "number"
+          },
+          "range": {
+            "type": "number"
+          },
+          "sensorId": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "status_lifecycle": {
+            "type": "number"
+          }
+        },
+        "type": "object"
+      },
+      "AutomationEntities": {
+        "properties": {
+          "actutaorId": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "condition": {
+            "type": "string"
+          },
+          "constanta": {
+            "type": "number"
+          },
+          "id": {
+            "type": "number"
+          },
+          "range": {
+            "type": "number"
+          },
+          "sensorId": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "status_lifecycle": {
+            "type": "number"
+          }
+        },
+        "type": "object"
+      },
+      "AutomationQueryEntities": {
+        "properties": {
+          "actuatorId": {
+            "type": "number"
+          },
+          "isDelete": {
+            "type": "number"
+          },
+          "limit": {
+            "type": "number"
+          },
+          "page": {
+            "type": "number"
+          },
+          "search": {
+            "type": "string"
+          },
+          "sensorId": {
+            "type": "number"
+          }
+        },
+        "type": "object"
+      },
+      "AutomationRepository": {
+        "type": "object"
+      },
+      "AutomationRepositoryImpl": {
         "type": "object"
       },
       "CompanyCreateEntities": {
@@ -2825,6 +5213,216 @@
       "RoleUserRepositoryImpl": {
         "type": "object"
       },
+      "ScheduleCreateEntities": {
+        "properties": {
+          "actuatorId": {
+            "type": "number"
+          },
+          "dayOfWeek": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "duration": {
+            "type": "number"
+          },
+          "hour": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "interval": {
+            "type": "number"
+          },
+          "minute": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "repeat": {
+            "type": "number"
+          },
+          "start_time": {
+            "type": "string"
+          },
+          "status_schedule": {
+            "type": "number"
+          }
+        },
+        "type": "object"
+      },
+      "ScheduleEntities": {
+        "properties": {
+          "actuatorId": {
+            "type": "number"
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "dayOfWeek": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "duration": {
+            "type": "number"
+          },
+          "hour": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "interval": {
+            "type": "number"
+          },
+          "minute": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "start_time": {
+            "type": "string"
+          },
+          "status_schedule": {
+            "type": "number"
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "ScheduleQueryEntities": {
+        "properties": {
+          "isDelete": {
+            "type": "number"
+          },
+          "limit": {
+            "type": "number"
+          },
+          "page": {
+            "type": "number"
+          },
+          "search": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "ScheduleRepository": {
+        "type": "object"
+      },
+      "ScheduleRepositoryImpl": {
+        "type": "object"
+      },
+      "SensorCreateEntities": {
+        "properties": {
+          "calibration": {
+            "type": "string"
+          },
+          "icon": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "name": {
+            "type": "string"
+          },
+          "thingsId": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "typeSensorId": {
+            "type": "number"
+          }
+        },
+        "type": "object"
+      },
+      "SensorEntities": {
+        "properties": {
+          "calibration": {
+            "type": "string"
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "icon": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "thingsId": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "typeSensorId": {
+            "type": "number"
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "SensorLogsEntities": {
+        "properties": {
+          "sensorId": {
+            "type": "number"
+          },
+          "status": {
+            "type": "number"
+          },
+          "value": {
+            "type": "number"
+          }
+        },
+        "type": "object"
+      },
+      "SensorQueryEntities": {
+        "properties": {
+          "isDelete": {
+            "type": "number"
+          },
+          "limit": {
+            "type": "number"
+          },
+          "page": {
+            "type": "number"
+          },
+          "search": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "SensorRepository": {
+        "type": "object"
+      },
+      "SensorRepositoryImpl": {
+        "type": "object"
+      },
       "SidebarCreateEntities": {
         "properties": {
           "icon": {
@@ -2880,8 +5478,201 @@
       "SidebarRepositoryImpl": {
         "type": "object"
       },
+      "ThingsCreateEntities": {
+        "properties": {
+          "greenhouseId": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "icon": {
+            "type": "string"
+          },
+          "isSeperate": {
+            "type": "boolean"
+          },
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "ThingsEntities": {
+        "properties": {
+          "createdAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "greenhouseId": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "icon": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "id": {
+            "type": "number"
+          },
+          "isSeperate": {
+            "type": "boolean"
+          },
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "ThingsLogCreateEntities": {
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "thingsId": {
+            "type": [
+              "null",
+              "number"
+            ]
+          }
+        },
+        "type": "object"
+      },
+      "ThingsLogEntities": {
+        "properties": {
+          "createdAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "id": {
+            "type": "number"
+          },
+          "status": {
+            "type": "string"
+          },
+          "thingsId": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "ThingsLogQueryEntities": {
+        "properties": {
+          "isDelete": {
+            "type": "number"
+          },
+          "limit": {
+            "type": "number"
+          },
+          "page": {
+            "type": "number"
+          },
+          "search": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "ThingsLogRepository": {
+        "type": "object"
+      },
+      "ThingsLogRepositoryImpl": {
+        "type": "object"
+      },
+      "ThingsQueryEntities": {
+        "properties": {
+          "isDelete": {
+            "type": "number"
+          },
+          "limit": {
+            "type": "number"
+          },
+          "page": {
+            "type": "number"
+          },
+          "search": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "ThingsRepository": {
+        "type": "object"
+      },
+      "ThingsRepositoryImpl": {
+        "type": "object"
+      },
+      "TypeSensorCreateEntities": {
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "TypeSensorEntities": {
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "TypeSensorQueryEntities": {
+        "properties": {
+          "isDelete": {
+            "type": "number"
+          },
+          "limit": {
+            "type": "number"
+          },
+          "page": {
+            "type": "number"
+          },
+          "search": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "TypeSensorRepository": {
+        "type": "object"
+      },
+      "TypeSensorRepositoryImpl": {
+        "type": "object"
+      },
       "UserCreateEntities": {
         "properties": {
+          "companyId": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
           "email": {
             "type": "string"
           },
@@ -2917,6 +5708,12 @@
       },
       "UserEntities": {
         "properties": {
+          "companyId": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
           "createdAt": {
             "format": "date-time",
             "type": "string"

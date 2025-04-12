@@ -1,5 +1,4 @@
 import { Response, Request, NextFunction } from "express";
-import { QueryEntities } from "../domain/entities/global/query_entities";
 import { AddCompanyUseCase } from "../domain/usecase/company/post_usecase";
 import { GetCompanyUseCase } from "../domain/usecase/company/get_usecase";
 import { CompanyQueryEntities } from "../domain/entities/company.entities";

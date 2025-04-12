@@ -8,7 +8,7 @@ import { LocationDeleteUsecase } from "../domain/usecase/location/delete_usecase
 import { UpdateLocationUseCase } from "../domain/usecase/location/update_usecase";
 
 export const LocationController = (repository: any) => {
-  const createCompanies = async (
+  const createLocation = async (
     req: Request,
     res: Response,
     next: NextFunction
@@ -25,7 +25,8 @@ export const LocationController = (repository: any) => {
       next(err);
     }
   };
-  const getCompanies = async (
+
+  const getLocation = async (
     req: Request,
     res: Response,
     next: NextFunction
@@ -47,6 +48,7 @@ export const LocationController = (repository: any) => {
       next(err);
     }
   };
+
   const getLocationDetail = async (
     req: Request,
     res: Response,
@@ -64,6 +66,7 @@ export const LocationController = (repository: any) => {
       next(err);
     }
   };
+
   const getLocationByToken = async (
     req: Request,
     res: Response,
@@ -82,6 +85,7 @@ export const LocationController = (repository: any) => {
       next(err);
     }
   };
+
   const updateLocation = async (
     req: Request,
     res: Response,
@@ -103,6 +107,7 @@ export const LocationController = (repository: any) => {
       next(err);
     }
   };
+
   const deleteLocation = async (
     req: Request,
     res: Response,
@@ -122,9 +127,9 @@ export const LocationController = (repository: any) => {
   };
 
   return {
-    getCompanies,
+    getLocation,
     getLocationDetail,
-    createCompanies,
+    createLocation,
     updateLocation,
     deleteLocation,
     getLocationByToken,

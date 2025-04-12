@@ -35,7 +35,7 @@ export const GreenhouseRouter = (router: any) => {
             }
         }
     */
-      controllers.createCompanies(req, res, next);
+      controllers.createGreenhouse(req, res, next);
     }
   );
   router.get(
@@ -61,7 +61,7 @@ export const GreenhouseRouter = (router: any) => {
             }
         }
     */
-      controllers.getCompanies(req, res, next);
+      controllers.getGreenhouse(req, res, next);
     }
   );
   router.get(

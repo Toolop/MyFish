@@ -1,10 +1,262 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "definitions": {
+        "ActuatorCreateEntities": {
+            "properties": {
+                "color": {
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "createdAt": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "icon": {
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "name": {
+                    "type": "string"
+                },
+                "thingsId": {
+                    "type": [
+                        "null",
+                        "number"
+                    ]
+                },
+                "updatedAt": {
+                    "format": "date-time",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ActuatorEntities": {
+            "properties": {
+                "color": {
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "createdAt": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "icon": {
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "id": {
+                    "type": "number"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "thingsId": {
+                    "type": [
+                        "null",
+                        "number"
+                    ]
+                },
+                "updatedAt": {
+                    "format": "date-time",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ActuatorLogRepository": {
+            "type": "object"
+        },
+        "ActuatorLogRepositoryImpl": {
+            "type": "object"
+        },
+        "ActuatorLogsCreateEntities": {
+            "properties": {
+                "actuatorId": {
+                    "type": [
+                        "null",
+                        "number"
+                    ]
+                },
+                "status": {
+                    "type": "boolean"
+                },
+                "statusLifeCycle": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "ActuatorLogsEntities": {
+            "properties": {
+                "actuatorId": {
+                    "type": [
+                        "null",
+                        "number"
+                    ]
+                },
+                "createdAt": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "id": {
+                    "type": "number"
+                },
+                "status": {
+                    "type": "boolean"
+                },
+                "statusLifeCycle": {
+                    "type": "number"
+                },
+                "updatedAt": {
+                    "format": "date-time",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ActuatorLogsQueryEntities": {
+            "properties": {
+                "isDelete": {
+                    "type": "number"
+                },
+                "limit": {
+                    "type": "number"
+                },
+                "page": {
+                    "type": "number"
+                },
+                "search": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ActuatorQueryEntities": {
+            "properties": {
+                "isDelete": {
+                    "type": "number"
+                },
+                "limit": {
+                    "type": "number"
+                },
+                "page": {
+                    "type": "number"
+                },
+                "search": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ActuatorRepository": {
+            "type": "object"
+        },
+        "ActuatorRepositoryImpl": {
+            "type": "object"
+        },
         "AuthRepository": {
             "type": "object"
         },
         "AuthRepositoryImpl": {
+            "type": "object"
+        },
+        "AutomationCreateEntities": {
+            "properties": {
+                "actutaorId": {
+                    "type": [
+                        "null",
+                        "number"
+                    ]
+                },
+                "condition": {
+                    "type": "string"
+                },
+                "constanta": {
+                    "type": "number"
+                },
+                "range": {
+                    "type": "number"
+                },
+                "sensorId": {
+                    "type": [
+                        "null",
+                        "number"
+                    ]
+                },
+                "status_lifecycle": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "AutomationEntities": {
+            "properties": {
+                "actutaorId": {
+                    "type": [
+                        "null",
+                        "number"
+                    ]
+                },
+                "condition": {
+                    "type": "string"
+                },
+                "constanta": {
+                    "type": "number"
+                },
+                "id": {
+                    "type": "number"
+                },
+                "range": {
+                    "type": "number"
+                },
+                "sensorId": {
+                    "type": [
+                        "null",
+                        "number"
+                    ]
+                },
+                "status_lifecycle": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "AutomationQueryEntities": {
+            "properties": {
+                "actuatorId": {
+                    "type": "number"
+                },
+                "isDelete": {
+                    "type": "number"
+                },
+                "limit": {
+                    "type": "number"
+                },
+                "page": {
+                    "type": "number"
+                },
+                "search": {
+                    "type": "string"
+                },
+                "sensorId": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "AutomationRepository": {
+            "type": "object"
+        },
+        "AutomationRepositoryImpl": {
             "type": "object"
         },
         "CompanyCreateEntities": {
@@ -483,6 +735,216 @@
         "RoleUserRepositoryImpl": {
             "type": "object"
         },
+        "ScheduleCreateEntities": {
+            "properties": {
+                "actuatorId": {
+                    "type": "number"
+                },
+                "dayOfWeek": {
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "duration": {
+                    "type": "number"
+                },
+                "hour": {
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "interval": {
+                    "type": "number"
+                },
+                "minute": {
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "repeat": {
+                    "type": "number"
+                },
+                "start_time": {
+                    "type": "string"
+                },
+                "status_schedule": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "ScheduleEntities": {
+            "properties": {
+                "actuatorId": {
+                    "type": "number"
+                },
+                "createdAt": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "dayOfWeek": {
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "duration": {
+                    "type": "number"
+                },
+                "hour": {
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "interval": {
+                    "type": "number"
+                },
+                "minute": {
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "start_time": {
+                    "type": "string"
+                },
+                "status_schedule": {
+                    "type": "number"
+                },
+                "updatedAt": {
+                    "format": "date-time",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ScheduleQueryEntities": {
+            "properties": {
+                "isDelete": {
+                    "type": "number"
+                },
+                "limit": {
+                    "type": "number"
+                },
+                "page": {
+                    "type": "number"
+                },
+                "search": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ScheduleRepository": {
+            "type": "object"
+        },
+        "ScheduleRepositoryImpl": {
+            "type": "object"
+        },
+        "SensorCreateEntities": {
+            "properties": {
+                "calibration": {
+                    "type": "string"
+                },
+                "icon": {
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "name": {
+                    "type": "string"
+                },
+                "thingsId": {
+                    "type": [
+                        "null",
+                        "number"
+                    ]
+                },
+                "typeSensorId": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "SensorEntities": {
+            "properties": {
+                "calibration": {
+                    "type": "string"
+                },
+                "createdAt": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "icon": {
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "id": {
+                    "type": "number"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "thingsId": {
+                    "type": [
+                        "null",
+                        "number"
+                    ]
+                },
+                "typeSensorId": {
+                    "type": "number"
+                },
+                "updatedAt": {
+                    "format": "date-time",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SensorLogsEntities": {
+            "properties": {
+                "sensorId": {
+                    "type": "number"
+                },
+                "status": {
+                    "type": "number"
+                },
+                "value": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "SensorQueryEntities": {
+            "properties": {
+                "isDelete": {
+                    "type": "number"
+                },
+                "limit": {
+                    "type": "number"
+                },
+                "page": {
+                    "type": "number"
+                },
+                "search": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SensorRepository": {
+            "type": "object"
+        },
+        "SensorRepositoryImpl": {
+            "type": "object"
+        },
         "SidebarCreateEntities": {
             "properties": {
                 "icon": {
@@ -538,8 +1000,201 @@
         "SidebarRepositoryImpl": {
             "type": "object"
         },
+        "ThingsCreateEntities": {
+            "properties": {
+                "greenhouseId": {
+                    "type": [
+                        "null",
+                        "number"
+                    ]
+                },
+                "icon": {
+                    "type": "string"
+                },
+                "isSeperate": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ThingsEntities": {
+            "properties": {
+                "createdAt": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "greenhouseId": {
+                    "type": [
+                        "null",
+                        "number"
+                    ]
+                },
+                "icon": {
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "id": {
+                    "type": "number"
+                },
+                "isSeperate": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "format": "date-time",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ThingsLogCreateEntities": {
+            "properties": {
+                "status": {
+                    "type": "string"
+                },
+                "thingsId": {
+                    "type": [
+                        "null",
+                        "number"
+                    ]
+                }
+            },
+            "type": "object"
+        },
+        "ThingsLogEntities": {
+            "properties": {
+                "createdAt": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "id": {
+                    "type": "number"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "thingsId": {
+                    "type": [
+                        "null",
+                        "number"
+                    ]
+                },
+                "updatedAt": {
+                    "format": "date-time",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ThingsLogQueryEntities": {
+            "properties": {
+                "isDelete": {
+                    "type": "number"
+                },
+                "limit": {
+                    "type": "number"
+                },
+                "page": {
+                    "type": "number"
+                },
+                "search": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ThingsLogRepository": {
+            "type": "object"
+        },
+        "ThingsLogRepositoryImpl": {
+            "type": "object"
+        },
+        "ThingsQueryEntities": {
+            "properties": {
+                "isDelete": {
+                    "type": "number"
+                },
+                "limit": {
+                    "type": "number"
+                },
+                "page": {
+                    "type": "number"
+                },
+                "search": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ThingsRepository": {
+            "type": "object"
+        },
+        "ThingsRepositoryImpl": {
+            "type": "object"
+        },
+        "TypeSensorCreateEntities": {
+            "properties": {
+                "name": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TypeSensorEntities": {
+            "properties": {
+                "id": {
+                    "type": "number"
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TypeSensorQueryEntities": {
+            "properties": {
+                "isDelete": {
+                    "type": "number"
+                },
+                "limit": {
+                    "type": "number"
+                },
+                "page": {
+                    "type": "number"
+                },
+                "search": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TypeSensorRepository": {
+            "type": "object"
+        },
+        "TypeSensorRepositoryImpl": {
+            "type": "object"
+        },
         "UserCreateEntities": {
             "properties": {
+                "companyId": {
+                    "type": [
+                        "null",
+                        "number"
+                    ]
+                },
                 "email": {
                     "type": "string"
                 },
@@ -575,6 +1230,12 @@
         },
         "UserEntities": {
             "properties": {
+                "companyId": {
+                    "type": [
+                        "null",
+                        "number"
+                    ]
+                },
                 "createdAt": {
                     "format": "date-time",
                     "type": "string"

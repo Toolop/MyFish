@@ -9,13 +9,13 @@ export const AddCompanyUseCase = async (
   if (!data.name || data.name == null) {
     throw {
       statusCode: 400,
-      message: "nama role tidak boleh kosong",
+      message: "nama perusahaan tidak boleh kosong",
     };
   }
   if (find != null) {
     throw {
       statusCode: 400,
-      message: "role sudah ada",
+      message: "perushaan sudah ada",
     };
   }
 

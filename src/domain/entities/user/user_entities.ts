@@ -7,6 +7,7 @@ export interface UserEntities {
   password: string;
   createdAt: Date;
   updatedAt: Date;
+  companyId?: number | null;
 }
 
 export interface UserCreateEntities {
@@ -17,6 +18,7 @@ export interface UserCreateEntities {
   status: number | null;
   signature: string | null;
   unitId: number | null;
+  companyId?: number | null;
 }
 
 export interface UserQueryEntities extends QueryEntities {}

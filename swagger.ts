@@ -14,7 +14,7 @@ const doc = {
   },
   servers: [
     {
-      url: `http://localhost:8000/be`,
+      url: `https://myfish.agriciatech.com/`,
       description: "main server",
     },
     {

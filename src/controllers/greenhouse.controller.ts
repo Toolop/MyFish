@@ -8,7 +8,7 @@ import { GetGreenhouseUseCase } from "../domain/usecase/greenhouse/get_usecase";
 import { GreenhouseQueryEntities } from "../domain/entities/greenhouse.entites";
 
 export const GreenhouseController = (repository: any) => {
-  const createCompanies = async (
+  const createGreenhouse = async (
     req: Request,
     res: Response,
     next: NextFunction
@@ -25,7 +25,7 @@ export const GreenhouseController = (repository: any) => {
       next(err);
     }
   };
-  const getCompanies = async (
+  const getGreenhouse = async (
     req: Request,
     res: Response,
     next: NextFunction
@@ -122,9 +122,9 @@ export const GreenhouseController = (repository: any) => {
   };
 
   return {
-    getCompanies,
+    getGreenhouse,
     getGreenhouseDetail,
-    createCompanies,
+    createGreenhouse,
     updateGreenhouse,
     deleteGreenhouse,
     getGreenhouseByToken,

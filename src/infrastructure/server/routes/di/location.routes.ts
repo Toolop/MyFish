@@ -36,7 +36,7 @@ export const LocationRouter = (router: any) => {
             }
         }
     */
-      controllers.createCompanies(req, res, next);
+      controllers.createLocation(req, res, next);
     }
   );
   router.get(
@@ -62,7 +62,7 @@ export const LocationRouter = (router: any) => {
             }
         }
     */
-      controllers.getCompanies(req, res, next);
+      controllers.getLocation(req, res, next);
     }
   );
   router.get(
