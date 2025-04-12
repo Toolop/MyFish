@@ -44,6 +44,7 @@ const subscribeSensor = async () => {
                 status: getData[i].status,
               };
               listSensor[getData[i].sensorId] = fix_sensor;
+              console.log(listSensor);
             } else if ((await getData[i].status) == "offline") {
               const fix_sensor: SensorLogsEntities = await {
                 sensorId: parseInt(getData[i].id_sensor),
@@ -51,6 +52,7 @@ const subscribeSensor = async () => {
                 status: getData[i].status,
               };
               listSensor[getData[i].sensorId] = fix_sensor;
+              console.log(listSensor);
             }
           }
         }

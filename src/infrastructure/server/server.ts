@@ -17,8 +17,6 @@ export const Server = async () => {
     const router = express.Router();
     const port = process.env.PORT || 3001;
 
-    app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
-
     app.use(
       cors({
         origin: "*",
@@ -28,6 +26,13 @@ export const Server = async () => {
           "Credentials",
           "Content-Type",
         ],
+      })
+    );
+
+    // Matikan CORP dari helmet atau pastikan cocok
+    app.use(
+      helmet({
+        crossOriginResourcePolicy: false, // atau jangan pakai fitur ini
       })
     );
     app.use((req, res, next) => {
