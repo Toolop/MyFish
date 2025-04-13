@@ -17,7 +17,6 @@ export interface UserCreateEntities {
   password: string;
   status: number | null;
   signature: string | null;
-  unitId: number | null;
   companyId?: number | null;
 }
 

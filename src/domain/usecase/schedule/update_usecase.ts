@@ -1,3 +1,4 @@
+import { updateScheduleUtil } from "../../../core/client/schedule.client";
 import { ScheduleCreateEntities } from "../../entities/schedule.entities";
 import { ScheduleRepository } from "../../repository/schedule.repository";
 
@@ -15,5 +16,6 @@ export const UpdateScheduleUseCase = async (
     };
   }
   const result = await repository.update(id, data);
+  updateScheduleUtil();
   return result;
 };

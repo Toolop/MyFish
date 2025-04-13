@@ -17,7 +17,7 @@ export const ActuatorController = (repository: any) => {
       const result = await AddActuatorUseCase(data, repository);
       res.status(201).json({
         status: "success",
-        message: "create company successful",
+        message: "create actuator successful",
         data: result,
       });
     } catch (err) {
@@ -38,7 +38,7 @@ export const ActuatorController = (repository: any) => {
       const response = await GetActuatorUseCase(query, repository);
       res.status(200).json({
         status: "success",
-        message: "get company successful",
+        message: "get actuator successful",
         data: response?.data,
         paging: response?.paging,
       });
@@ -56,7 +56,7 @@ export const ActuatorController = (repository: any) => {
       const result = await ActuatorDetailUsecase(parseInt(id), repository);
       res.status(200).json({
         status: "success",
-        message: "get detail company successful",
+        message: "get detail actuator successful",
         data: result,
       });
     } catch (err) {
@@ -78,7 +78,7 @@ export const ActuatorController = (repository: any) => {
       );
       res.status(200).json({
         status: "success",
-        message: "update company successful",
+        message: "update actuator successful",
         data: result,
       });
     } catch (err) {
@@ -95,7 +95,7 @@ export const ActuatorController = (repository: any) => {
       const result = await ActuatorDeleteUsecase(parseInt(id), repository);
       res.status(200).json({
         status: "success",
-        message: "delete company successful",
+        message: "delete actuator successful",
         data: result,
       });
     } catch (err) {

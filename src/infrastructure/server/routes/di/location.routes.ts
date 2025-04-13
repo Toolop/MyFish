@@ -10,6 +10,7 @@ export const LocationRouter = (router: any) => {
 
   router.post(
     "/locations",
+    authenticateToken,
     (req: Request, res: Response, next: NextFunction) => {
       /*  #swagger.auto = false
 
@@ -20,6 +21,7 @@ export const LocationRouter = (router: any) => {
         #swagger.method = 'post'
         #swagger.consumes = ['application/json']
         #swagger.produces = ['application/json']
+        #swagger.security = [{ "bearerAuth": [] }]
 
         #swagger.parameters['body'] = {
             in: 'body',
@@ -41,6 +43,7 @@ export const LocationRouter = (router: any) => {
   );
   router.get(
     "/locations",
+    authenticateToken,
     (req: Request, res: Response, next: NextFunction) => {
       /*  #swagger.auto = false
 
@@ -50,6 +53,7 @@ export const LocationRouter = (router: any) => {
         #swagger.path = '/v1/locations'
         #swagger.method = 'get'
         #swagger.produces = ['application/json']
+        #swagger.security = [{ "bearerAuth": [] }]
 
         #swagger.responses[200] = {
             description: "Get locations successful",
@@ -77,12 +81,7 @@ export const LocationRouter = (router: any) => {
         #swagger.path = '/v1/location'
         #swagger.method = 'get'
         #swagger.produces = ['application/json']
-        #swagger.parameters['Authorization'] = {
-            in: 'header',
-            description: 'Bearer token',
-            required: true,
-            type: 'string'
-        }
+        #swagger.security = [{ "bearerAuth": [] }]
 
         #swagger.responses[200] = {
             description: "Get location successful",
@@ -98,17 +97,19 @@ export const LocationRouter = (router: any) => {
   );
   router.get(
     "/locations/:id",
+    authenticateToken,
     (req: Request, res: Response, next: NextFunction) => {
       /*  #swagger.auto = false
 
         #swagger.tags = ['locations']
         #swagger.summary = 'Get location by ID'
         #swagger.description = 'Fetch location by ID.'
-        #swagger.path = '/v1/locations/:id'
+        #swagger.path = '/v1/locations/{id}'
         #swagger.method = 'get'
         #swagger.produces = ['application/json']
+        #swagger.security = [{ "bearerAuth": [] }]
         #swagger.parameters['id'] = {
-            in: 'query',
+            in: 'path',
             description: 'Location ID',
             required: true,
             type: 'string'
@@ -128,18 +129,20 @@ export const LocationRouter = (router: any) => {
   );
   router.put(
     "/locations/:id",
+    authenticateToken,
     (req: Request, res: Response, next: NextFunction) => {
       /*  #swagger.auto = false
 
         #swagger.tags = ['locations']
         #swagger.summary = 'Update location of ID'
         #swagger.description = 'Update location of ID.'
-        #swagger.path = '/v1/locations/:id'
+        #swagger.path = '/v1/locations/{id}'
         #swagger.method = 'put'
         #swagger.consumes = ['application/json']
         #swagger.produces = ['application/json']
+        #swagger.security = [{ "bearerAuth": [] }]
         #swagger.parameters['id'] = {
-            in: 'query',
+            in: 'path',
             description: 'Location ID',
             required: true,
             type: 'string'
@@ -164,17 +167,19 @@ export const LocationRouter = (router: any) => {
   );
   router.delete(
     "/locations/:id",
+    authenticateToken,
     (req: Request, res: Response, next: NextFunction) => {
       /*  #swagger.auto = false
 
         #swagger.tags = ['locations']
         #swagger.summary = 'Delete location by ID'
         #swagger.description = 'Delete location by ID.'
-        #swagger.path = '/v1/locations/:id'
+        #swagger.path = '/v1/locations/{id}'
         #swagger.method = 'delete'
         #swagger.produces = ['application/json']
+        #swagger.security = [{ "bearerAuth": [] }]
         #swagger.parameters['id'] = {
-            in: 'query',
+            in: 'path',
             description: 'Location ID',
             required: true,
             type: 'string'

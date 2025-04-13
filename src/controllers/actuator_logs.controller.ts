@@ -17,7 +17,7 @@ export const ActuatorLogsController = (repository: any) => {
       const result = await AddActuatorLogsUseCase(data, repository);
       res.status(201).json({
         status: "success",
-        message: "create company successful",
+        message: "create actuator logs successful",
         data: result,
       });
     } catch (err) {
@@ -34,11 +34,14 @@ export const ActuatorLogsController = (repository: any) => {
         page: parseInt(req.query.page as string) || undefined,
         limit: parseInt(req.query.limit as string) || undefined,
         search: req.query.search as string,
+        actuatorId:
+          (req.query.actuatorId && parseInt(req.query.actuatorId as string)) ||
+          undefined,
       };
       const response = await GetActuatorLogsUseCase(query, repository);
       res.status(200).json({
         status: "success",
-        message: "get company successful",
+        message: "get actuator logs successful",
         data: response?.data,
         paging: response?.paging,
       });
@@ -56,7 +59,7 @@ export const ActuatorLogsController = (repository: any) => {
       const result = await ActuatorLogsDetailUsecase(parseInt(id), repository);
       res.status(200).json({
         status: "success",
-        message: "get detail company successful",
+        message: "get detail actuator logs successful",
         data: result,
       });
     } catch (err) {
@@ -78,7 +81,7 @@ export const ActuatorLogsController = (repository: any) => {
       );
       res.status(200).json({
         status: "success",
-        message: "update company successful",
+        message: "update actuator logs successful",
         data: result,
       });
     } catch (err) {
@@ -95,7 +98,7 @@ export const ActuatorLogsController = (repository: any) => {
       const result = await ActuatorLogsDeleteUsecase(parseInt(id), repository);
       res.status(200).json({
         status: "success",
-        message: "delete company successful",
+        message: "delete actuator logs successful",
         data: result,
       });
     } catch (err) {

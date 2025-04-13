@@ -15,21 +15,16 @@ export const ActuatorRouter = (router: any) => {
       /*  #swagger.auto = false
 
         #swagger.tags = ['Actuator']
-        #swagger.summary = 'Create a new sidebar'
-        #swagger.description = 'Adds a new sidebar to the database.'
+        #swagger.summary = 'Create a new actuator'
+        #swagger.description = 'Adds a new actuator to the database.'
         #swagger.path = '/v1/actuator'
         #swagger.method = 'post'
         #swagger.consumes = ['application/json']
         #swagger.produces = ['application/json']
-        #swagger.parameters['Authorization'] = {
-            in: 'header',
-            description: 'Bearer token',
-            required: true,
-            type: 'string'
-        }
+        #swagger.security = [{ "bearerAuth": [] }]
         #swagger.parameters['body'] = {
             in: 'body',
-            description: 'The new sidebar data to be added',
+            description: 'The new actuator data to be added',
             required: true,
             schema: {$ref: '#/components/schemas/ActuatorCreateEntities'}
         }
@@ -52,19 +47,14 @@ export const ActuatorRouter = (router: any) => {
       /*  #swagger.auto = false
 
         #swagger.tags = ['Actuator']
-        #swagger.summary = 'Get all sidebar'
+        #swagger.summary = 'Get all actuator'
         #swagger.description = 'Fetch all actuator.'
         #swagger.path = '/v1/actuator'
         #swagger.method = 'get'
         #swagger.produces = ['application/json']
-        #swagger.parameters['Authorization'] = {
-            in: 'header',
-            description: 'Bearer token',
-            required: true,
-            type: 'string'
-        }
+        #swagger.security = [{ "bearerAuth": [] }]
         #swagger.responses[200] = {
-            description: "Get sidebar successful",
+            description: "Get actuator successful",
             schema: {
                 status: "string",
                 message: "string",
@@ -83,26 +73,21 @@ export const ActuatorRouter = (router: any) => {
       /*  #swagger.auto = false
 
         #swagger.tags = ['Actuator']
-        #swagger.summary = 'Get sidebar by ID'
-        #swagger.description = 'Fetch sidebar by ID.'
-        #swagger.path = '/v1/actuator/:id'
+        #swagger.summary = 'Get actuator by ID'
+        #swagger.description = 'Fetch actuator by ID.'
+        #swagger.path = '/v1/actuator/{id}'
         #swagger.method = 'get'
         #swagger.produces = ['application/json']
-        #swagger.parameters['Authorization'] = {
-            in: 'header',
-            description: 'Bearer token',
-            required: true,
-            type: 'string'
-        }
+        #swagger.security = [{ "bearerAuth": [] }]
         #swagger.parameters['id'] = {
-            in: 'query',
+            in: 'path',
             description: 'Actuator ID',
             required: true,
             type: 'string'
         }
 
         #swagger.responses[200] = {
-            description: "Get sidebar successful",
+            description: "Get actuator successful",
             schema: {
                 status: "string",
                 message: "string",
@@ -120,32 +105,27 @@ export const ActuatorRouter = (router: any) => {
       /*  #swagger.auto = false
 
         #swagger.tags = ['Actuator']
-        #swagger.summary = 'Update sidebar of ID'
-        #swagger.description = 'Update sidebar of ID.'
-        #swagger.path = '/v1/actuator/:id'
+        #swagger.summary = 'Update actuator of ID'
+        #swagger.description = 'Update actuator of ID.'
+        #swagger.path = '/v1/actuator/{id}'
         #swagger.method = 'put'
         #swagger.consumes = ['application/json']
         #swagger.produces = ['application/json']
-        #swagger.parameters['Authorization'] = {
-            in: 'header',
-            description: 'Bearer token',
-            required: true,
-            type: 'string'
-        }
+        #swagger.security = [{ "bearerAuth": [] }]
         #swagger.parameters['id'] = {
-            in: 'query',
+            in: 'path',
             description: 'Actuator ID',
             required: true,
             type: 'string'
         }
         #swagger.parameters['body'] = {
             in: 'body',
-            description: 'The new data for sidebar',
+            description: 'The new data for actuator',
             required: true,
             schema: {$ref: '#/components/schemas/ActuatorCreateEntities'}
         }
         #swagger.responses[200] = {
-            description: "Update sidebar successful",
+            description: "Update actuator successful",
             schema: {
                 status: "string",
                 message: "string",
@@ -163,26 +143,21 @@ export const ActuatorRouter = (router: any) => {
       /*  #swagger.auto = false
 
         #swagger.tags = ['Actuator']
-        #swagger.summary = 'Delete sidebar by ID'
-        #swagger.description = 'Delete sidebar by ID.'
-        #swagger.path = '/v1/actuator/:id'
+        #swagger.summary = 'Delete actuator by ID'
+        #swagger.description = 'Delete actuator by ID.'
+        #swagger.path = '/v1/actuator/{id}'
         #swagger.method = 'delete'
         #swagger.produces = ['application/json']
         #swagger.parameters['id'] = {
-            in: 'query',
+            in: 'path',
             description: 'Actuator ID',
             required: true,
             type: 'string'
         }
-        #swagger.parameters['Authorization'] = {
-          in: 'header',
-          description: 'Bearer token',
-          required: true,
-          type: 'string'
-        }
+        #swagger.security = [{ "bearerAuth": [] }]
 
         #swagger.responses[200] = {
-            description: "Delete sidebar successful",
+            description: "Delete actuator successful",
             schema: {
                 status: "string",
                 message: "string",

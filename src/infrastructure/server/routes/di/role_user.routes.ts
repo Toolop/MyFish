@@ -1,6 +1,7 @@
 import { Response, Request, NextFunction } from "express";
 import { RoleUserController } from "../../../../controllers/master data/role_user.controller";
 import { RoleUserRepositoryImpl } from "../../../../domain/repository/role_user.repository";
+import { authenticateToken } from "../../../middleware/jwt_middleware";
 
 export const RoleUserRouter = (router: any) => {
   const userRoleRepository = new RoleUserRepositoryImpl();
@@ -8,6 +9,7 @@ export const RoleUserRouter = (router: any) => {
 
   router.post(
     "/roleusers",
+    authenticateToken,
     (req: Request, res: Response, next: NextFunction) => {
       /*  #swagger.auto = false
 
@@ -18,6 +20,7 @@ export const RoleUserRouter = (router: any) => {
         #swagger.method = 'post'
         #swagger.consumes = ['application/json']
         #swagger.produces = ['application/json']
+        #swagger.security = [{ "bearerAuth": [] }]
 
         #swagger.parameters['body'] = {
             in: 'body',
@@ -39,6 +42,7 @@ export const RoleUserRouter = (router: any) => {
   );
   router.get(
     "/roleusers",
+    authenticateToken,
     (req: Request, res: Response, next: NextFunction) => {
       /*  #swagger.auto = false
 
@@ -48,6 +52,7 @@ export const RoleUserRouter = (router: any) => {
         #swagger.path = '/v1/roleusers'
         #swagger.method = 'get'
         #swagger.produces = ['application/json']
+        #swagger.security = [{ "bearerAuth": [] }]
 
         #swagger.responses[200] = {
             description: "Get Role-User successful",
@@ -63,15 +68,17 @@ export const RoleUserRouter = (router: any) => {
   );
   router.get(
     "/roleusers/:id",
+    authenticateToken,
     (req: Request, res: Response, next: NextFunction) => {
       /*  #swagger.auto = false
 
         #swagger.tags = ['Role User']
         #swagger.summary = 'Get Role User connection by ID'
         #swagger.description = 'Fetch role-user entry by ID.'
-        #swagger.path = '/v1/roleusers/:id'
+        #swagger.path = '/v1/roleusers/{id}'
         #swagger.method = 'get'
         #swagger.produces = ['application/json']
+        #swagger.security = [{ "bearerAuth": [] }]
         #swagger.parameters['id'] = {
             in: 'path',
             description: 'ID of the role-user entry to fetch',
@@ -93,16 +100,18 @@ export const RoleUserRouter = (router: any) => {
   );
   router.put(
     "/roleusers/:id",
+    authenticateToken,
     (req: Request, res: Response, next: NextFunction) => {
       /*  #swagger.auto = false
 
         #swagger.tags = ['Role User']
         #swagger.summary = 'Update Role User of ID'
         #swagger.description = 'Update role-user entry of ID.'
-        #swagger.path = '/v1/roleusers/:id'
+        #swagger.path = '/v1/roleusers/{id}'
         #swagger.method = 'put'
         #swagger.consumes = ['application/json']
         #swagger.produces = ['application/json']
+        #swagger.security = [{ "bearerAuth": [] }]
         #swagger.parameters['id'] = {
             in: 'path',
             description: 'ID of the role-user entry to update',
@@ -129,15 +138,17 @@ export const RoleUserRouter = (router: any) => {
   );
   router.delete(
     "/roleusers/:id",
+    authenticateToken,
     (req: Request, res: Response, next: NextFunction) => {
       /*  #swagger.auto = false
 
         #swagger.tags = ['Role User']
         #swagger.summary = 'Delete Role User by ID'
         #swagger.description = 'Delete role-user entry by ID.'
-        #swagger.path = '/v1/roleusers/:id'
+        #swagger.path = '/v1/roleusers/{id}'
         #swagger.method = 'delete'
         #swagger.produces = ['application/json']
+        #swagger.security = [{ "bearerAuth": [] }]
         #swagger.parameters['id'] = {
             in: 'path',
             description: 'ID of the role-user entry to delete',

@@ -8,6 +8,7 @@ import { RoleSidebarRouter } from "./di/role_sidebar.routes";
 import { RoleUserRouter } from "./di/role_user.routes";
 import { ScheduleRouter } from "./di/schedule.routes";
 import { SensorRouter } from "./di/sensor.route";
+import { SensorDataRouter } from "./di/sensor_data.routes";
 import { SidebarRouter } from "./di/sidebar.routes";
 import { ThingsRouter } from "./di/things.route";
 import { ThingsLogRouter } from "./di/things_logs.route";
@@ -30,6 +31,7 @@ const MainRoute = (app: any, route: any) => {
   app.use("/v1", TypeSensorRouter(route));
   app.use("/v1", ThingsRouter(route));
   app.use("/v1", ThingsLogRouter(route));
+  app.use("/v1", SensorDataRouter(route));
 
   app.use("*", function (req: any, res: any) {
     res.status(404).json({ status: "failed", message: "api not found" });

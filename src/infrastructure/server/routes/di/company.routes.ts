@@ -9,6 +9,7 @@ export const CompanyRouter = (router: any) => {
 
   router.post(
     "/companies",
+    authenticateToken,
     (req: Request, res: Response, next: NextFunction) => {
       /*  #swagger.auto = false
 
@@ -19,6 +20,7 @@ export const CompanyRouter = (router: any) => {
         #swagger.method = 'post'
         #swagger.consumes = ['application/json']
         #swagger.produces = ['application/json']
+        #swagger.security = [{ "bearerAuth": [] }]
 
         #swagger.parameters['body'] = {
             in: 'body',
@@ -40,6 +42,7 @@ export const CompanyRouter = (router: any) => {
   );
   router.get(
     "/companies",
+    authenticateToken,
     (req: Request, res: Response, next: NextFunction) => {
       /*  #swagger.auto = false
 
@@ -49,6 +52,7 @@ export const CompanyRouter = (router: any) => {
         #swagger.path = '/v1/companies'
         #swagger.method = 'get'
         #swagger.produces = ['application/json']
+        #swagger.security = [{ "bearerAuth": [] }]
 
         #swagger.responses[200] = {
             description: "Get companies successful",
@@ -76,12 +80,7 @@ export const CompanyRouter = (router: any) => {
         #swagger.path = '/v1/company'
         #swagger.method = 'get'
         #swagger.produces = ['application/json']
-        #swagger.parameters['Authorization'] = {
-            in: 'header',
-            description: 'Bearer token',
-            required: true,
-            type: 'string'
-        }
+        #swagger.security = [{ "bearerAuth": [] }]
 
         #swagger.responses[200] = {
             description: "Get company successful",
@@ -97,17 +96,19 @@ export const CompanyRouter = (router: any) => {
   );
   router.get(
     "/companies/:id",
+    authenticateToken,
     (req: Request, res: Response, next: NextFunction) => {
       /*  #swagger.auto = false
 
         #swagger.tags = ['companies']
         #swagger.summary = 'Get company by ID'
         #swagger.description = 'Fetch company by ID.'
-        #swagger.path = '/v1/companies/:id'
+        #swagger.path = '/v1/companies/{id}'
         #swagger.method = 'get'
         #swagger.produces = ['application/json']
+        #swagger.security = [{ "bearerAuth": [] }]
         #swagger.parameters['id'] = {
-            in: 'query',
+            in: 'path',
             description: 'Company ID',
             required: true,
             type: 'string'
@@ -127,18 +128,20 @@ export const CompanyRouter = (router: any) => {
   );
   router.put(
     "/companies/:id",
+    authenticateToken,
     (req: Request, res: Response, next: NextFunction) => {
       /*  #swagger.auto = false
 
         #swagger.tags = ['companies']
         #swagger.summary = 'Update company of ID'
         #swagger.description = 'Update company of ID.'
-        #swagger.path = '/v1/companies/:id'
+        #swagger.path = '/v1/companies/{id}'
         #swagger.method = 'put'
         #swagger.consumes = ['application/json']
         #swagger.produces = ['application/json']
+        #swagger.security = [{ "bearerAuth": [] }]
         #swagger.parameters['id'] = {
-            in: 'query',
+            in: 'path',
             description: 'Company ID',
             required: true,
             type: 'string'
@@ -169,11 +172,11 @@ export const CompanyRouter = (router: any) => {
         #swagger.tags = ['companies']
         #swagger.summary = 'Delete company by ID'
         #swagger.description = 'Delete company by ID.'
-        #swagger.path = '/v1/companies/:id'
+        #swagger.path = '/v1/companies/{id}'
         #swagger.method = 'delete'
         #swagger.produces = ['application/json']
         #swagger.parameters['id'] = {
-            in: 'query',
+            in: 'path',
             description: 'Company ID',
             required: true,
             type: 'string'

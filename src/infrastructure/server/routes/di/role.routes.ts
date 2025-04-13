@@ -7,8 +7,11 @@ export const RoleRouter = (router: any) => {
   const userRoleRepository = new RoleRepositoryImpl();
   const controllers = RoleController(userRoleRepository);
 
-  router.post("/roles", (req: Request, res: Response, next: NextFunction) => {
-    /*  #swagger.auto = false
+  router.post(
+    "/roles",
+    authenticateToken,
+    (req: Request, res: Response, next: NextFunction) => {
+      /*  #swagger.auto = false
 
         #swagger.tags = ['Roles']
         #swagger.summary = 'Create a new role'
@@ -17,6 +20,7 @@ export const RoleRouter = (router: any) => {
         #swagger.method = 'post'
         #swagger.consumes = ['application/json']
         #swagger.produces = ['application/json']
+        #swagger.security = [{ "bearerAuth": [] }]
 
         #swagger.parameters['body'] = {
             in: 'body',
@@ -33,10 +37,14 @@ export const RoleRouter = (router: any) => {
             }
         }
     */
-    controllers.createRole(req, res, next);
-  });
-  router.get("/roles", (req: Request, res: Response, next: NextFunction) => {
-    /*  #swagger.auto = false
+      controllers.createRole(req, res, next);
+    }
+  );
+  router.get(
+    "/roles",
+    authenticateToken,
+    (req: Request, res: Response, next: NextFunction) => {
+      /*  #swagger.auto = false
 
         #swagger.tags = ['Roles']
         #swagger.summary = 'Get all roles'
@@ -44,6 +52,7 @@ export const RoleRouter = (router: any) => {
         #swagger.path = '/v1/roles'
         #swagger.method = 'get'
         #swagger.produces = ['application/json']
+        #swagger.security = [{ "bearerAuth": [] }]
 
         #swagger.responses[200] = {
             description: "Get roles successful",
@@ -56,8 +65,9 @@ export const RoleRouter = (router: any) => {
             }
         }
     */
-    controllers.getRoles(req, res, next);
-  });
+      controllers.getRoles(req, res, next);
+    }
+  );
   router.get(
     "/role",
     authenticateToken,
@@ -70,12 +80,7 @@ export const RoleRouter = (router: any) => {
         #swagger.path = '/v1/role'
         #swagger.method = 'get'
         #swagger.produces = ['application/json']
-        #swagger.parameters['Authorization'] = {
-            in: 'header',
-            description: 'Bearer token',
-            required: true,
-            type: 'string'
-        }
+        #swagger.security = [{ "bearerAuth": [] }]
 
         #swagger.responses[200] = {
             description: "Get role successful",
@@ -91,17 +96,19 @@ export const RoleRouter = (router: any) => {
   );
   router.get(
     "/roles/:id",
+    authenticateToken,
     (req: Request, res: Response, next: NextFunction) => {
       /*  #swagger.auto = false
 
         #swagger.tags = ['Roles']
         #swagger.summary = 'Get role by ID'
         #swagger.description = 'Fetch role by ID.'
-        #swagger.path = '/v1/roles/:id'
+        #swagger.path = '/v1/roles/{id}'
         #swagger.method = 'get'
         #swagger.produces = ['application/json']
+        #swagger.security = [{ "bearerAuth": [] }]
         #swagger.parameters['id'] = {
-            in: 'query',
+            in: 'path',
             description: 'Role ID',
             required: true,
             type: 'string'
@@ -121,18 +128,20 @@ export const RoleRouter = (router: any) => {
   );
   router.put(
     "/roles/:id",
+    authenticateToken,
     (req: Request, res: Response, next: NextFunction) => {
       /*  #swagger.auto = false
 
         #swagger.tags = ['Roles']
         #swagger.summary = 'Update role of ID'
         #swagger.description = 'Update role of ID.'
-        #swagger.path = '/v1/roles/:id'
+        #swagger.path = '/v1/roles/{id}'
         #swagger.method = 'put'
         #swagger.consumes = ['application/json']
         #swagger.produces = ['application/json']
+        #swagger.security = [{ "bearerAuth": [] }]
         #swagger.parameters['id'] = {
-            in: 'query',
+            in: 'path',
             description: 'Role ID',
             required: true,
             type: 'string'
@@ -157,17 +166,19 @@ export const RoleRouter = (router: any) => {
   );
   router.delete(
     "/roles/:id",
+    authenticateToken,
     (req: Request, res: Response, next: NextFunction) => {
       /*  #swagger.auto = false
 
         #swagger.tags = ['Roles']
         #swagger.summary = 'Delete role by ID'
         #swagger.description = 'Delete role by ID.'
-        #swagger.path = '/v1/roles/:id'
+        #swagger.path = '/v1/roles/{id}'
         #swagger.method = 'delete'
         #swagger.produces = ['application/json']
+        #swagger.security = [{ "bearerAuth": [] }]
         #swagger.parameters['id'] = {
-            in: 'query',
+            in: 'path',
             description: 'Role ID',
             required: true,
             type: 'string'

@@ -9,6 +9,7 @@ export const RoleSidebarRouter = (router: any) => {
 
   router.post(
     "/rolesidebars",
+    authenticateToken,
     (req: Request, res: Response, next: NextFunction) => {
       /*  #swagger.auto = false
 
@@ -19,6 +20,7 @@ export const RoleSidebarRouter = (router: any) => {
           #swagger.method = 'post'
           #swagger.consumes = ['application/json']
           #swagger.produces = ['application/json']
+          #swagger.security = [{ "bearerAuth": [] }]
 
           #swagger.parameters['body'] = {
               in: 'body',
@@ -40,6 +42,7 @@ export const RoleSidebarRouter = (router: any) => {
   );
   router.get(
     "/rolesidebars",
+    authenticateToken,
     (req: Request, res: Response, next: NextFunction) => {
       /*  #swagger.auto = false
 
@@ -49,6 +52,8 @@ export const RoleSidebarRouter = (router: any) => {
           #swagger.path = '/v1/rolesidebars'
           #swagger.method = 'get'
           #swagger.produces = ['application/json']
+          #swagger.security = [{ "bearerAuth": [] }]
+
 
           #swagger.responses[200] = {
               description: "Get Role-Sidebar successfully",
@@ -74,12 +79,7 @@ export const RoleSidebarRouter = (router: any) => {
           #swagger.path = '/v1/rolesidebar'
           #swagger.method = 'get'
           #swagger.produces = ['application/json']
-          #swagger.parameters['Authorization'] = {
-              in: 'header',
-              description: 'Bearer token',
-              required: true,
-              type: 'string'
-          }
+          #swagger.security = [{ "bearerAuth": [] }]
 
           #swagger.responses[200] = {
               description: "Get Role-Sidebar successfully",
@@ -95,15 +95,18 @@ export const RoleSidebarRouter = (router: any) => {
   );
   router.get(
     "/rolesidebars/:id",
+    authenticateToken,
     (req: Request, res: Response, next: NextFunction) => {
       /*  #swagger.auto = false
 
         #swagger.tags = ['Role Sidebars']
         #swagger.summary = 'Get Role Sidebars by ID'
         #swagger.description = 'Fetch role-sidebar data by ID.'
-        #swagger.path = '/v1/rolesidebars/:id'
+        #swagger.path = '/v1/rolesidebars/{id}'
         #swagger.method = 'get'
         #swagger.produces = ['application/json']
+        #swagger.security = [{ "bearerAuth": [] }]
+
         #swagger.parameters['id'] = {
             in: 'path',
             description: 'ID of the role-sidebar to fetch',
@@ -125,15 +128,17 @@ export const RoleSidebarRouter = (router: any) => {
   );
   router.put(
     "/rolesidebars/:id",
+    authenticateToken,
     (req: Request, res: Response, next: NextFunction) => {
       /*  #swagger.auto = false
 
           #swagger.tags = ['Role Sidebars']
           #swagger.summary = 'Update Role Sidebars of ID'
           #swagger.description = 'Update role-sidebar of ID.'
-          #swagger.path = '/v1/rolesidebars/:id'
+          #swagger.path = '/v1/rolesidebars/{id}'
           #swagger.method = 'put'
           #swagger.produces = ['application/json']
+          #swagger.security = [{ "bearerAuth": [] }]
           #swagger.parameters['id'] = {
               in: 'path',
               description: 'ID of the role-sidebar to update',
@@ -160,15 +165,17 @@ export const RoleSidebarRouter = (router: any) => {
   );
   router.delete(
     "/rolesidebars/:id",
+    authenticateToken,
     (req: Request, res: Response, next: NextFunction) => {
       /*  #swagger.auto = false
 
           #swagger.tags = ['Role Sidebars']
           #swagger.summary = 'Delete Role Sidebars by ID'
           #swagger.description = 'Delete role-sidebar by ID.'
-          #swagger.path = '/v1/rolesidebars/:id'
+          #swagger.path = '/v1/rolesidebars/{id}'
           #swagger.method = 'delete'
           #swagger.produces = ['application/json']
+          #swagger.security = [{ "bearerAuth": [] }]
           #swagger.parameters['id'] = {
               in: 'path',
               description: 'ID of the role-sidebar to delete',
@@ -190,6 +197,7 @@ export const RoleSidebarRouter = (router: any) => {
   );
   router.post(
     "/rolesidebars/upsert-batch",
+    authenticateToken,
     (req: Request, res: Response, next: NextFunction) => {
       /*  #swagger.auto = false
 
@@ -199,6 +207,7 @@ export const RoleSidebarRouter = (router: any) => {
           #swagger.path = '/v1/rolesidebars/upsert-batch'
           #swagger.method = 'post'
           #swagger.produces = ['application/json']
+          #swagger.security = [{ "bearerAuth": [] }]
           #swagger.parameters['body'] = {
               in: 'body',
               description: 'Array of data to be used for upsert',

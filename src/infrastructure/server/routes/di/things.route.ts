@@ -15,21 +15,16 @@ export const ThingsRouter = (router: any) => {
       /*  #swagger.auto = false
 
         #swagger.tags = ['Things']
-        #swagger.summary = 'Create a new sidebar'
-        #swagger.description = 'Adds a new sidebar to the database.'
+        #swagger.summary = 'Create a new things'
+        #swagger.description = 'Adds a new things to the database.'
         #swagger.path = '/v1/things'
         #swagger.method = 'post'
         #swagger.consumes = ['application/json']
         #swagger.produces = ['application/json']
-        #swagger.parameters['Authorization'] = {
-            in: 'header',
-            description: 'Bearer token',
-            required: true,
-            type: 'string'
-        }
+        #swagger.security = [{ "bearerAuth": [] }]
         #swagger.parameters['body'] = {
             in: 'body',
-            description: 'The new sidebar data to be added',
+            description: 'The new things data to be added',
             required: true,
             schema: {$ref: '#/components/schemas/ThingsCreateEntities'}
         }
@@ -52,19 +47,14 @@ export const ThingsRouter = (router: any) => {
       /*  #swagger.auto = false
 
         #swagger.tags = ['Things']
-        #swagger.summary = 'Get all sidebar'
+        #swagger.summary = 'Get all things'
         #swagger.description = 'Fetch all things.'
         #swagger.path = '/v1/things'
         #swagger.method = 'get'
         #swagger.produces = ['application/json']
-        #swagger.parameters['Authorization'] = {
-            in: 'header',
-            description: 'Bearer token',
-            required: true,
-            type: 'string'
-        }
+        #swagger.security = [{ "bearerAuth": [] }]
         #swagger.responses[200] = {
-            description: "Get sidebar successful",
+            description: "Get things successful",
             schema: {
                 status: "string",
                 message: "string",
@@ -83,26 +73,21 @@ export const ThingsRouter = (router: any) => {
       /*  #swagger.auto = false
 
         #swagger.tags = ['Things']
-        #swagger.summary = 'Get sidebar by ID'
-        #swagger.description = 'Fetch sidebar by ID.'
-        #swagger.path = '/v1/things/:id'
+        #swagger.summary = 'Get things by ID'
+        #swagger.description = 'Fetch things by ID.'
+        #swagger.path = '/v1/things/{id}'
         #swagger.method = 'get'
         #swagger.produces = ['application/json']
-        #swagger.parameters['Authorization'] = {
-            in: 'header',
-            description: 'Bearer token',
-            required: true,
-            type: 'string'
-        }
+        #swagger.security = [{ "bearerAuth": [] }]
         #swagger.parameters['id'] = {
-            in: 'query',
+            in: 'path',
             description: 'Things ID',
             required: true,
             type: 'string'
         }
 
         #swagger.responses[200] = {
-            description: "Get sidebar successful",
+            description: "Get things successful",
             schema: {
                 status: "string",
                 message: "string",
@@ -120,32 +105,27 @@ export const ThingsRouter = (router: any) => {
       /*  #swagger.auto = false
 
         #swagger.tags = ['Things']
-        #swagger.summary = 'Update sidebar of ID'
-        #swagger.description = 'Update sidebar of ID.'
-        #swagger.path = '/v1/things/:id'
+        #swagger.summary = 'Update things of ID'
+        #swagger.description = 'Update things of ID.'
+        #swagger.path = '/v1/things/{id}'
         #swagger.method = 'put'
         #swagger.consumes = ['application/json']
         #swagger.produces = ['application/json']
-        #swagger.parameters['Authorization'] = {
-            in: 'header',
-            description: 'Bearer token',
-            required: true,
-            type: 'string'
-        }
+        #swagger.security = [{ "bearerAuth": [] }]
         #swagger.parameters['id'] = {
-            in: 'query',
+            in: 'path',
             description: 'Things ID',
             required: true,
             type: 'string'
         }
         #swagger.parameters['body'] = {
             in: 'body',
-            description: 'The new data for sidebar',
+            description: 'The new data for things',
             required: true,
             schema: {$ref: '#/components/schemas/ThingsCreateEntities'}
         }
         #swagger.responses[200] = {
-            description: "Update sidebar successful",
+            description: "Update things successful",
             schema: {
                 status: "string",
                 message: "string",
@@ -163,26 +143,21 @@ export const ThingsRouter = (router: any) => {
       /*  #swagger.auto = false
 
         #swagger.tags = ['Things']
-        #swagger.summary = 'Delete sidebar by ID'
-        #swagger.description = 'Delete sidebar by ID.'
-        #swagger.path = '/v1/things/:id'
+        #swagger.summary = 'Delete things by ID'
+        #swagger.description = 'Delete things by ID.'
+        #swagger.path = '/v1/things/{id}'
         #swagger.method = 'delete'
         #swagger.produces = ['application/json']
         #swagger.parameters['id'] = {
-            in: 'query',
+            in: 'path',
             description: 'Things ID',
             required: true,
             type: 'string'
         }
-        #swagger.parameters['Authorization'] = {
-          in: 'header',
-          description: 'Bearer token',
-          required: true,
-          type: 'string'
-        }
+        #swagger.security = [{ "bearerAuth": [] }]
 
         #swagger.responses[200] = {
-            description: "Delete sidebar successful",
+            description: "Delete things successful",
             schema: {
                 status: "string",
                 message: "string",

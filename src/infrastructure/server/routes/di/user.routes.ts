@@ -35,8 +35,11 @@ export const UsersRouter = (router: any) => {
     */
     controllers.createUser(req, res, next);
   });
-  router.get("/users", (req: Request, res: Response, next: NextFunction) => {
-    /*  #swagger.auto = false
+  router.get(
+    "/users",
+    authenticateToken,
+    (req: Request, res: Response, next: NextFunction) => {
+      /*  #swagger.auto = false
 
         #swagger.tags = ['Users']
         #swagger.summary = 'Get all users'
@@ -44,7 +47,8 @@ export const UsersRouter = (router: any) => {
         #swagger.path = '/v1/users'
         #swagger.method = 'get'
         #swagger.produces = ['application/json']
-        #swagger.parameters['query'] = {
+        #swagger.security = [{ "bearerAuth": [] }]
+        #swagger.parameters['page'] = {
             in: 'query',
             description: 'Query parameters for filtering users',
             required: false,
@@ -52,7 +56,22 @@ export const UsersRouter = (router: any) => {
                 $ref: '#/components/schemas/UserQueryEntities'
             }
         }
-
+        #swagger.parameters['limit'] = {
+            in: 'query',
+            description: 'Query parameters for filtering users',
+            required: false,
+            schema: {
+                $ref: '#/components/schemas/UserQueryEntities'
+            }
+        }
+        #swagger.parameters['search'] = {
+            in: 'query',
+            description: 'Query parameters for filtering users',
+            required: false,
+            schema: {
+                $ref: '#/components/schemas/UserQueryEntities'
+            }
+        }
         #swagger.responses[200] = {
             description: "Get users successful",
             schema: {
@@ -64,8 +83,9 @@ export const UsersRouter = (router: any) => {
             }
         }
     */
-    controllers.getUsers(req, res, next);
-  });
+      controllers.getUsers(req, res, next);
+    }
+  );
   router.get(
     "/user",
     authenticateToken,
@@ -78,12 +98,7 @@ export const UsersRouter = (router: any) => {
           #swagger.path = '/v1/user'
           #swagger.method = 'get'
           #swagger.produces = ['application/json']
-          #swagger.parameters['Authorization'] = {
-              in: 'header',
-              description: 'Bearer token',
-              required: true,
-              type: 'string'
-          }
+          #swagger.security = [{ "bearerAuth": [] }]
 
           #swagger.responses[200] = {
               description: "Get user successful",
@@ -105,11 +120,12 @@ export const UsersRouter = (router: any) => {
           #swagger.tags = ['Users']
           #swagger.summary = 'Get user by username'
           #swagger.description = 'Fetch user by username.'
-          #swagger.path = '/v1/users/:username'
+          #swagger.path = '/v1/users/{username}'
           #swagger.method = 'get'
           #swagger.produces = ['application/json']
+          #swagger.security = [{ "bearerAuth": [] }]
           #swagger.parameters['username'] = {
-              in: 'query',
+              in: 'path',
               description: 'User username',
               required: true,
               type: 'string'
@@ -129,18 +145,20 @@ export const UsersRouter = (router: any) => {
   );
   router.put(
     "/users/:username",
+    authenticateToken,
     (req: Request, res: Response, next: NextFunction) => {
       /*  #swagger.auto = false
 
           #swagger.tags = ['Users']
           #swagger.summary = 'Update user of username'
           #swagger.description = 'Update user of username.'
-          #swagger.path = '/v1/users/:username'
+          #swagger.path = '/v1/users/{username}'
           #swagger.method = 'put'
           #swagger.consumes = ['application/json']
           #swagger.produces = ['application/json']
+          #swagger.security = [{ "bearerAuth": [] }]
           #swagger.parameters['username'] = {
-              in: 'query',
+              in: 'path',
               description: 'User username',
               required: true,
               type: 'string'
@@ -166,17 +184,19 @@ export const UsersRouter = (router: any) => {
   );
   router.delete(
     "/users/:username",
+    authenticateToken,
     (req: Request, res: Response, next: NextFunction) => {
       /*  #swagger.auto = false
 
           #swagger.tags = ['Users']
           #swagger.summary = 'Delete user by username'
           #swagger.description = 'Delete user by username.'
-          #swagger.path = '/v1/users/:username'
+          #swagger.path = '/v1/users/{username}'
           #swagger.method = 'delete'
           #swagger.produces = ['application/json']
+          #swagger.security = [{ "bearerAuth": [] }]
           #swagger.parameters['username'] = {
-              in: 'query',
+              in: 'path',
               description: 'User username',
               required: true,
               type: 'string'

@@ -79,13 +79,6 @@ export const AuthRouter = (router: any) => {
         #swagger.method = 'post'
         #swagger.consumes = ['application/json']
         #swagger.produces = ['application/json']
-
-        #swagger.parameters['Cookie'] = {
-            in: 'cookie',
-            description: 'Refresh token',
-            required: true,
-            type: 'string'
-        }
         #swagger.responses[200] = {
             description: "Token refreshed successfully",
             schema: {

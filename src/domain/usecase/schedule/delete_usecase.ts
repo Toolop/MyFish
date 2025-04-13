@@ -1,3 +1,4 @@
+import { updateScheduleUtil } from "../../../core/client/schedule.client";
 import { ScheduleRepository } from "../../repository/schedule.repository";
 
 export const ScheduleDeleteUsecase = async (
@@ -13,6 +14,7 @@ export const ScheduleDeleteUsecase = async (
   }
 
   const result = await repository.delete(id);
+  updateScheduleUtil();
 
   return result;
 };

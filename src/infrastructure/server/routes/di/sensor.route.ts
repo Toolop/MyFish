@@ -15,21 +15,16 @@ export const SensorRouter = (router: any) => {
       /*  #swagger.auto = false
 
         #swagger.tags = ['Sensor']
-        #swagger.summary = 'Create a new sidebar'
-        #swagger.description = 'Adds a new sidebar to the database.'
+        #swagger.summary = 'Create a new sensor'
+        #swagger.description = 'Adds a new sensor to the database.'
         #swagger.path = '/v1/sensors'
         #swagger.method = 'post'
         #swagger.consumes = ['application/json']
         #swagger.produces = ['application/json']
-        #swagger.parameters['Authorization'] = {
-            in: 'header',
-            description: 'Bearer token',
-            required: true,
-            type: 'string'
-        }
+        #swagger.security = [{ "bearerAuth": [] }]
         #swagger.parameters['body'] = {
             in: 'body',
-            description: 'The new sidebar data to be added',
+            description: 'The new sensor data to be added',
             required: true,
             schema: {$ref: '#/components/schemas/SensorCreateEntities'}
         }
@@ -52,19 +47,14 @@ export const SensorRouter = (router: any) => {
       /*  #swagger.auto = false
 
         #swagger.tags = ['Sensor']
-        #swagger.summary = 'Get all sidebar'
+        #swagger.summary = 'Get all sensor'
         #swagger.description = 'Fetch all sensors.'
         #swagger.path = '/v1/sensors'
         #swagger.method = 'get'
         #swagger.produces = ['application/json']
-        #swagger.parameters['Authorization'] = {
-            in: 'header',
-            description: 'Bearer token',
-            required: true,
-            type: 'string'
-        }
+        #swagger.security = [{ "bearerAuth": [] }]
         #swagger.responses[200] = {
-            description: "Get sidebar successful",
+            description: "Get sensor successful",
             schema: {
                 status: "string",
                 message: "string",
@@ -83,26 +73,21 @@ export const SensorRouter = (router: any) => {
       /*  #swagger.auto = false
 
         #swagger.tags = ['Sensor']
-        #swagger.summary = 'Get sidebar by ID'
-        #swagger.description = 'Fetch sidebar by ID.'
-        #swagger.path = '/v1/sensors/:id'
+        #swagger.summary = 'Get sensor by ID'
+        #swagger.description = 'Fetch sensor by ID.'
+        #swagger.path = '/v1/sensors/{id}'
         #swagger.method = 'get'
         #swagger.produces = ['application/json']
-        #swagger.parameters['Authorization'] = {
-            in: 'header',
-            description: 'Bearer token',
-            required: true,
-            type: 'string'
-        }
+        #swagger.security = [{ "bearerAuth": [] }]
         #swagger.parameters['id'] = {
-            in: 'query',
+            in: 'path',
             description: 'Sensor ID',
             required: true,
             type: 'string'
         }
 
         #swagger.responses[200] = {
-            description: "Get sidebar successful",
+            description: "Get sensor successful",
             schema: {
                 status: "string",
                 message: "string",
@@ -120,32 +105,27 @@ export const SensorRouter = (router: any) => {
       /*  #swagger.auto = false
 
         #swagger.tags = ['Sensor']
-        #swagger.summary = 'Update sidebar of ID'
-        #swagger.description = 'Update sidebar of ID.'
-        #swagger.path = '/v1/sensors/:id'
+        #swagger.summary = 'Update sensor of ID'
+        #swagger.description = 'Update sensor of ID.'
+        #swagger.path = '/v1/sensors/{id}'
         #swagger.method = 'put'
         #swagger.consumes = ['application/json']
         #swagger.produces = ['application/json']
-        #swagger.parameters['Authorization'] = {
-            in: 'header',
-            description: 'Bearer token',
-            required: true,
-            type: 'string'
-        }
+        #swagger.security = [{ "bearerAuth": [] }]
         #swagger.parameters['id'] = {
-            in: 'query',
+            in: 'path',
             description: 'Sensor ID',
             required: true,
             type: 'string'
         }
         #swagger.parameters['body'] = {
             in: 'body',
-            description: 'The new data for sidebar',
+            description: 'The new data for sensor',
             required: true,
             schema: {$ref: '#/components/schemas/SensorCreateEntities'}
         }
         #swagger.responses[200] = {
-            description: "Update sidebar successful",
+            description: "Update sensor successful",
             schema: {
                 status: "string",
                 message: "string",
@@ -163,26 +143,21 @@ export const SensorRouter = (router: any) => {
       /*  #swagger.auto = false
 
         #swagger.tags = ['Sensor']
-        #swagger.summary = 'Delete sidebar by ID'
-        #swagger.description = 'Delete sidebar by ID.'
-        #swagger.path = '/v1/sensors/:id'
+        #swagger.summary = 'Delete sensor by ID'
+        #swagger.description = 'Delete sensor by ID.'
+        #swagger.path = '/v1/sensors/{id}'
         #swagger.method = 'delete'
         #swagger.produces = ['application/json']
         #swagger.parameters['id'] = {
-            in: 'query',
+            in: 'path',
             description: 'Sensor ID',
             required: true,
             type: 'string'
         }
-        #swagger.parameters['Authorization'] = {
-          in: 'header',
-          description: 'Bearer token',
-          required: true,
-          type: 'string'
-        }
+        #swagger.security = [{ "bearerAuth": [] }]
 
         #swagger.responses[200] = {
-            description: "Delete sidebar successful",
+            description: "Delete sensor successful",
             schema: {
                 status: "string",
                 message: "string",

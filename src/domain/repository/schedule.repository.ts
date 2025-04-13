@@ -24,6 +24,10 @@ export interface ScheduleRepository {
 export class ScheduleRepositoryImpl implements ScheduleRepository {
   async getAll(query: ScheduleQueryEntities): Promise<ScheduleEntities[]> {
     const result = await prisma.schedule.findMany({
+      where: {
+        actuatorId: query.actuatorId,
+        status_schedule: query.statusSchedule,
+      },
       ...(query.page && query.page != 0 && query.limit && query.limit != 0
         ? {
             skip: (query.page - 1) * query.limit,

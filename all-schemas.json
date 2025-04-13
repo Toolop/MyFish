@@ -86,9 +86,6 @@
                         "number"
                     ]
                 },
-                "status": {
-                    "type": "boolean"
-                },
                 "statusLifeCycle": {
                     "type": "number"
                 }
@@ -110,9 +107,6 @@
                 "id": {
                     "type": "number"
                 },
-                "status": {
-                    "type": "boolean"
-                },
                 "statusLifeCycle": {
                     "type": "number"
                 },
@@ -125,6 +119,9 @@
         },
         "ActuatorLogsQueryEntities": {
             "properties": {
+                "actuatorId": {
+                    "type": "number"
+                },
                 "isDelete": {
                     "type": "number"
                 },
@@ -824,6 +821,9 @@
         },
         "ScheduleQueryEntities": {
             "properties": {
+                "actuatorId": {
+                    "type": "number"
+                },
                 "isDelete": {
                     "type": "number"
                 },
@@ -835,6 +835,9 @@
                 },
                 "search": {
                     "type": "string"
+                },
+                "statusSchedule": {
+                    "type": "number"
                 }
             },
             "type": "object"
@@ -866,6 +869,20 @@
                     ]
                 },
                 "typeSensorId": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "SensorDataEntities": {
+            "properties": {
+                "sensorId": {
+                    "type": "number"
+                },
+                "status": {
+                    "type": "number"
+                },
+                "value": {
                     "type": "number"
                 }
             },
@@ -904,20 +921,6 @@
                 "updatedAt": {
                     "format": "date-time",
                     "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "SensorLogsEntities": {
-            "properties": {
-                "sensorId": {
-                    "type": "number"
-                },
-                "status": {
-                    "type": "number"
-                },
-                "value": {
-                    "type": "number"
                 }
             },
             "type": "object"

@@ -13,23 +13,17 @@ export const ActuatorLogsRouter = (router: any) => {
     authenticateToken,
     (req: Request, res: Response, next: NextFunction) => {
       /*  #swagger.auto = false
-
         #swagger.tags = ['ActuatorLogs']
-        #swagger.summary = 'Create a new sidebar'
-        #swagger.description = 'Adds a new sidebar to the database.'
+        #swagger.summary = 'Create a new actuator logs'
+        #swagger.description = 'Adds a new actuator logs to the database.'
         #swagger.path = '/v1/actuator-logs'
         #swagger.method = 'post'
         #swagger.consumes = ['application/json']
         #swagger.produces = ['application/json']
-        #swagger.parameters['Authorization'] = {
-            in: 'header',
-            description: 'Bearer token',
-            required: true,
-            type: 'string'
-        }
+        #swagger.security = [{ "bearerAuth": [] }]
         #swagger.parameters['body'] = {
             in: 'body',
-            description: 'The new sidebar data to be added',
+            description: 'The new actuator logs data to be added',
             required: true,
             schema: {$ref: '#/components/schemas/ActuatorLogsCreateEntities'}
         }
@@ -52,19 +46,14 @@ export const ActuatorLogsRouter = (router: any) => {
       /*  #swagger.auto = false
 
         #swagger.tags = ['ActuatorLogs']
-        #swagger.summary = 'Get all sidebar'
+        #swagger.summary = 'Get all actuator logs'
         #swagger.description = 'Fetch all actuator-logs.'
         #swagger.path = '/v1/actuator-logs'
         #swagger.method = 'get'
         #swagger.produces = ['application/json']
-        #swagger.parameters['Authorization'] = {
-            in: 'header',
-            description: 'Bearer token',
-            required: true,
-            type: 'string'
-        }
+        #swagger.security = [{ "bearerAuth": [] }]
         #swagger.responses[200] = {
-            description: "Get sidebar successful",
+            description: "Get actuator logs successful",
             schema: {
                 status: "string",
                 message: "string",
@@ -83,26 +72,21 @@ export const ActuatorLogsRouter = (router: any) => {
       /*  #swagger.auto = false
 
         #swagger.tags = ['ActuatorLogs']
-        #swagger.summary = 'Get sidebar by ID'
-        #swagger.description = 'Fetch sidebar by ID.'
-        #swagger.path = '/v1/actuator-logs/:id'
+        #swagger.summary = 'Get actuator logs by ID'
+        #swagger.description = 'Fetch actuator logs by ID.'
+        #swagger.path = '/v1/actuator-logs/{id}'
         #swagger.method = 'get'
         #swagger.produces = ['application/json']
-        #swagger.parameters['Authorization'] = {
-            in: 'header',
-            description: 'Bearer token',
-            required: true,
-            type: 'string'
-        }
+        #swagger.security = [{ "bearerAuth": [] }]
         #swagger.parameters['id'] = {
-            in: 'query',
+            in: 'path',
             description: 'ActuatorLogs ID',
             required: true,
             type: 'string'
         }
 
         #swagger.responses[200] = {
-            description: "Get sidebar successful",
+            description: "Get actuator logs successful",
             schema: {
                 status: "string",
                 message: "string",
@@ -120,32 +104,27 @@ export const ActuatorLogsRouter = (router: any) => {
       /*  #swagger.auto = false
 
         #swagger.tags = ['ActuatorLogs']
-        #swagger.summary = 'Update sidebar of ID'
-        #swagger.description = 'Update sidebar of ID.'
-        #swagger.path = '/v1/actuator-logs/:id'
+        #swagger.summary = 'Update actuator logs of ID'
+        #swagger.description = 'Update actuator logs of ID.'
+        #swagger.path = '/v1/actuator-logs/{id}'
         #swagger.method = 'put'
         #swagger.consumes = ['application/json']
         #swagger.produces = ['application/json']
-        #swagger.parameters['Authorization'] = {
-            in: 'header',
-            description: 'Bearer token',
-            required: true,
-            type: 'string'
-        }
+        #swagger.security = [{ "bearerAuth": [] }]
         #swagger.parameters['id'] = {
-            in: 'query',
+            in: 'path',
             description: 'ActuatorLogs ID',
             required: true,
             type: 'string'
         }
         #swagger.parameters['body'] = {
             in: 'body',
-            description: 'The new data for sidebar',
+            description: 'The new data for actuator logs',
             required: true,
             schema: {$ref: '#/components/schemas/ActuatorLogsCreateEntities'}
         }
         #swagger.responses[200] = {
-            description: "Update sidebar successful",
+            description: "Update actuator logs successful",
             schema: {
                 status: "string",
                 message: "string",
@@ -163,26 +142,21 @@ export const ActuatorLogsRouter = (router: any) => {
       /*  #swagger.auto = false
 
         #swagger.tags = ['ActuatorLogs']
-        #swagger.summary = 'Delete sidebar by ID'
-        #swagger.description = 'Delete sidebar by ID.'
-        #swagger.path = '/v1/actuator-logs/:id'
+        #swagger.summary = 'Delete actuator logs by ID'
+        #swagger.description = 'Delete actuator logs by ID.'
+        #swagger.path = '/v1/actuator-logs/{id}'
         #swagger.method = 'delete'
         #swagger.produces = ['application/json']
         #swagger.parameters['id'] = {
-            in: 'query',
+            in: 'path',
             description: 'ActuatorLogs ID',
             required: true,
             type: 'string'
         }
-        #swagger.parameters['Authorization'] = {
-          in: 'header',
-          description: 'Bearer token',
-          required: true,
-          type: 'string'
-        }
+        #swagger.security = [{ "bearerAuth": [] }]
 
         #swagger.responses[200] = {
-            description: "Delete sidebar successful",
+            description: "Delete actuator logs successful",
             schema: {
                 status: "string",
                 message: "string",

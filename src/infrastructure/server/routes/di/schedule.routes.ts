@@ -15,21 +15,16 @@ export const ScheduleRouter = (router: any) => {
       /*  #swagger.auto = false
 
         #swagger.tags = ['Schedule']
-        #swagger.summary = 'Create a new sidebar'
-        #swagger.description = 'Adds a new sidebar to the database.'
+        #swagger.summary = 'Create a new schedule'
+        #swagger.description = 'Adds a new schedule to the database.'
         #swagger.path = '/v1/schedules'
         #swagger.method = 'post'
         #swagger.consumes = ['application/json']
         #swagger.produces = ['application/json']
-        #swagger.parameters['Authorization'] = {
-            in: 'header',
-            description: 'Bearer token',
-            required: true,
-            type: 'string'
-        }
+        #swagger.security = [{ "bearerAuth": [] }]
         #swagger.parameters['body'] = {
             in: 'body',
-            description: 'The new sidebar data to be added',
+            description: 'The new schedule data to be added',
             required: true,
             schema: {$ref: '#/components/schemas/ScheduleCreateEntities'}
         }
@@ -52,19 +47,14 @@ export const ScheduleRouter = (router: any) => {
       /*  #swagger.auto = false
 
         #swagger.tags = ['Schedule']
-        #swagger.summary = 'Get all sidebar'
+        #swagger.summary = 'Get all schedule'
         #swagger.description = 'Fetch all schedules.'
         #swagger.path = '/v1/schedules'
         #swagger.method = 'get'
         #swagger.produces = ['application/json']
-        #swagger.parameters['Authorization'] = {
-            in: 'header',
-            description: 'Bearer token',
-            required: true,
-            type: 'string'
-        }
+        #swagger.security = [{ "bearerAuth": [] }]
         #swagger.responses[200] = {
-            description: "Get sidebar successful",
+            description: "Get schedule successful",
             schema: {
                 status: "string",
                 message: "string",
@@ -83,26 +73,21 @@ export const ScheduleRouter = (router: any) => {
       /*  #swagger.auto = false
 
         #swagger.tags = ['Schedule']
-        #swagger.summary = 'Get sidebar by ID'
-        #swagger.description = 'Fetch sidebar by ID.'
-        #swagger.path = '/v1/schedules/:id'
+        #swagger.summary = 'Get schedule by ID'
+        #swagger.description = 'Fetch schedule by ID.'
+        #swagger.path = '/v1/schedules/{id}'
         #swagger.method = 'get'
         #swagger.produces = ['application/json']
-        #swagger.parameters['Authorization'] = {
-            in: 'header',
-            description: 'Bearer token',
-            required: true,
-            type: 'string'
-        }
+        #swagger.security = [{ "bearerAuth": [] }]
         #swagger.parameters['id'] = {
-            in: 'query',
+            in: 'path',
             description: 'Schedule ID',
             required: true,
             type: 'string'
         }
 
         #swagger.responses[200] = {
-            description: "Get sidebar successful",
+            description: "Get schedule successful",
             schema: {
                 status: "string",
                 message: "string",
@@ -120,32 +105,27 @@ export const ScheduleRouter = (router: any) => {
       /*  #swagger.auto = false
 
         #swagger.tags = ['Schedule']
-        #swagger.summary = 'Update sidebar of ID'
-        #swagger.description = 'Update sidebar of ID.'
-        #swagger.path = '/v1/schedules/:id'
+        #swagger.summary = 'Update schedule of ID'
+        #swagger.description = 'Update schedule of ID.'
+        #swagger.path = '/v1/schedules/{id}'
         #swagger.method = 'put'
         #swagger.consumes = ['application/json']
         #swagger.produces = ['application/json']
-        #swagger.parameters['Authorization'] = {
-            in: 'header',
-            description: 'Bearer token',
-            required: true,
-            type: 'string'
-        }
+        #swagger.security = [{ "bearerAuth": [] }]
         #swagger.parameters['id'] = {
-            in: 'query',
+            in: 'path',
             description: 'Schedule ID',
             required: true,
             type: 'string'
         }
         #swagger.parameters['body'] = {
             in: 'body',
-            description: 'The new data for sidebar',
+            description: 'The new data for schedule',
             required: true,
             schema: {$ref: '#/components/schemas/ScheduleCreateEntities'}
         }
         #swagger.responses[200] = {
-            description: "Update sidebar successful",
+            description: "Update schedule successful",
             schema: {
                 status: "string",
                 message: "string",
@@ -163,26 +143,21 @@ export const ScheduleRouter = (router: any) => {
       /*  #swagger.auto = false
 
         #swagger.tags = ['Schedule']
-        #swagger.summary = 'Delete sidebar by ID'
-        #swagger.description = 'Delete sidebar by ID.'
-        #swagger.path = '/v1/schedules/:id'
+        #swagger.summary = 'Delete schedule by ID'
+        #swagger.description = 'Delete schedule by ID.'
+        #swagger.path = '/v1/schedules/{id}'
         #swagger.method = 'delete'
         #swagger.produces = ['application/json']
         #swagger.parameters['id'] = {
-            in: 'query',
+            in: 'path',
             description: 'Schedule ID',
             required: true,
             type: 'string'
         }
-        #swagger.parameters['Authorization'] = {
-          in: 'header',
-          description: 'Bearer token',
-          required: true,
-          type: 'string'
-        }
+        #swagger.security = [{ "bearerAuth": [] }]
 
         #swagger.responses[200] = {
-            description: "Delete sidebar successful",
+            description: "Delete schedule successful",
             schema: {
                 status: "string",
                 message: "string",

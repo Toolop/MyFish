@@ -9,6 +9,7 @@ export interface LocationEntities {
   longitude: number;
   createdAt: Date;
   updatedAt: Date;
+  companyId?: number | null;
 }
 
 export interface LocationCreateEntities {
@@ -17,6 +18,7 @@ export interface LocationCreateEntities {
   address: string;
   latitude: number;
   longitude: number;
+  companyId?: number | null;
 }
 
 export interface LocationQueryEntities extends QueryEntities {}

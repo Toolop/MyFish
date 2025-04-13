@@ -1,5 +1,5 @@
-import { SensorLogsEntities } from "../../domain/entities/sensor_logs.entities";
-import listSensor from "../data/sensor.data.";
+import { SensorDataEntities } from "../../domain/entities/sensor_data.entities";
+import DataListSensor from "../data/sensor.data";
 
 const dotenv = require("dotenv");
 const mqtt = require("mqtt");
@@ -38,21 +38,19 @@ const subscribeSensor = async () => {
               getData[i].status == "online" ||
               getData[i].status == "Online"
             ) {
-              const fix_sensor: SensorLogsEntities = await {
-                sensorId: getData[i].id_sensor,
+              const fix_sensor: SensorDataEntities = await {
+                sensorId: getData[i].sensorId,
                 value: value,
                 status: getData[i].status,
               };
-              listSensor[getData[i].sensorId] = fix_sensor;
-              console.log(listSensor);
+              DataListSensor[getData[i].sensorId] = fix_sensor;
             } else if ((await getData[i].status) == "offline") {
-              const fix_sensor: SensorLogsEntities = await {
-                sensorId: parseInt(getData[i].id_sensor),
+              const fix_sensor: SensorDataEntities = await {
+                sensorId: parseInt(getData[i].sensorId),
                 value: 0,
                 status: getData[i].status,
               };
-              listSensor[getData[i].sensorId] = fix_sensor;
-              console.log(listSensor);
+              DataListSensor[getData[i].sensorId] = fix_sensor;
             }
           }
         }

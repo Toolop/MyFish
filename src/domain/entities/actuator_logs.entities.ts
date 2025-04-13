@@ -6,13 +6,13 @@ export interface ActuatorLogsEntities {
   actuatorId?: number | null;
   createdAt: Date;
   updatedAt: Date;
-  status?: boolean | undefined;
 }
 
 export interface ActuatorLogsCreateEntities {
   statusLifeCycle: number;
   actuatorId?: number | null;
-  status?: boolean | undefined;
 }
 
-export interface ActuatorLogsQueryEntities extends QueryEntities {}
+export interface ActuatorLogsQueryEntities extends QueryEntities {
+  actuatorId?: number;
+}

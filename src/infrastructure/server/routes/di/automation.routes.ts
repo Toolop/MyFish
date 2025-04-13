@@ -15,21 +15,16 @@ export const AutomationRouter = (router: any) => {
       /*  #swagger.auto = false
 
         #swagger.tags = ['Automation']
-        #swagger.summary = 'Create a new sidebar'
-        #swagger.description = 'Adds a new sidebar to the database.'
+        #swagger.summary = 'Create a new automation'
+        #swagger.description = 'Adds a new automation to the database.'
         #swagger.path = '/v1/automations'
         #swagger.method = 'post'
         #swagger.consumes = ['application/json']
         #swagger.produces = ['application/json']
-        #swagger.parameters['Authorization'] = {
-            in: 'header',
-            description: 'Bearer token',
-            required: true,
-            type: 'string'
-        }
+        #swagger.security = [{ "bearerAuth": [] }]
         #swagger.parameters['body'] = {
             in: 'body',
-            description: 'The new sidebar data to be added',
+            description: 'The new automation data to be added',
             required: true,
             schema: {$ref: '#/components/schemas/AutomationCreateEntities'}
         }
@@ -52,19 +47,14 @@ export const AutomationRouter = (router: any) => {
       /*  #swagger.auto = false
 
         #swagger.tags = ['Automation']
-        #swagger.summary = 'Get all sidebar'
+        #swagger.summary = 'Get all automation'
         #swagger.description = 'Fetch all automations.'
         #swagger.path = '/v1/automations'
         #swagger.method = 'get'
         #swagger.produces = ['application/json']
-        #swagger.parameters['Authorization'] = {
-            in: 'header',
-            description: 'Bearer token',
-            required: true,
-            type: 'string'
-        }
+        #swagger.security = [{ "bearerAuth": [] }]
         #swagger.responses[200] = {
-            description: "Get sidebar successful",
+            description: "Get automation successful",
             schema: {
                 status: "string",
                 message: "string",
@@ -83,26 +73,21 @@ export const AutomationRouter = (router: any) => {
       /*  #swagger.auto = false
 
         #swagger.tags = ['Automation']
-        #swagger.summary = 'Get sidebar by ID'
-        #swagger.description = 'Fetch sidebar by ID.'
-        #swagger.path = '/v1/automations/:id'
+        #swagger.summary = 'Get automation by ID'
+        #swagger.description = 'Fetch automation by ID.'
+        #swagger.path = '/v1/automations/{id}'
         #swagger.method = 'get'
         #swagger.produces = ['application/json']
-        #swagger.parameters['Authorization'] = {
-            in: 'header',
-            description: 'Bearer token',
-            required: true,
-            type: 'string'
-        }
+        #swagger.security = [{ "bearerAuth": [] }]
         #swagger.parameters['id'] = {
-            in: 'query',
+            in: 'path',
             description: 'Automation ID',
             required: true,
             type: 'string'
         }
 
         #swagger.responses[200] = {
-            description: "Get sidebar successful",
+            description: "Get automation successful",
             schema: {
                 status: "string",
                 message: "string",
@@ -120,32 +105,27 @@ export const AutomationRouter = (router: any) => {
       /*  #swagger.auto = false
 
         #swagger.tags = ['Automation']
-        #swagger.summary = 'Update sidebar of ID'
-        #swagger.description = 'Update sidebar of ID.'
-        #swagger.path = '/v1/automations/:id'
+        #swagger.summary = 'Update automation of ID'
+        #swagger.description = 'Update automation of ID.'
+        #swagger.path = '/v1/automations/{id}'
         #swagger.method = 'put'
         #swagger.consumes = ['application/json']
         #swagger.produces = ['application/json']
-        #swagger.parameters['Authorization'] = {
-            in: 'header',
-            description: 'Bearer token',
-            required: true,
-            type: 'string'
-        }
+        #swagger.security = [{ "bearerAuth": [] }]
         #swagger.parameters['id'] = {
-            in: 'query',
+            in: 'path',
             description: 'Automation ID',
             required: true,
             type: 'string'
         }
         #swagger.parameters['body'] = {
             in: 'body',
-            description: 'The new data for sidebar',
+            description: 'The new data for automation',
             required: true,
             schema: {$ref: '#/components/schemas/AutomationCreateEntities'}
         }
         #swagger.responses[200] = {
-            description: "Update sidebar successful",
+            description: "Update automation successful",
             schema: {
                 status: "string",
                 message: "string",
@@ -163,26 +143,21 @@ export const AutomationRouter = (router: any) => {
       /*  #swagger.auto = false
 
         #swagger.tags = ['Automation']
-        #swagger.summary = 'Delete sidebar by ID'
-        #swagger.description = 'Delete sidebar by ID.'
-        #swagger.path = '/v1/automations/:id'
+        #swagger.summary = 'Delete automation by ID'
+        #swagger.description = 'Delete automation by ID.'
+        #swagger.path = '/v1/automations/{id}'
         #swagger.method = 'delete'
         #swagger.produces = ['application/json']
         #swagger.parameters['id'] = {
-            in: 'query',
+            in: 'path',
             description: 'Automation ID',
             required: true,
             type: 'string'
         }
-        #swagger.parameters['Authorization'] = {
-          in: 'header',
-          description: 'Bearer token',
-          required: true,
-          type: 'string'
-        }
+        #swagger.security = [{ "bearerAuth": [] }]
 
         #swagger.responses[200] = {
-            description: "Delete sidebar successful",
+            description: "Delete automation successful",
             schema: {
                 status: "string",
                 message: "string",

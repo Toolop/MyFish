@@ -17,7 +17,7 @@ export const AutomationController = (repository: any) => {
       const result = await AddAutomationUseCase(data, repository);
       res.status(201).json({
         status: "success",
-        message: "create company successful",
+        message: "create automation successful",
         data: result,
       });
     } catch (err) {
@@ -38,7 +38,7 @@ export const AutomationController = (repository: any) => {
       const response = await GetAutomationUseCase(query, repository);
       res.status(200).json({
         status: "success",
-        message: "get company successful",
+        message: "get automation successful",
         data: response?.data,
         paging: response?.paging,
       });
@@ -56,7 +56,7 @@ export const AutomationController = (repository: any) => {
       const result = await AutomationDetailUsecase(parseInt(id), repository);
       res.status(200).json({
         status: "success",
-        message: "get detail company successful",
+        message: "get detail automation successful",
         data: result,
       });
     } catch (err) {
@@ -78,7 +78,7 @@ export const AutomationController = (repository: any) => {
       );
       res.status(200).json({
         status: "success",
-        message: "update company successful",
+        message: "update automation successful",
         data: result,
       });
     } catch (err) {
@@ -95,7 +95,7 @@ export const AutomationController = (repository: any) => {
       const result = await AutomationDeleteUsecase(parseInt(id), repository);
       res.status(200).json({
         status: "success",
-        message: "delete company successful",
+        message: "delete automation successful",
         data: result,
       });
     } catch (err) {

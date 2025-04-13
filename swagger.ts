@@ -8,23 +8,47 @@ const schemas = JSON.parse(
 );
 
 const doc = {
+  swagger: "2.0", // ✅ Use this for swagger-autogen (NOT openapi)
   info: {
-    title: "myFish Api",
-    description: "Description",
+    title: "myFish API",
+    description:
+      "API documentation for myFish platform – powered by AgriciaTech.",
+    version: "1.0.0",
+    contact: {
+      name: "Support Team",
+      email: "support@agriciatech.com",
+      url: "https://agriciatech.com",
+    },
+    license: {
+      name: "MIT",
+      url: "https://opensource.org/licenses/MIT",
+    },
   },
-  servers: [
-    {
-      url: `https://myfish.agriciatech.com`,
-      description: "main server",
-    },
-    {
-      url: `http://localhost:3001/v1`,
-      description: "local server",
-    },
-  ],
+  host: "localhost:3000", // ✅ use host + basePath in Swagger 2.0
+  schemes: ["http", "https"],
   components: {
     schemas: schemas.definitions,
   },
+  securityDefinitions: {
+    bearerAuth: {
+      type: "apiKey",
+      name: "Authorization",
+      in: "header",
+      description:
+        "Enter your bearer token in the format **Bearer &lt;token>**",
+    },
+  },
+  security: [
+    {
+      bearerAuth: [],
+    },
+  ],
+  tags: [
+    { name: "Auth", description: "Authentication routes" },
+    { name: "Users", description: "User management" },
+    { name: "Farms", description: "Fish farm operations" },
+    // Add more tags if needed
+  ],
 };
 
 const outputFile = "./swagger-output.json";

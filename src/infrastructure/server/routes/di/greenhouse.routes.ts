@@ -9,6 +9,7 @@ export const GreenhouseRouter = (router: any) => {
 
   router.post(
     "/greenhouses",
+    authenticateToken,
     (req: Request, res: Response, next: NextFunction) => {
       /*  #swagger.auto = false
 
@@ -19,6 +20,7 @@ export const GreenhouseRouter = (router: any) => {
         #swagger.method = 'post'
         #swagger.consumes = ['application/json']
         #swagger.produces = ['application/json']
+        #swagger.security = [{ "bearerAuth": [] }]
 
         #swagger.parameters['body'] = {
             in: 'body',
@@ -40,6 +42,7 @@ export const GreenhouseRouter = (router: any) => {
   );
   router.get(
     "/greenhouses",
+    authenticateToken,
     (req: Request, res: Response, next: NextFunction) => {
       /*  #swagger.auto = false
 
@@ -49,6 +52,7 @@ export const GreenhouseRouter = (router: any) => {
         #swagger.path = '/v1/greenhouses'
         #swagger.method = 'get'
         #swagger.produces = ['application/json']
+        #swagger.security = [{ "bearerAuth": [] }]
 
         #swagger.responses[200] = {
             description: "Get greenhouses successful",
@@ -76,12 +80,7 @@ export const GreenhouseRouter = (router: any) => {
         #swagger.path = '/v1/greenhouse'
         #swagger.method = 'get'
         #swagger.produces = ['application/json']
-        #swagger.parameters['Authorization'] = {
-            in: 'header',
-            description: 'Bearer token',
-            required: true,
-            type: 'string'
-        }
+        #swagger.security = [{ "bearerAuth": [] }]
 
         #swagger.responses[200] = {
             description: "Get greenhouse successful",
@@ -97,17 +96,19 @@ export const GreenhouseRouter = (router: any) => {
   );
   router.get(
     "/greenhouses/:id",
+    authenticateToken,
     (req: Request, res: Response, next: NextFunction) => {
       /*  #swagger.auto = false
 
         #swagger.tags = ['greenhouses']
         #swagger.summary = 'Get greenhouse by ID'
         #swagger.description = 'Fetch greenhouse by ID.'
-        #swagger.path = '/v1/greenhouses/:id'
+        #swagger.path = '/v1/greenhouses/{id}'
         #swagger.method = 'get'
         #swagger.produces = ['application/json']
+        #swagger.security = [{ "bearerAuth": [] }]
         #swagger.parameters['id'] = {
-            in: 'query',
+            in: 'path',
             description: 'Greenhouse ID',
             required: true,
             type: 'string'
@@ -127,18 +128,20 @@ export const GreenhouseRouter = (router: any) => {
   );
   router.put(
     "/greenhouses/:id",
+    authenticateToken,
     (req: Request, res: Response, next: NextFunction) => {
       /*  #swagger.auto = false
 
         #swagger.tags = ['greenhouses']
         #swagger.summary = 'Update greenhouse of ID'
         #swagger.description = 'Update greenhouse of ID.'
-        #swagger.path = '/v1/greenhouses/:id'
+        #swagger.path = '/v1/greenhouses/{id}'
         #swagger.method = 'put'
         #swagger.consumes = ['application/json']
         #swagger.produces = ['application/json']
+        #swagger.security = [{ "bearerAuth": [] }]
         #swagger.parameters['id'] = {
-            in: 'query',
+            in: 'path',
             description: 'Greenhouse ID',
             required: true,
             type: 'string'
@@ -163,17 +166,19 @@ export const GreenhouseRouter = (router: any) => {
   );
   router.delete(
     "/greenhouses/:id",
+    authenticateToken,
     (req: Request, res: Response, next: NextFunction) => {
       /*  #swagger.auto = false
 
         #swagger.tags = ['greenhouses']
         #swagger.summary = 'Delete greenhouse by ID'
         #swagger.description = 'Delete greenhouse by ID.'
-        #swagger.path = '/v1/greenhouses/:id'
+        #swagger.path = '/v1/greenhouses/{id}'
         #swagger.method = 'delete'
         #swagger.produces = ['application/json']
+        #swagger.security = [{ "bearerAuth": [] }]
         #swagger.parameters['id'] = {
-            in: 'query',
+            in: 'path',
             description: 'Greenhouse ID',
             required: true,
             type: 'string'

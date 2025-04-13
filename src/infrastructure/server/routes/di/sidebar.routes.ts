@@ -9,6 +9,8 @@ export const SidebarRouter = (router: any) => {
 
   router.post(
     "/sidebars",
+    authenticateToken,
+
     (req: Request, res: Response, next: NextFunction) => {
       /*  #swagger.auto = false
 
@@ -38,8 +40,11 @@ export const SidebarRouter = (router: any) => {
       controllers.createSidebar(req, res, next);
     }
   );
-  router.get("/sidebars", (req: Request, res: Response, next: NextFunction) => {
-    /*  #swagger.auto = false
+  router.get(
+    "/sidebars",
+    authenticateToken,
+    (req: Request, res: Response, next: NextFunction) => {
+      /*  #swagger.auto = false
 
         #swagger.tags = ['Sidebars']
         #swagger.summary = 'Get all sidebar'
@@ -57,8 +62,9 @@ export const SidebarRouter = (router: any) => {
             }
         }
     */
-    controllers.getSidebars(req, res, next);
-  });
+      controllers.getSidebars(req, res, next);
+    }
+  );
   router.get(
     "/sidebar",
     authenticateToken,
@@ -71,12 +77,7 @@ export const SidebarRouter = (router: any) => {
         #swagger.path = '/v1/sidebar'
         #swagger.method = 'get'
         #swagger.produces = ['application/json']
-        #swagger.parameters['Authorization'] = {
-            in: 'header',
-            description: 'Bearer token',
-            required: true,
-            type: 'string'
-        }
+        #swagger.security = [{ "bearerAuth": [] }]
 
         #swagger.responses[200] = {
             description: "Get sidebar successful",
@@ -92,17 +93,18 @@ export const SidebarRouter = (router: any) => {
   );
   router.get(
     "/sidebars/:id",
+    authenticateToken,
     (req: Request, res: Response, next: NextFunction) => {
       /*  #swagger.auto = false
 
         #swagger.tags = ['Sidebars']
         #swagger.summary = 'Get sidebar by ID'
         #swagger.description = 'Fetch sidebar by ID.'
-        #swagger.path = '/v1/sidebars/:id'
+        #swagger.path = '/v1/sidebars/{id}'
         #swagger.method = 'get'
         #swagger.produces = ['application/json']
         #swagger.parameters['id'] = {
-            in: 'query',
+            in: 'path',
             description: 'Sidebar ID',
             required: true,
             type: 'string'
@@ -122,18 +124,19 @@ export const SidebarRouter = (router: any) => {
   );
   router.put(
     "/sidebars/:id",
+    authenticateToken,
     (req: Request, res: Response, next: NextFunction) => {
       /*  #swagger.auto = false
 
         #swagger.tags = ['Sidebars']
         #swagger.summary = 'Update sidebar of ID'
         #swagger.description = 'Update sidebar of ID.'
-        #swagger.path = '/v1/sidebars/:id'
+        #swagger.path = '/v1/sidebars/{id}'
         #swagger.method = 'put'
         #swagger.consumes = ['application/json']
         #swagger.produces = ['application/json']
         #swagger.parameters['id'] = {
-            in: 'query',
+            in: 'path',
             description: 'Sidebar ID',
             required: true,
             type: 'string'
@@ -159,17 +162,18 @@ export const SidebarRouter = (router: any) => {
   );
   router.delete(
     "/sidebars/:id",
+    authenticateToken,
     (req: Request, res: Response, next: NextFunction) => {
       /*  #swagger.auto = false
 
         #swagger.tags = ['Sidebars']
         #swagger.summary = 'Delete sidebar by ID'
         #swagger.description = 'Delete sidebar by ID.'
-        #swagger.path = '/v1/sidebars/:id'
+        #swagger.path = '/v1/sidebars/{id}'
         #swagger.method = 'delete'
         #swagger.produces = ['application/json']
         #swagger.parameters['id'] = {
-            in: 'query',
+            in: 'path',
             description: 'Sidebar ID',
             required: true,
             type: 'string'

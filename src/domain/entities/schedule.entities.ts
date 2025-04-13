@@ -25,4 +25,7 @@ export interface ScheduleCreateEntities {
   actuatorId: number;
 }
 
-export interface ScheduleQueryEntities extends QueryEntities {}
+export interface ScheduleQueryEntities extends QueryEntities {
+  actuatorId?: number;
+  statusSchedule?: number;
+}
