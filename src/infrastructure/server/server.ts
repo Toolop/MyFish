@@ -16,25 +16,26 @@ export const Server = async () => {
     const app: Express = express();
     const router = express.Router();
     const port = process.env.PORT || 3001;
+    app.use(cors());
 
-    app.use(
-      cors({
-        origin: "*",
-        allowedHeaders: [
-          "Accept-Version",
-          "Authorization",
-          "Credentials",
-          "Content-Type",
-        ],
-      })
-    );
+    // app.use(
+    //   cors({
+    //     origin: "*",
+    //     allowedHeaders: [
+    //       "Accept-Version",
+    //       "Authorization",
+    //       "Credentials",
+    //       "Content-Type",
+    //     ],
+    //   })
+    // );
 
-    // Matikan CORP dari helmet atau pastikan cocok
-    app.use(
-      helmet({
-        crossOriginResourcePolicy: false, // atau jangan pakai fitur ini
-      })
-    );
+    // // Matikan CORP dari helmet atau pastikan cocok
+    // app.use(
+    //   helmet({
+    //     crossOriginResourcePolicy: false, // atau jangan pakai fitur ini
+    //   })
+    // );
     app.use((req, res, next) => {
       res.setHeader(
         "Access-Control-Allow-Methods",
