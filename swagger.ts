@@ -24,7 +24,7 @@ const doc = {
       url: "https://opensource.org/licenses/MIT",
     },
   },
-  host: "localhost:3000", // ✅ use host + basePath in Swagger 2.0
+  host: "myfish.agiricatech.com", // ✅ use host + basePath in Swagger 2.0
   schemes: ["http", "https"],
   components: {
     schemas: schemas.definitions,
