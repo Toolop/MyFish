@@ -52,7 +52,30 @@ export const SidebarRouter = (router: any) => {
         #swagger.path = '/v1/sidebars'
         #swagger.method = 'get'
         #swagger.produces = ['application/json']
-
+        #swagger.parameters['page'] = {
+            in: 'query',
+            description: 'paging data',
+            required: false,
+            schema: {
+                $ref: '#/components/schemas/UserQueryEntities'
+            }
+        }
+        #swagger.parameters['limit'] = {
+            in: 'query',
+            description: 'limit data',
+            required: false,
+            schema: {
+                $ref: '#/components/schemas/UserQueryEntities'
+            }
+        }
+        #swagger.parameters['search'] = {
+            in: 'query',
+            description: 'filtering sidebar',
+            required: false,
+            schema: {
+                $ref: '#/components/schemas/UserQueryEntities'
+            }
+        }
         #swagger.responses[200] = {
             description: "Get sidebar successful",
             schema: {

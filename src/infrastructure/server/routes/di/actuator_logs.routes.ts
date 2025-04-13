@@ -52,6 +52,38 @@ export const ActuatorLogsRouter = (router: any) => {
         #swagger.method = 'get'
         #swagger.produces = ['application/json']
         #swagger.security = [{ "bearerAuth": [] }]
+        #swagger.parameters['page'] = {
+            in: 'query',
+            description: 'paging data',
+            required: false,
+            schema: {
+                $ref: '#/components/schemas/UserQueryEntities'
+            }
+        }
+        #swagger.parameters['limit'] = {
+            in: 'query',
+            description: 'limit data',
+            required: false,
+            schema: {
+                $ref: '#/components/schemas/UserQueryEntities'
+            }
+        }
+        #swagger.parameters['search'] = {
+            in: 'query',
+            description: 'filtering actuator logs',
+            required: false,
+            schema: {
+                $ref: '#/components/schemas/UserQueryEntities'
+            }
+        }
+        #swagger.parameters['actuatorId'] = {
+            in: 'query',
+            description: 'filtering type actuatorId',
+            required: false,
+            schema: {
+                $ref: '#/components/schemas/UserQueryEntities'
+            }
+        }
         #swagger.responses[200] = {
             description: "Get actuator logs successful",
             schema: {

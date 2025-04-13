@@ -53,6 +53,30 @@ export const RoleRouter = (router: any) => {
         #swagger.method = 'get'
         #swagger.produces = ['application/json']
         #swagger.security = [{ "bearerAuth": [] }]
+        #swagger.parameters['page'] = {
+            in: 'query',
+            description: 'paging data',
+            required: false,
+            schema: {
+                $ref: '#/components/schemas/UserQueryEntities'
+            }
+        }
+        #swagger.parameters['limit'] = {
+            in: 'query',
+            description: 'limit data',
+            required: false,
+            schema: {
+                $ref: '#/components/schemas/UserQueryEntities'
+            }
+        }
+        #swagger.parameters['search'] = {
+            in: 'query',
+            description: 'filtering role',
+            required: false,
+            schema: {
+                $ref: '#/components/schemas/UserQueryEntities'
+            }
+        }
 
         #swagger.responses[200] = {
             description: "Get roles successful",
