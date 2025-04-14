@@ -320,6 +320,12 @@
                         "string"
                     ]
                 },
+                "locationId": {
+                    "type": [
+                        "null",
+                        "number"
+                    ]
+                },
                 "name": {
                     "type": "string"
                 }
@@ -340,6 +346,12 @@
                 },
                 "id": {
                     "type": "number"
+                },
+                "locationId": {
+                    "type": [
+                        "null",
+                        "number"
+                    ]
                 },
                 "name": {
                     "type": "string"
@@ -382,6 +394,12 @@
                 "city": {
                     "type": "string"
                 },
+                "companyId": {
+                    "type": [
+                        "null",
+                        "number"
+                    ]
+                },
                 "latitude": {
                     "type": "number"
                 },
@@ -401,6 +419,12 @@
                 },
                 "city": {
                     "type": "string"
+                },
+                "companyId": {
+                    "type": [
+                        "null",
+                        "number"
+                    ]
                 },
                 "createdAt": {
                     "format": "date-time",
@@ -1214,12 +1238,6 @@
                     ]
                 },
                 "status": {
-                    "type": [
-                        "null",
-                        "number"
-                    ]
-                },
-                "unitId": {
                     "type": [
                         "null",
                         "number"

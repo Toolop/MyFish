@@ -94,6 +94,7 @@ model Company {
 model Location {
   id         Int          @id @default(autoincrement())
   name       String       @db.VarChar(100)
+  provinces  String       @db.VarChar(100)
   city       String       @db.VarChar(100)
   address    String       @db.VarChar(500)
   latitude   Float

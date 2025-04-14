@@ -46,7 +46,6 @@ const doc = {
   tags: [
     { name: "Auth", description: "Authentication routes" },
     { name: "Users", description: "User management" },
-    { name: "Farms", description: "Fish farm operations" },
     // Add more tags if needed
   ],
 };
