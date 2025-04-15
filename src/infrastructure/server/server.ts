@@ -17,7 +17,6 @@ export const Server = async () => {
     const router = express.Router();
     const port = process.env.PORT || 3001;
     app.use(cors());
-
     // app.use(
     //   cors({
     //     origin: "*",
@@ -47,12 +46,12 @@ export const Server = async () => {
       );
       next();
     });
+
     app.use(express.json({ limit: "10MB" }));
     app.use(express.urlencoded({ extended: true }));
     app.use(bodyParser.urlencoded({ extended: true }));
 
     app.use("/uploads", express.static("uploads"));
-
     app.use(express.json());
     app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
     app.use(cookieparser());
