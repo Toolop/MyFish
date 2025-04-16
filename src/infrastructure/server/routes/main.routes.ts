@@ -1,3 +1,4 @@
+import { ActuatorRouter } from "./di/actuator.routes";
 import { ActuatorLogsRouter } from "./di/actuator_logs.routes";
 import { AuthRouter } from "./di/auth.routes";
 import { AutomationRouter } from "./di/automation.routes";
@@ -34,6 +35,8 @@ const MainRoute = (app: any, route: any) => {
   app.use("/v1", ThingsLogRouter(route));
   app.use("/v1", SensorDataRouter(route));
   app.use("/v1", GreenhouseRouter(route));
+  app.use("/v1", ActuatorLogsRouter(route));
+  app.use("/v1", ActuatorRouter(route));
 
   app.use("*", function (req: any, res: any) {
     res.status(404).json({ status: "failed", message: "api not found" });

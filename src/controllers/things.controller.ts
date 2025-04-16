@@ -31,6 +31,10 @@ export const ThingsController = (repository: any) => {
         page: parseInt(req.query.page as string) || undefined,
         limit: parseInt(req.query.limit as string) || undefined,
         search: req.query.search as string,
+        greenhouseId:
+          (req.query.greenhouseId &&
+            parseInt(req.query.greenhouseId as string)) ||
+          undefined,
       };
       const response = await GetThingsUseCase(query, repository);
       res.status(200).json({

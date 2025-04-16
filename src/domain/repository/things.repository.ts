@@ -20,12 +20,17 @@ export interface ThingsRepository {
 }
 
 export class ThingsRepositoryImpl implements ThingsRepository {
-  async getAll(query: any): Promise<ThingsEntities[]> {
+  async getAll(query: ThingsQueryEntities): Promise<ThingsEntities[]> {
     const result = await prisma.things.findMany({
+      include: {
+        Actuator: true,
+        Sensor: true,
+      },
       where: {
         name: {
           contains: query.search,
         },
+        greenhouseId: query.greenhouseId,
       },
       ...(query.page && query.page != 0 && query.limit && query.limit != 0
         ? {
@@ -36,7 +41,6 @@ export class ThingsRepositoryImpl implements ThingsRepository {
     });
     return result;
   }
-
   async findFirst(param: any): Promise<ThingsEntities | null> {
     const result = await prisma.things.findFirst({
       where: param,
@@ -75,12 +79,13 @@ export class ThingsRepositoryImpl implements ThingsRepository {
     return result;
   }
 
-  async count(query: any): Promise<number> {
+  async count(query: ThingsQueryEntities): Promise<number> {
     const result = await prisma.things.count({
       where: {
         name: {
           contains: query.search,
         },
+        greenhouseId: query.greenhouseId,
       },
     });
     return result;

@@ -19,4 +19,6 @@ export interface ThingsCreateEntities {
   greenhouseId?: number | null;
 }
 
-export interface ThingsQueryEntities extends QueryEntities {}
+export interface ThingsQueryEntities extends QueryEntities {
+  greenhouseId?: number;
+}

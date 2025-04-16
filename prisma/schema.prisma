@@ -130,7 +130,7 @@ model Things {
   updatedAt    DateTime    @updatedAt
   ThingsLog    ThingsLog[]
   Actuator     Actuator[]
-  Sennsor      Sensor[]
+  Sensor       Sensor[]
   type         String
   isSeperate   Boolean     @default(true)
   Greenhouse   Greenhouse? @relation(fields: [greenhouseId], references: [id], onUpdate: Cascade, onDelete: Cascade)
