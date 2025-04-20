@@ -39,7 +39,7 @@ export const SignJWTService = (user: UserEntities) => {
     { username: user.username, email: user.email },
     secret,
     {
-      expiresIn: "15m",
+      expiresIn: "365d",
     }
   );
   return result;
