@@ -7,15 +7,15 @@ export const SensorDataRouter = (router: any) => {
   const controllers = SensorDataController();
 
   router.get(
-    "/sensor_data",
+    "/sensor-data",
     authenticateToken,
     (req: Request, res: Response, next: NextFunction) => {
       /*  #swagger.auto = false
 
         #swagger.tags = ['SensorData']
         #swagger.summary = 'Get all sensor data'
-        #swagger.description = 'Fetch all sensor_data.'
-        #swagger.path = '/v1/sensor_data'
+        #swagger.description = 'Fetch all sensor-data.'
+        #swagger.path = '/v1/sensor-data'
         #swagger.method = 'get'
         #swagger.produces = ['application/json']
         #swagger.security = [{ "bearerAuth": [] }]
@@ -33,7 +33,7 @@ export const SensorDataRouter = (router: any) => {
   );
 
   router.get(
-    "/sensor_data/:id",
+    "/sensor-data/:id",
     authenticateToken,
     (req: Request, res: Response, next: NextFunction) => {
       /*  #swagger.auto = false
@@ -41,7 +41,7 @@ export const SensorDataRouter = (router: any) => {
         #swagger.tags = ['SensorData']
         #swagger.summary = 'Get sensor data by ID'
         #swagger.description = 'Fetch sensor data by ID.'
-        #swagger.path = '/v1/sensor_data/{id}'
+        #swagger.path = '/v1/sensor-data/{id}'
         #swagger.method = 'get'
         #swagger.produces = ['application/json']
         #swagger.security = [{ "bearerAuth": [] }]
