@@ -15,4 +15,6 @@ export interface GreenhouseCreateEntities {
   locationId?: number | null;
 }
 
-export interface GreenhouseQueryEntities extends QueryEntities {}
+export interface GreenhouseQueryEntities extends QueryEntities {
+  locationId?: number | null;
+}

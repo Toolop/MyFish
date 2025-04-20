@@ -28,6 +28,7 @@ export class GreenhouseRepositoryImpl implements GreenhouseRepository {
         name: {
           contains: query.search,
         },
+        locationId: query.locationId,
       },
       ...(query.page && query.page != 0 && query.limit && query.limit != 0
         ? {
@@ -82,6 +83,7 @@ export class GreenhouseRepositoryImpl implements GreenhouseRepository {
         name: {
           contains: query.search,
         },
+        locationId: query.locationId,
       },
     });
     return result;

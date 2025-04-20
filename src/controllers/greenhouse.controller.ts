@@ -35,6 +35,9 @@ export const GreenhouseController = (repository: any) => {
         page: parseInt(req.query.page as string) || undefined,
         limit: parseInt(req.query.limit as string) || undefined,
         search: req.query.search as string,
+        locationId:
+          (req.query.locationId && parseInt(req.query.locationId as string)) ||
+          undefined,
       };
       const response = await GetGreenhouseUseCase(query, repository);
       res.status(200).json({
