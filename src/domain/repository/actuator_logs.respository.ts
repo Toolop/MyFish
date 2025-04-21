@@ -31,6 +31,9 @@ export class ActuatorLogRepositoryImpl implements ActuatorLogRepository {
             take: query.limit,
           }
         : {}),
+      orderBy: {
+        createdAt: "desc",
+      },
     });
     return result;
   }

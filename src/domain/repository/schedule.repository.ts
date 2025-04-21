@@ -34,6 +34,9 @@ export class ScheduleRepositoryImpl implements ScheduleRepository {
             take: query.limit,
           }
         : {}),
+      orderBy: {
+        createdAt: "desc",
+      },
     });
     return result;
   }

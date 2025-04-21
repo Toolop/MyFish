@@ -33,6 +33,9 @@ export class CompanyRepositoryImpl implements CompanyRepository {
             take: query.limit,
           }
         : {}),
+      orderBy: {
+        createdAt: "desc",
+      },
     });
     return result;
   }

@@ -33,6 +33,9 @@ export class ActuatorRepositoryImpl implements ActuatorRepository {
             take: query.limit,
           }
         : {}),
+      orderBy: {
+        createdAt: "desc",
+      },
     });
     return result as ActuatorEntities[];
   }

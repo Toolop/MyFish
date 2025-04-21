@@ -36,6 +36,9 @@ export class GreenhouseRepositoryImpl implements GreenhouseRepository {
             take: query.limit,
           }
         : {}),
+      orderBy: {
+        createdAt: "desc",
+      },
     });
     return result;
   }

@@ -35,6 +35,9 @@ export class LocationRepositoryImpl implements LocationRepository {
             take: query.limit,
           }
         : {}),
+      orderBy: {
+        createdAt: "desc",
+      },
     });
     return result;
   }

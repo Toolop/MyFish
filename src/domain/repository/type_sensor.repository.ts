@@ -35,6 +35,9 @@ export class TypeSensorRepositoryImpl implements TypeSensorRepository {
             take: query.limit,
           }
         : {}),
+      orderBy: {
+        id: "desc",
+      },
     });
     return result;
   }

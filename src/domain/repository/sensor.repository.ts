@@ -33,6 +33,9 @@ export class SensorRepositoryImpl implements SensorRepository {
             take: query.limit,
           }
         : {}),
+      orderBy: {
+        createdAt: "desc",
+      },
     });
     return result as SensorEntities[];
   }

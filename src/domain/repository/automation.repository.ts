@@ -32,6 +32,9 @@ export class AutomationRepositoryImpl implements AutomationRepository {
             take: query.limit,
           }
         : {}),
+      orderBy: {
+        createdAt: "desc",
+      },
     });
     return result;
   }

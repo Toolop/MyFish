@@ -24,7 +24,11 @@ export class ThingsRepositoryImpl implements ThingsRepository {
     const result = await prisma.things.findMany({
       include: {
         Actuator: true,
-        Sensor: true,
+        Sensor: {
+          include: {
+            typeSensor: true,
+          },
+        },
       },
       where: {
         name: {
@@ -38,6 +42,9 @@ export class ThingsRepositoryImpl implements ThingsRepository {
             take: query.limit,
           }
         : {}),
+      orderBy: {
+        createdAt: "desc",
+      },
     });
     return result;
   }
