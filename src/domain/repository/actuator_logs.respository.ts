@@ -24,7 +24,9 @@ export class ActuatorLogRepositoryImpl implements ActuatorLogRepository {
     query: ActuatorLogsQueryEntities
   ): Promise<ActuatorLogsEntities[]> {
     const result = await prisma.actuatorLog.findMany({
-      where: {},
+      where: {
+        actuatorId: query.actuatorId,
+      },
       ...(query.page && query.page != 0 && query.limit && query.limit != 0
         ? {
             skip: (query.page - 1) * query.limit,
