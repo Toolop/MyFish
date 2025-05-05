@@ -5,6 +5,7 @@ import { ThingsLogDetailUsecase } from "../domain/usecase/things_log/get_detail_
 import { UpdateThingsLogUseCase } from "../domain/usecase/things_log/update_usecase";
 import { ThingsLogDeleteUsecase } from "../domain/usecase/things_log/delete_usecase";
 import { ThingsLogQueryEntities } from "../domain/entities/things_logs.entities";
+import DataListThings from "../core/data/things.data";
 
 export const ThingsLogController = (repository: any) => {
   const createThingsLog = async (
@@ -24,7 +25,7 @@ export const ThingsLogController = (repository: any) => {
       next(err);
     }
   };
-  const getThingsLog = async (
+  const getThingsLogDB = async (
     req: Request,
     res: Response,
     next: NextFunction
@@ -46,7 +47,7 @@ export const ThingsLogController = (repository: any) => {
       next(err);
     }
   };
-  const getThingsLogDetail = async (
+  const getThingsLogDetailDB = async (
     req: Request,
     res: Response,
     next: NextFunction
@@ -57,6 +58,40 @@ export const ThingsLogController = (repository: any) => {
       res.status(200).json({
         status: "success",
         message: "get detail location successful",
+        data: result,
+      });
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  const getThingsLogDetail = async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ) => {
+    try {
+      const { id } = req.params;
+      const result = DataListThings[parseInt(id)];
+      res.status(200).json({
+        status: "success",
+        message: "get detail things data successful",
+        data: result,
+      });
+    } catch (err) {
+      next(err);
+    }
+  };
+  const getThingsLog = async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ) => {
+    try {
+      const result = DataListThings;
+      res.status(200).json({
+        status: "success",
+        message: "get detail things data successful",
         data: result,
       });
     } catch (err) {
@@ -106,6 +141,8 @@ export const ThingsLogController = (repository: any) => {
   return {
     getThingsLog,
     getThingsLogDetail,
+    getThingsLogDetailDB,
+    getThingsLogDB,
     createThingsLog,
     updateThingsLog,
     deleteThingsLog,

@@ -16,7 +16,7 @@ export interface ThingsCreateEntities {
   icon?: string;
   type: string;
   isSeperate: boolean;
-  greenhouseId?: number | null;
+  greenhouseId: number;
 }
 
 export interface ThingsQueryEntities extends QueryEntities {

@@ -371,6 +371,12 @@
                 "limit": {
                     "type": "number"
                 },
+                "locationId": {
+                    "type": [
+                        "null",
+                        "number"
+                    ]
+                },
                 "page": {
                     "type": "number"
                 },
@@ -408,6 +414,9 @@
                 },
                 "name": {
                     "type": "string"
+                },
+                "provinces": {
+                    "type": "string"
                 }
             },
             "type": "object"
@@ -440,6 +449,9 @@
                     "type": "number"
                 },
                 "name": {
+                    "type": "string"
+                },
+                "provinces": {
                     "type": "string"
                 },
                 "updatedAt": {
@@ -875,7 +887,16 @@
         "SensorCreateEntities": {
             "properties": {
                 "calibration": {
-                    "type": "string"
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "color": {
+                    "type": [
+                        "null",
+                        "string"
+                    ]
                 },
                 "icon": {
                     "type": [
@@ -915,7 +936,16 @@
         "SensorEntities": {
             "properties": {
                 "calibration": {
-                    "type": "string"
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "color": {
+                    "type": [
+                        "null",
+                        "string"
+                    ]
                 },
                 "createdAt": {
                     "format": "date-time",
@@ -1030,10 +1060,7 @@
         "ThingsCreateEntities": {
             "properties": {
                 "greenhouseId": {
-                    "type": [
-                        "null",
-                        "number"
-                    ]
+                    "type": "number"
                 },
                 "icon": {
                     "type": "string"
@@ -1151,6 +1178,9 @@
         },
         "ThingsQueryEntities": {
             "properties": {
+                "greenhouseId": {
+                    "type": "number"
+                },
                 "isDelete": {
                     "type": "number"
                 },

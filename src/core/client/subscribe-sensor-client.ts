@@ -42,6 +42,7 @@ const subscribeSensor = async () => {
                 sensorId: getData[i].sensorId,
                 value: value,
                 status: getData[i].status,
+                createdAt: new Date(),
               };
               DataListSensor[getData[i].sensorId] = fix_sensor;
             } else if ((await getData[i].status) == "offline") {
@@ -49,6 +50,7 @@ const subscribeSensor = async () => {
                 sensorId: parseInt(getData[i].sensorId),
                 value: 0,
                 status: getData[i].status,
+                createdAt: new Date(),
               };
               DataListSensor[getData[i].sensorId] = fix_sensor;
             }

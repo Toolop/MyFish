@@ -8,7 +8,8 @@ export interface SensorEntities {
   typeSensorId: number;
   createdAt: Date;
   updatedAt: Date;
-  calibration: string;
+  calibration?: string | null;
+  color?: string | null;
 }
 
 export interface SensorCreateEntities {
@@ -16,7 +17,8 @@ export interface SensorCreateEntities {
   icon?: string | null;
   thingsId?: number | null;
   typeSensorId: number;
-  calibration: string;
+  calibration?: string | null;
+  color?: string | null;
 }
 
 export interface SensorQueryEntities extends QueryEntities {}

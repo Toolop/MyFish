@@ -133,8 +133,8 @@ model Things {
   Sensor       Sensor[]
   type         String
   isSeperate   Boolean     @default(true)
-  Greenhouse   Greenhouse? @relation(fields: [greenhouseId], references: [id], onUpdate: Cascade, onDelete: Cascade)
-  greenhouseId Int?
+  Greenhouse   Greenhouse  @relation(fields: [greenhouseId], references: [id], onUpdate: Cascade, onDelete: Cascade)
+  greenhouseId Int
 
   @@map("things")
 }
@@ -154,6 +154,7 @@ model Sensor {
   id           Int          @id @default(autoincrement())
   name         String       @db.VarChar(100)
   icon         String?      @db.VarChar(100)
+  color        String?      @db.VarChar(50)
   createdAt    DateTime     @default(now())
   updatedAt    DateTime     @updatedAt
   Things       Things?      @relation(fields: [thingsId], references: [id], onUpdate: Cascade, onDelete: Cascade)
@@ -161,7 +162,7 @@ model Sensor {
   Automation   Automation[]
   typeSensor   typeSensor?  @relation(fields: [typeSensorId], references: [id], onUpdate: Cascade, onDelete: Restrict)
   typeSensorId Int
-  calibration  String
+  calibration  String?
 
   @@map("sensors")
 }
