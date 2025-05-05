@@ -78,7 +78,9 @@ export class ActuatorLogRepositoryImpl implements ActuatorLogRepository {
 
   async count(query: any): Promise<number> {
     const result = await prisma.actuatorLog.count({
-      where: {},
+      where: {
+        actuatorId: query.actuatorId,
+      },
     });
     return result;
   }
