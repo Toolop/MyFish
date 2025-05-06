@@ -19,6 +19,9 @@
                         "string"
                     ]
                 },
+                "isAutomation": {
+                    "type": "boolean"
+                },
                 "name": {
                     "type": "string"
                 },
@@ -55,6 +58,9 @@
                 },
                 "id": {
                     "type": "number"
+                },
+                "isAutomation": {
+                    "type": "boolean"
                 },
                 "name": {
                     "type": "string"
@@ -921,6 +927,10 @@
         },
         "SensorDataEntities": {
             "properties": {
+                "createdAt": {
+                    "format": "date-time",
+                    "type": "string"
+                },
                 "sensorId": {
                     "type": "number"
                 },

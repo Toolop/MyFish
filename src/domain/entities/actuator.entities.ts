@@ -8,6 +8,7 @@ export interface ActuatorEntities {
   createdAt: Date;
   updatedAt: Date;
   thingsId?: number | null;
+  isAutomation: boolean;
 }
 
 export interface ActuatorCreateEntities {
@@ -17,6 +18,7 @@ export interface ActuatorCreateEntities {
   createdAt: Date;
   updatedAt: Date;
   thingsId: number | null;
+  isAutomation: boolean;
 }
 
 export interface ActuatorQueryEntities extends QueryEntities {}

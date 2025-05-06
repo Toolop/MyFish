@@ -174,17 +174,18 @@ model typeSensor {
 }
 
 model Actuator {
-  id          Int           @id @default(autoincrement())
-  name        String
-  createdAt   DateTime      @default(now())
-  updatedAt   DateTime      @updatedAt
-  icon        String?
-  color       String?
-  ActuatorLog ActuatorLog[]
-  Schedule    Schedule[]
-  Automation  Automation[]
-  Things      Things?       @relation(fields: [thingsId], references: [id], onUpdate: Cascade, onDelete: Cascade)
-  thingsId    Int?
+  id           Int           @id @default(autoincrement())
+  name         String
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  icon         String?
+  color        String?
+  isAutomation Boolean       @default(false)
+  ActuatorLog  ActuatorLog[]
+  Schedule     Schedule[]
+  Automation   Automation[]
+  Things       Things?       @relation(fields: [thingsId], references: [id], onUpdate: Cascade, onDelete: Cascade)
+  thingsId     Int?
 
   @@map("actuators")
 }
