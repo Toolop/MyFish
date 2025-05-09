@@ -24,6 +24,9 @@ export interface LocationRepository {
 export class LocationRepositoryImpl implements LocationRepository {
   async getAll(query: any): Promise<LocationEntities[]> {
     const result = await prisma.location.findMany({
+      include: {
+        Greenhouse: true,
+      },
       where: {
         name: {
           contains: query.search,
