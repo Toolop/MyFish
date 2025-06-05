@@ -10,6 +10,7 @@ services:
       - .:/usr/src/mymail
       - /usr/src/mymail/node_modules 
       - .env:/usr/src/mymail/.env
+      
     environment:
       - DB_HOST=${DB_HOST}
       - DB_USER=${DB_USER}
