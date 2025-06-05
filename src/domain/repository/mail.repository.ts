@@ -61,7 +61,7 @@ export class MailRepositoryImpl implements MailRepository {
   }
   async update(
     id: number,
-    Mail: MailCreateEntities
+    Mail: MailUpdateEntities
   ): Promise<MailEntities | null> {
     const result = await prisma.mail.update({
       where: {

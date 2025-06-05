@@ -9,7 +9,7 @@ export interface MailEntities {
   to: string;
   body: string;
   header: string;
-  photo: string;
+  photo?: string | null;
   createdAt: Date;
   updatedAt: Date;
   closing: string;
@@ -27,7 +27,7 @@ export interface MailCreateEntities {
   body: string;
   closing: string;
   header: string;
-  photo: string;
+  photo?: string | null;
   cardId?: number | undefined;
   envelopeId?: number | null;
   mascotId?: number | null;
