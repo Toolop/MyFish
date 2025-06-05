@@ -35,16 +35,15 @@ export const MailController = (repository: any) => {
         from: req.query.from as string,
         to: req.query.to as string,
       };
-      if (
-        req.query.search &&
-        ((req.query.search as string).toLowerCase().includes("tiara") ||
-          (req.query.search as string).toLowerCase().includes("rosa") ||
-          (req.query.search as string).toLowerCase().includes("oca") ||
-          (req.query.search as string).toLowerCase().includes("ocha") ||
-          (req.query.search as string).toLowerCase().includes("ara"))
-      ) {
-        query.search = undefined;
-      }
+      // if (
+      //   req.query.search &&
+      //   ((req.query.search as string).toLowerCase().includes("tiara") ||
+      //     (req.query.search as string).toLowerCase().includes("rosa") ||
+      //     (req.query.search as string).toLowerCase().includes("oca") ||
+      //     (req.query.search as string).toLowerCase().includes("ara"))
+      // ) {
+      //   req.query.search = "";
+      // }
       const response = await GetMailUseCase(query, repository);
       res.status(200).json({
         status: "success",
