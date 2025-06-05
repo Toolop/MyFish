@@ -52,11 +52,11 @@ model Mail {
   to         String    @db.VarChar(500)
   body       String    @db.VarChar(100000)
   header     String    @db.VarChar(100000)
-  photo      String?    @db.VarChar(500)
+  photo      String    @db.VarChar(500)
   createdAt  DateTime  @default(now())
   updatedAt  DateTime  @updatedAt
   closing    String    @db.VarChar(100000)
-  color      String    @db.VarChar(100) @default("red")
+  color      String    @default("red") @db.VarChar(100)
   Card       Card?     @relation(fields: [cardId], references: [id])
   cardId     Int?
   Envelope   Envelope? @relation(fields: [envelopeId], references: [id])

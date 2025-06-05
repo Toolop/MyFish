@@ -25,12 +25,12 @@ export interface MailCreateEntities {
   from: string;
   to: string;
   body: string;
+  closing: string;
   header: string;
   photo: string;
-  cardId?: number | null;
+  cardId?: number | undefined;
   envelopeId?: number | null;
   mascotId?: number | null;
-  closing: string;
   color?: string;
 }
 
