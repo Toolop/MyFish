@@ -48,11 +48,12 @@ model Mascot {
 
 model Mail {
   id         Int       @id @default(autoincrement())
-  from       String    @unique @db.VarChar(100)
+  from       String    @db.VarChar(100)
   to         String    @db.VarChar(500)
   body       String    @db.VarChar(100000)
   header     String    @db.VarChar(100000)
   photo      String?   @db.VarChar(500)
+  username   String?   @db.VarChar(100)
   createdAt  DateTime  @default(now())
   updatedAt  DateTime  @updatedAt
   closing    String    @db.VarChar(100000)
