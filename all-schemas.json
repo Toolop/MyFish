@@ -1,280 +1,28 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "definitions": {
-        "ActuatorCreateEntities": {
+        "CardCreateEntities": {
             "properties": {
                 "color": {
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "createdAt": {
-                    "format": "date-time",
                     "type": "string"
                 },
-                "icon": {
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "isAutomation": {
-                    "type": "boolean"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "thingsId": {
-                    "type": [
-                        "null",
-                        "number"
-                    ]
-                },
-                "updatedAt": {
-                    "format": "date-time",
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "ActuatorEntities": {
-            "properties": {
-                "color": {
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "createdAt": {
-                    "format": "date-time",
-                    "type": "string"
-                },
-                "icon": {
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "id": {
-                    "type": "number"
-                },
-                "isAutomation": {
-                    "type": "boolean"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "thingsId": {
-                    "type": [
-                        "null",
-                        "number"
-                    ]
-                },
-                "updatedAt": {
-                    "format": "date-time",
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "ActuatorLogRepository": {
-            "type": "object"
-        },
-        "ActuatorLogRepositoryImpl": {
-            "type": "object"
-        },
-        "ActuatorLogsCreateEntities": {
-            "properties": {
-                "actuatorId": {
-                    "type": [
-                        "null",
-                        "number"
-                    ]
-                },
-                "statusLifeCycle": {
-                    "type": "number"
-                }
-            },
-            "type": "object"
-        },
-        "ActuatorLogsEntities": {
-            "properties": {
-                "actuatorId": {
-                    "type": [
-                        "null",
-                        "number"
-                    ]
-                },
-                "createdAt": {
-                    "format": "date-time",
-                    "type": "string"
-                },
-                "id": {
-                    "type": "number"
-                },
-                "statusLifeCycle": {
-                    "type": "number"
-                },
-                "updatedAt": {
-                    "format": "date-time",
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "ActuatorLogsQueryEntities": {
-            "properties": {
-                "actuatorId": {
-                    "type": "number"
-                },
-                "isDelete": {
-                    "type": "number"
-                },
-                "limit": {
-                    "type": "number"
-                },
-                "page": {
-                    "type": "number"
-                },
-                "search": {
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "ActuatorQueryEntities": {
-            "properties": {
-                "isDelete": {
-                    "type": "number"
-                },
-                "limit": {
-                    "type": "number"
-                },
-                "page": {
-                    "type": "number"
-                },
-                "search": {
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "ActuatorRepository": {
-            "type": "object"
-        },
-        "ActuatorRepositoryImpl": {
-            "type": "object"
-        },
-        "AuthRepository": {
-            "type": "object"
-        },
-        "AuthRepositoryImpl": {
-            "type": "object"
-        },
-        "AutomationCreateEntities": {
-            "properties": {
-                "actutaorId": {
-                    "type": [
-                        "null",
-                        "number"
-                    ]
-                },
-                "condition": {
-                    "type": "string"
-                },
-                "constanta": {
-                    "type": "number"
-                },
-                "range": {
-                    "type": "number"
-                },
-                "sensorId": {
-                    "type": [
-                        "null",
-                        "number"
-                    ]
-                },
-                "status_lifecycle": {
-                    "type": "number"
-                }
-            },
-            "type": "object"
-        },
-        "AutomationEntities": {
-            "properties": {
-                "actutaorId": {
-                    "type": [
-                        "null",
-                        "number"
-                    ]
-                },
-                "condition": {
-                    "type": "string"
-                },
-                "constanta": {
-                    "type": "number"
-                },
-                "id": {
-                    "type": "number"
-                },
-                "range": {
-                    "type": "number"
-                },
-                "sensorId": {
-                    "type": [
-                        "null",
-                        "number"
-                    ]
-                },
-                "status_lifecycle": {
-                    "type": "number"
-                }
-            },
-            "type": "object"
-        },
-        "AutomationQueryEntities": {
-            "properties": {
-                "actuatorId": {
-                    "type": "number"
-                },
-                "isDelete": {
-                    "type": "number"
-                },
-                "limit": {
-                    "type": "number"
-                },
-                "page": {
-                    "type": "number"
-                },
-                "search": {
-                    "type": "string"
-                },
-                "sensorId": {
-                    "type": "number"
-                }
-            },
-            "type": "object"
-        },
-        "AutomationRepository": {
-            "type": "object"
-        },
-        "AutomationRepositoryImpl": {
-            "type": "object"
-        },
-        "CompanyCreateEntities": {
-            "properties": {
                 "logo": {
                     "type": "string"
                 },
                 "name": {
                     "type": "string"
+                },
+                "textColor": {
+                    "type": "string"
                 }
             },
             "type": "object"
         },
-        "CompanyEntities": {
+        "CardEntities": {
             "properties": {
+                "color": {
+                    "type": "string"
+                },
                 "createdAt": {
                     "format": "date-time",
                     "type": "string"
@@ -288,6 +36,9 @@
                 "name": {
                     "type": "string"
                 },
+                "textColor": {
+                    "type": "string"
+                },
                 "updatedAt": {
                     "format": "date-time",
                     "type": "string"
@@ -295,93 +46,36 @@
             },
             "type": "object"
         },
-        "CompanyQueryEntities": {
+        "CardParamEntities": {
             "properties": {
-                "isDelete": {
-                    "type": "number"
-                },
-                "limit": {
-                    "type": "number"
-                },
-                "page": {
-                    "type": "number"
-                },
-                "search": {
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "CompanyRepository": {
-            "type": "object"
-        },
-        "CompanyRepositoryImpl": {
-            "type": "object"
-        },
-        "GreenhouseCreateEntities": {
-            "properties": {
-                "deescription": {
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "locationId": {
-                    "type": [
-                        "null",
-                        "number"
-                    ]
-                },
-                "name": {
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "GreenhouseEntities": {
-            "properties": {
-                "createdAt": {
-                    "format": "date-time",
-                    "type": "string"
-                },
-                "deescription": {
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
                 "id": {
                     "type": "number"
                 },
-                "locationId": {
-                    "type": [
-                        "null",
-                        "number"
-                    ]
-                },
-                "name": {
+                "logo": {
                     "type": "string"
                 },
-                "updatedAt": {
-                    "format": "date-time",
+                "name": {
                     "type": "string"
                 }
             },
             "type": "object"
         },
-        "GreenhouseQueryEntities": {
+        "CardQueryEntities": {
             "properties": {
+                "id": {
+                    "type": "number"
+                },
                 "isDelete": {
                     "type": "number"
                 },
                 "limit": {
                     "type": "number"
                 },
-                "locationId": {
-                    "type": [
-                        "null",
-                        "number"
-                    ]
+                "logo": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
                 },
                 "page": {
                     "type": "number"
@@ -392,54 +86,50 @@
             },
             "type": "object"
         },
-        "GreenhouseRepository": {
+        "CardRepository": {
             "type": "object"
         },
-        "GreenhouseRepositoryImpl": {
+        "CardRepositoryImpl": {
             "type": "object"
         },
-        "LocationCreateEntities": {
+        "CardUpdateEntities": {
             "properties": {
-                "address": {
+                "color": {
                     "type": "string"
                 },
-                "city": {
+                "logo": {
                     "type": "string"
-                },
-                "companyId": {
-                    "type": [
-                        "null",
-                        "number"
-                    ]
-                },
-                "latitude": {
-                    "type": "number"
-                },
-                "longitude": {
-                    "type": "number"
                 },
                 "name": {
                     "type": "string"
                 },
-                "provinces": {
+                "textColor": {
                     "type": "string"
                 }
             },
             "type": "object"
         },
-        "LocationEntities": {
+        "EnvelopeCreateEntities": {
             "properties": {
-                "address": {
+                "color": {
                     "type": "string"
                 },
-                "city": {
+                "logo": {
                     "type": "string"
                 },
-                "companyId": {
-                    "type": [
-                        "null",
-                        "number"
-                    ]
+                "name": {
+                    "type": "string"
+                },
+                "textColor": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "EnvelopeEntities": {
+            "properties": {
+                "color": {
+                    "type": "string"
                 },
                 "createdAt": {
                     "format": "date-time",
@@ -448,16 +138,13 @@
                 "id": {
                     "type": "number"
                 },
-                "latitude": {
-                    "type": "number"
-                },
-                "longitude": {
-                    "type": "number"
+                "logo": {
+                    "type": "string"
                 },
                 "name": {
                     "type": "string"
                 },
-                "provinces": {
+                "textColor": {
                     "type": "string"
                 },
                 "updatedAt": {
@@ -467,8 +154,232 @@
             },
             "type": "object"
         },
-        "LocationQueryEntities": {
+        "EnvelopeParamEntities": {
             "properties": {
+                "color": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "number"
+                },
+                "logo": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "textColor": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "EnvelopeQueryEntities": {
+            "properties": {
+                "color": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "number"
+                },
+                "isDelete": {
+                    "type": "number"
+                },
+                "limit": {
+                    "type": "number"
+                },
+                "logo": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "page": {
+                    "type": "number"
+                },
+                "search": {
+                    "type": "string"
+                },
+                "textColor": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "EnvelopeRepository": {
+            "type": "object"
+        },
+        "EnvelopeRepositoryImpl": {
+            "type": "object"
+        },
+        "EnvelopeUpdateEntities": {
+            "properties": {
+                "color": {
+                    "type": "string"
+                },
+                "logo": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "textColor": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "MailCreateEntities": {
+            "properties": {
+                "body": {
+                    "type": "string"
+                },
+                "cardId": {
+                    "type": [
+                        "null",
+                        "number"
+                    ]
+                },
+                "closing": {
+                    "type": "string"
+                },
+                "envelopeId": {
+                    "type": [
+                        "null",
+                        "number"
+                    ]
+                },
+                "from": {
+                    "type": "string"
+                },
+                "header": {
+                    "type": "string"
+                },
+                "mascotId": {
+                    "type": [
+                        "null",
+                        "number"
+                    ]
+                },
+                "photo": {
+                    "type": "string"
+                },
+                "to": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "MailEntities": {
+            "properties": {
+                "Card": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/CardEntities"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "Envelope": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/EnvelopeEntities"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "Mascot": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/MascotEntities"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "body": {
+                    "type": "string"
+                },
+                "cardId": {
+                    "type": [
+                        "null",
+                        "number"
+                    ]
+                },
+                "closing": {
+                    "type": "string"
+                },
+                "createdAt": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "envelopeId": {
+                    "type": [
+                        "null",
+                        "number"
+                    ]
+                },
+                "from": {
+                    "type": "string"
+                },
+                "header": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "number"
+                },
+                "mascotId": {
+                    "type": [
+                        "null",
+                        "number"
+                    ]
+                },
+                "photo": {
+                    "type": "string"
+                },
+                "to": {
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "format": "date-time",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "MailParamEntities": {
+            "properties": {
+                "closing": {
+                    "type": "string"
+                },
+                "color": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "number"
+                },
+                "logo": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "textColor": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "MailQueryEntities": {
+            "properties": {
+                "from": {
+                    "type": "string"
+                },
                 "isDelete": {
                     "type": "number"
                 },
@@ -480,14 +391,178 @@
                 },
                 "search": {
                     "type": "string"
+                },
+                "to": {
+                    "type": "string"
                 }
             },
             "type": "object"
         },
-        "LocationRepository": {
+        "MailRepository": {
             "type": "object"
         },
-        "LocationRepositoryImpl": {
+        "MailRepositoryImpl": {
+            "type": "object"
+        },
+        "MailUpdateEntities": {
+            "properties": {
+                "body": {
+                    "type": "string"
+                },
+                "cardId": {
+                    "type": [
+                        "null",
+                        "number"
+                    ]
+                },
+                "closing": {
+                    "type": "string"
+                },
+                "envelopeId": {
+                    "type": [
+                        "null",
+                        "number"
+                    ]
+                },
+                "from": {
+                    "type": "string"
+                },
+                "header": {
+                    "type": "string"
+                },
+                "mascotId": {
+                    "type": [
+                        "null",
+                        "number"
+                    ]
+                },
+                "photo": {
+                    "type": "string"
+                },
+                "to": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "MascotCreateEntities": {
+            "properties": {
+                "color": {
+                    "type": "string"
+                },
+                "logo": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "textColor": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "MascotEntities": {
+            "properties": {
+                "color": {
+                    "type": "string"
+                },
+                "createdAt": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "id": {
+                    "type": "number"
+                },
+                "logo": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "textColor": {
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "format": "date-time",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "MascotParamEntities": {
+            "properties": {
+                "color": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "number"
+                },
+                "logo": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "textColor": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "MascotQueryEntities": {
+            "properties": {
+                "color": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "number"
+                },
+                "isDelete": {
+                    "type": "number"
+                },
+                "limit": {
+                    "type": "number"
+                },
+                "logo": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "page": {
+                    "type": "number"
+                },
+                "search": {
+                    "type": "string"
+                },
+                "textColor": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "MascotRepository": {
+            "type": "object"
+        },
+        "MascotRepositoryImpl": {
+            "type": "object"
+        },
+        "MascotUpdateEntities": {
+            "properties": {
+                "color": {
+                    "type": "string"
+                },
+                "logo": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "textColor": {
+                    "type": "string"
+                }
+            },
             "type": "object"
         },
         "QueryEntities": {
@@ -502,132 +577,6 @@
                     "type": "number"
                 },
                 "search": {
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "RRoleSidebarCreateEntities": {
-            "properties": {
-                "roleId": {
-                    "type": "number"
-                },
-                "sidebarId": {
-                    "type": "number"
-                }
-            },
-            "type": "object"
-        },
-        "RRoleSidebarEntities": {
-            "properties": {
-                "id": {
-                    "type": "number"
-                },
-                "roleId": {
-                    "type": "number"
-                },
-                "sidebarId": {
-                    "type": "number"
-                }
-            },
-            "type": "object"
-        },
-        "RRoleSidebarUpdateEntities": {
-            "properties": {
-                "roleId": {
-                    "type": "number"
-                },
-                "sidebarId": {
-                    "type": "number"
-                }
-            },
-            "type": "object"
-        },
-        "RRoleUserCreateEntities": {
-            "properties": {
-                "roleId": {
-                    "type": "number"
-                },
-                "username": {
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "RRoleUserEntities": {
-            "properties": {
-                "id": {
-                    "type": "number"
-                },
-                "roleId": {
-                    "type": "number"
-                },
-                "username": {
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "RRoleUserUpdateEntities": {
-            "type": "object"
-        },
-        "RefreshTokenCreate": {
-            "properties": {
-                "expiresAt": {
-                    "format": "date-time",
-                    "type": "string"
-                },
-                "refreshToken": {
-                    "type": "string"
-                },
-                "username": {
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                }
-            },
-            "type": "object"
-        },
-        "RefreshTokenEntities": {
-            "properties": {
-                "createdAt": {
-                    "format": "date-time",
-                    "type": "string"
-                },
-                "expiredAt": {
-                    "anyOf": [
-                        {
-                            "format": "date-time",
-                            "type": "string"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
-                },
-                "id": {
-                    "type": "number"
-                },
-                "refreshToken": {
-                    "type": "string"
-                },
-                "userId": {
-                    "type": [
-                        "null",
-                        "number"
-                    ]
-                }
-            },
-            "type": "object"
-        },
-        "RefreshTokenUpdate": {
-            "properties": {
-                "expiresAt": {
-                    "format": "date-time",
-                    "type": "string"
-                },
-                "refreshToken": {
                     "type": "string"
                 }
             },
@@ -659,698 +608,6 @@
         "ResponseWithoutPagingEntities": {
             "properties": {
                 "data": {}
-            },
-            "type": "object"
-        },
-        "RoleCreateEntities": {
-            "properties": {
-                "name": {
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "RoleEntities": {
-            "properties": {
-                "id": {
-                    "type": "number"
-                },
-                "name": {
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "RoleRepository": {
-            "type": "object"
-        },
-        "RoleRepositoryImpl": {
-            "type": "object"
-        },
-        "RoleSidebarCreateOrUpdateEntities": {
-            "properties": {
-                "create": {
-                    "type": "boolean"
-                },
-                "delete": {
-                    "type": "boolean"
-                },
-                "read": {
-                    "type": "boolean"
-                },
-                "roleId": {
-                    "type": "number"
-                },
-                "sidebarId": {
-                    "type": "number"
-                },
-                "update": {
-                    "type": "boolean"
-                }
-            },
-            "type": "object"
-        },
-        "RoleSidebarDetailedEntities": {
-            "properties": {
-                "create": {
-                    "type": "boolean"
-                },
-                "delete": {
-                    "type": "boolean"
-                },
-                "id": {
-                    "type": "number"
-                },
-                "read": {
-                    "type": "boolean"
-                },
-                "roleId": {
-                    "type": "number"
-                },
-                "sidebarId": {
-                    "type": "number"
-                },
-                "update": {
-                    "type": "boolean"
-                }
-            },
-            "type": "object"
-        },
-        "RoleSidebarQueryEntities": {
-            "properties": {
-                "detail": {
-                    "type": "string"
-                },
-                "isDelete": {
-                    "type": "number"
-                },
-                "limit": {
-                    "type": "number"
-                },
-                "page": {
-                    "type": "number"
-                },
-                "roleId": {
-                    "type": "number"
-                },
-                "search": {
-                    "type": "string"
-                },
-                "sidebarId": {
-                    "type": "number"
-                }
-            },
-            "type": "object"
-        },
-        "RoleSidebarRepository": {
-            "type": "object"
-        },
-        "RoleSidebarRepositoryImpl": {
-            "type": "object"
-        },
-        "RoleUserRepository": {
-            "type": "object"
-        },
-        "RoleUserRepositoryImpl": {
-            "type": "object"
-        },
-        "ScheduleCreateEntities": {
-            "properties": {
-                "actuatorId": {
-                    "type": "number"
-                },
-                "dayOfWeek": {
-                    "items": {
-                        "type": "number"
-                    },
-                    "type": "array"
-                },
-                "duration": {
-                    "type": "number"
-                },
-                "hour": {
-                    "items": {
-                        "type": "number"
-                    },
-                    "type": "array"
-                },
-                "interval": {
-                    "type": "number"
-                },
-                "minute": {
-                    "items": {
-                        "type": "number"
-                    },
-                    "type": "array"
-                },
-                "repeat": {
-                    "type": "number"
-                },
-                "start_time": {
-                    "type": "string"
-                },
-                "status_schedule": {
-                    "type": "number"
-                }
-            },
-            "type": "object"
-        },
-        "ScheduleEntities": {
-            "properties": {
-                "actuatorId": {
-                    "type": "number"
-                },
-                "createdAt": {
-                    "format": "date-time",
-                    "type": "string"
-                },
-                "dayOfWeek": {
-                    "items": {
-                        "type": "number"
-                    },
-                    "type": "array"
-                },
-                "duration": {
-                    "type": "number"
-                },
-                "hour": {
-                    "items": {
-                        "type": "number"
-                    },
-                    "type": "array"
-                },
-                "interval": {
-                    "type": "number"
-                },
-                "minute": {
-                    "items": {
-                        "type": "number"
-                    },
-                    "type": "array"
-                },
-                "start_time": {
-                    "type": "string"
-                },
-                "status_schedule": {
-                    "type": "number"
-                },
-                "updatedAt": {
-                    "format": "date-time",
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "ScheduleQueryEntities": {
-            "properties": {
-                "actuatorId": {
-                    "type": "number"
-                },
-                "isDelete": {
-                    "type": "number"
-                },
-                "limit": {
-                    "type": "number"
-                },
-                "page": {
-                    "type": "number"
-                },
-                "search": {
-                    "type": "string"
-                },
-                "statusSchedule": {
-                    "type": "number"
-                }
-            },
-            "type": "object"
-        },
-        "ScheduleRepository": {
-            "type": "object"
-        },
-        "ScheduleRepositoryImpl": {
-            "type": "object"
-        },
-        "SensorCreateEntities": {
-            "properties": {
-                "calibration": {
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "color": {
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "icon": {
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "name": {
-                    "type": "string"
-                },
-                "thingsId": {
-                    "type": [
-                        "null",
-                        "number"
-                    ]
-                },
-                "typeSensorId": {
-                    "type": "number"
-                }
-            },
-            "type": "object"
-        },
-        "SensorDataEntities": {
-            "properties": {
-                "createdAt": {
-                    "format": "date-time",
-                    "type": "string"
-                },
-                "sensorId": {
-                    "type": "number"
-                },
-                "status": {
-                    "type": "number"
-                },
-                "value": {
-                    "type": "number"
-                }
-            },
-            "type": "object"
-        },
-        "SensorEntities": {
-            "properties": {
-                "calibration": {
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "color": {
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "createdAt": {
-                    "format": "date-time",
-                    "type": "string"
-                },
-                "icon": {
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "id": {
-                    "type": "number"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "thingsId": {
-                    "type": [
-                        "null",
-                        "number"
-                    ]
-                },
-                "typeSensorId": {
-                    "type": "number"
-                },
-                "updatedAt": {
-                    "format": "date-time",
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "SensorQueryEntities": {
-            "properties": {
-                "isDelete": {
-                    "type": "number"
-                },
-                "limit": {
-                    "type": "number"
-                },
-                "page": {
-                    "type": "number"
-                },
-                "search": {
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "SensorRepository": {
-            "type": "object"
-        },
-        "SensorRepositoryImpl": {
-            "type": "object"
-        },
-        "SidebarCreateEntities": {
-            "properties": {
-                "icon": {
-                    "type": "string"
-                },
-                "link": {
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "name": {
-                    "type": "string"
-                },
-                "path": {
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                }
-            },
-            "type": "object"
-        },
-        "SidebarEntities": {
-            "properties": {
-                "icon": {
-                    "type": "string"
-                },
-                "id": {
-                    "type": "number"
-                },
-                "link": {
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "name": {
-                    "type": "string"
-                },
-                "path": {
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                }
-            },
-            "type": "object"
-        },
-        "SidebarRepository": {
-            "type": "object"
-        },
-        "SidebarRepositoryImpl": {
-            "type": "object"
-        },
-        "ThingsCreateEntities": {
-            "properties": {
-                "greenhouseId": {
-                    "type": "number"
-                },
-                "icon": {
-                    "type": "string"
-                },
-                "isSeperate": {
-                    "type": "boolean"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "type": {
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "ThingsEntities": {
-            "properties": {
-                "createdAt": {
-                    "format": "date-time",
-                    "type": "string"
-                },
-                "greenhouseId": {
-                    "type": [
-                        "null",
-                        "number"
-                    ]
-                },
-                "icon": {
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "id": {
-                    "type": "number"
-                },
-                "isSeperate": {
-                    "type": "boolean"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "type": {
-                    "type": "string"
-                },
-                "updatedAt": {
-                    "format": "date-time",
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "ThingsLogCreateEntities": {
-            "properties": {
-                "status": {
-                    "type": "string"
-                },
-                "thingsId": {
-                    "type": [
-                        "null",
-                        "number"
-                    ]
-                }
-            },
-            "type": "object"
-        },
-        "ThingsLogEntities": {
-            "properties": {
-                "createdAt": {
-                    "format": "date-time",
-                    "type": "string"
-                },
-                "id": {
-                    "type": "number"
-                },
-                "status": {
-                    "type": "string"
-                },
-                "thingsId": {
-                    "type": [
-                        "null",
-                        "number"
-                    ]
-                },
-                "updatedAt": {
-                    "format": "date-time",
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "ThingsLogQueryEntities": {
-            "properties": {
-                "isDelete": {
-                    "type": "number"
-                },
-                "limit": {
-                    "type": "number"
-                },
-                "page": {
-                    "type": "number"
-                },
-                "search": {
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "ThingsLogRepository": {
-            "type": "object"
-        },
-        "ThingsLogRepositoryImpl": {
-            "type": "object"
-        },
-        "ThingsQueryEntities": {
-            "properties": {
-                "greenhouseId": {
-                    "type": "number"
-                },
-                "isDelete": {
-                    "type": "number"
-                },
-                "limit": {
-                    "type": "number"
-                },
-                "page": {
-                    "type": "number"
-                },
-                "search": {
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "ThingsRepository": {
-            "type": "object"
-        },
-        "ThingsRepositoryImpl": {
-            "type": "object"
-        },
-        "TypeSensorCreateEntities": {
-            "properties": {
-                "name": {
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "TypeSensorEntities": {
-            "properties": {
-                "id": {
-                    "type": "number"
-                },
-                "name": {
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "TypeSensorQueryEntities": {
-            "properties": {
-                "isDelete": {
-                    "type": "number"
-                },
-                "limit": {
-                    "type": "number"
-                },
-                "page": {
-                    "type": "number"
-                },
-                "search": {
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "TypeSensorRepository": {
-            "type": "object"
-        },
-        "TypeSensorRepositoryImpl": {
-            "type": "object"
-        },
-        "UserCreateEntities": {
-            "properties": {
-                "companyId": {
-                    "type": [
-                        "null",
-                        "number"
-                    ]
-                },
-                "email": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "password": {
-                    "type": "string"
-                },
-                "signature": {
-                    "type": [
-                        "null",
-                        "string"
-                    ]
-                },
-                "status": {
-                    "type": [
-                        "null",
-                        "number"
-                    ]
-                },
-                "username": {
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "UserEntities": {
-            "properties": {
-                "companyId": {
-                    "type": [
-                        "null",
-                        "number"
-                    ]
-                },
-                "createdAt": {
-                    "format": "date-time",
-                    "type": "string"
-                },
-                "email": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "password": {
-                    "type": "string"
-                },
-                "updatedAt": {
-                    "format": "date-time",
-                    "type": "string"
-                },
-                "username": {
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "UserQueryEntities": {
-            "properties": {
-                "isDelete": {
-                    "type": "number"
-                },
-                "limit": {
-                    "type": "number"
-                },
-                "page": {
-                    "type": "number"
-                },
-                "search": {
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "UserRepository": {
-            "type": "object"
-        },
-        "UserRepositoryImpl": {
-            "type": "object"
-        },
-        "authEntities": {
-            "properties": {
-                "email": {
-                    "type": "string"
-                },
-                "password": {
-                    "type": "string"
-                }
             },
             "type": "object"
         }

@@ -1,16 +1,15 @@
-version: '3.8'
 services:
-  be_myfish:
+  mymail:
     build: .
-    working_dir: /usr/src/myfish
+    working_dir: /usr/src/mymail
     restart: unless-stopped
     command: npm run dev
     ports:
       - ${PORT}:${PORT}
     volumes:
-      - .:/usr/src/myfish
-      - /usr/src/myfish/node_modules 
-      - .env:/usr/src/myfish/.env
+      - .:/usr/src/mymail
+      - /usr/src/mymail/node_modules 
+      - .env:/usr/src/mymail/.env
     environment:
       - DB_HOST=${DB_HOST}
       - DB_USER=${DB_USER}

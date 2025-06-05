@@ -15,225 +15,69 @@ model User {
   createdAt    DateTime       @default(now())
   updatedAt    DateTime       @updatedAt
   refreshToken RefreshToken[]
-  RoleUser     RoleUser[]
-  Company      Company?       @relation(fields: [companyId], references: [id])
   companyId    Int?
 
   @@map("users")
 }
 
-model Role {
-  id           Int            @id @default(autoincrement())
-  name         String         @unique @db.VarChar(50)
-  RRoleSidebar RRoleSidebar[]
-  createdAt    DateTime       @default(now())
-  updatedAt    DateTime       @updatedAt
-  RoleUser     RoleUser[]
-
-  @@map("roles")
-}
-
-model RoleUser {
+model Card {
   id        Int      @id @default(autoincrement())
-  Role      Role?    @relation(fields: [roleId], references: [id], onUpdate: Cascade, onDelete: Cascade)
-  roleId    Int
+  name      String   @unique @db.VarChar(100)
+  logo      String   @db.VarChar(500)
+  Mail      Mail[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  isDelete  Boolean  @default(false)
-  User      User?    @relation(fields: [username], references: [username], onUpdate: Cascade, onDelete: Cascade)
-  username  String   @db.VarChar(100)
+  color     String   @db.VarChar(100)
+  textColor String   @db.VarChar(100)
 
-  @@map("role_user")
+  @@map("cards")
 }
 
-model Sidebar {
-  id            Int            @id @default(autoincrement())
-  name          String         @unique @db.VarChar(100)
-  icon          String         @db.VarChar(100)
-  path          String?        @db.VarChar(100)
-  link          String?        @db.VarChar(100)
-  createdAt     DateTime       @default(now())
-  updatedAt     DateTime       @updatedAt
-  rRoleSiderbar RRoleSidebar[]
-  isDelete      Boolean        @default(false)
-
-  @@map("sidebars")
-}
-
-model RRoleSidebar {
+model Mascot {
   id        Int      @id @default(autoincrement())
-  Sidebar   Sidebar? @relation(fields: [sidebarId], references: [id], onUpdate: Cascade, onDelete: Cascade)
-  sidebarId Int
-  Role      Role?    @relation(fields: [roleId], references: [id], onUpdate: Cascade, onDelete: Cascade)
-  roleId    Int
+  name      String   @unique @db.VarChar(100)
+  logo      String   @db.VarChar(500)
+  Mail      Mail[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  create    Boolean  @default(false)
-  read      Boolean  @default(false)
-  update    Boolean  @default(false)
-  delete    Boolean  @default(false)
-  validate  Boolean  @default(false)
-  isDelete  Boolean  @default(false)
+  color     String   @db.VarChar(100)
+  textColor String   @db.VarChar(100)
 
-  @@unique([sidebarId, roleId])
-  @@map("r_role_sidebar")
+  @@map("mascots")
 }
 
-model Company {
-  id        Int        @id @default(autoincrement())
-  name      String     @unique @db.VarChar(100)
-  logo      String     @db.VarChar(500)
-  createdAt DateTime   @default(now())
-  updatedAt DateTime   @updatedAt
-  Location  Location[]
-  User      User[]
+model Mail {
+  id         Int       @id @default(autoincrement())
+  from       String    @unique @db.VarChar(100)
+  to         String    @db.VarChar(500)
+  body       String    @db.VarChar(100000)
+  header     String    @db.VarChar(100000)
+  photo      String    @db.VarChar(500)
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  closing    String    @db.VarChar(100000)
+  color      String    @db.VarChar(100) @default("red")
+  Card       Card?     @relation(fields: [cardId], references: [id])
+  cardId     Int?
+  Envelope   Envelope? @relation(fields: [envelopeId], references: [id])
+  envelopeId Int?
+  Mascot     Mascot?   @relation(fields: [mascotId], references: [id])
+  mascotId   Int?
 
-  @@map("companies")
+  @@map("mails")
 }
 
-model Location {
-  id         Int          @id @default(autoincrement())
-  name       String       @db.VarChar(100)
-  provinces  String       @db.VarChar(100)
-  city       String       @db.VarChar(100)
-  address    String       @db.VarChar(500)
-  latitude   Float
-  longitude  Float
-  createdAt  DateTime     @default(now())
-  updatedAt  DateTime     @updatedAt
-  Greenhouse Greenhouse[]
-  Company    Company?     @relation(fields: [companyId], references: [id], onUpdate: Cascade, onDelete: Cascade)
-  companyId  Int?
-
-  @@map("locations")
-}
-
-model Greenhouse {
-  id          Int       @id @default(autoincrement())
-  name        String    @db.VarChar(100)
-  description String?   @db.VarChar(300)
-  Things      Things[]
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
-  Location    Location? @relation(fields: [locationId], references: [id], onUpdate: Cascade, onDelete: Cascade)
-  locationId  Int?
-
-  @@map("greenhouses")
-}
-
-model Things {
-  id           Int         @id @default(autoincrement())
-  name         String      @db.VarChar(100)
-  icon         String?     @db.VarChar(100)
-  color        String?     @db.VarChar(50)
-  createdAt    DateTime    @default(now())
-  updatedAt    DateTime    @updatedAt
-  ThingsLog    ThingsLog[]
-  Actuator     Actuator[]
-  Sensor       Sensor[]
-  type         String
-  isSeperate   Boolean     @default(true)
-  Greenhouse   Greenhouse  @relation(fields: [greenhouseId], references: [id], onUpdate: Cascade, onDelete: Cascade)
-  greenhouseId Int
-
-  @@map("things")
-}
-
-model ThingsLog {
+model Envelope {
   id        Int      @id @default(autoincrement())
+  Mail      Mail[]
+  color     String   @db.VarChar(100)
+  textColor String   @db.VarChar(100)
+  name      String   @unique @db.VarChar(100)
+  logo      String   @db.VarChar(500)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  status    String
-  Things    Things?  @relation(fields: [thingsId], references: [id], onUpdate: Cascade, onDelete: Cascade)
-  thingsId  Int?
 
-  @@map("things_log")
-}
-
-model Sensor {
-  id           Int          @id @default(autoincrement())
-  name         String       @db.VarChar(100)
-  icon         String?      @db.VarChar(100)
-  color        String?      @db.VarChar(50)
-  createdAt    DateTime     @default(now())
-  updatedAt    DateTime     @updatedAt
-  Things       Things?      @relation(fields: [thingsId], references: [id], onUpdate: Cascade, onDelete: Cascade)
-  thingsId     Int?
-  Automation   Automation[]
-  typeSensor   typeSensor?  @relation(fields: [typeSensorId], references: [id], onUpdate: Cascade, onDelete: Restrict)
-  typeSensorId Int
-  calibration  String?
-
-  @@map("sensors")
-}
-
-model typeSensor {
-  id     Int      @id @default(autoincrement())
-  name   String   @db.VarChar(100)
-  Sensor Sensor[]
-}
-
-model Actuator {
-  id           Int           @id @default(autoincrement())
-  name         String
-  createdAt    DateTime      @default(now())
-  updatedAt    DateTime      @updatedAt
-  icon         String?
-  color        String?
-  isAutomation Boolean       @default(false)
-  ActuatorLog  ActuatorLog[]
-  Schedule     Schedule[]
-  Automation   Automation[]
-  Things       Things?       @relation(fields: [thingsId], references: [id], onUpdate: Cascade, onDelete: Cascade)
-  thingsId     Int?
-
-  @@map("actuators")
-}
-
-model ActuatorLog {
-  id              Int       @id @default(autoincrement())
-  createdAt       DateTime  @default(now())
-  updatedAt       DateTime  @updatedAt
-  statusLifeCycle Int
-  Actuator        Actuator? @relation(fields: [actuatorId], references: [id], onUpdate: Cascade, onDelete: Cascade)
-  actuatorId      Int?
-
-  @@map("actuator_log")
-}
-
-model Schedule {
-  id              Int       @id @default(autoincrement())
-  start_time      String
-  repeat          Int
-  createdAt       DateTime  @default(now())
-  updatedAt       DateTime  @updatedAt
-  duration        Int
-  interval        Int
-  status_schedule Int
-  hour            Int[]
-  minute          Int[]
-  dayOfWeek       Int[]     @default([0, 1, 2, 3, 4, 5, 6, 7])
-  Actuator        Actuator? @relation(fields: [actuatorId], references: [id], onUpdate: Cascade, onDelete: Cascade)
-  actuatorId      Int
-
-  @@map("schedules")
-}
-
-model Automation {
-  condition        String
-  status_lifecycle Int
-  id               Int       @id @default(autoincrement())
-  createdAt        DateTime  @default(now())
-  updatedAt        DateTime  @updatedAt
-  constanta        Int
-  range            Int
-  Sensor           Sensor?   @relation(fields: [sensorId], references: [id], onUpdate: Cascade, onDelete: Cascade)
-  sensorId         Int?
-  Actuator         Actuator? @relation(fields: [actuatorId], references: [id], onDelete: Cascade, onUpdate: Cascade)
-  actuatorId       Int?
-  sensorLogId      Int?
-
-  @@map("automations")
+  @@map("envelops")
 }
 
 model RefreshToken {

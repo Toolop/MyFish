@@ -3,10 +3,10 @@ FROM node:20-alpine
 RUN apk update && \
     apk add --no-cache openssl
 
-WORKDIR /usr/src/myfish
+WORKDIR /usr/src/mymail
 
-COPY package.json /usr/src/myfish/package.json
+COPY package.json /usr/src/mymail/package.json
 # COPY prisma ./prisma/ 
 RUN npm install
-COPY . /usr/src/myfish
+COPY . /usr/src/mymail
 RUN npx prisma generate
