@@ -3,7 +3,7 @@ services:
     build: .
     working_dir: /usr/src/mymail
     restart: unless-stopped
-    command: npm run dev
+    command: npm run start
     ports:
       - ${PORT}:${PORT}
     volumes:
@@ -28,7 +28,7 @@ services:
       - POSTGRES_USER=${DB_USER}
       - POSTGRES_DB=${DB_DATABASE}
     ports:
-      - 5433:${DB_PORT}
+      - 5435:${DB_PORT}
     volumes:
       - db_data:/var/lib/postgresql/data:rw
 
