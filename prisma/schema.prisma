@@ -52,7 +52,7 @@ model Mail {
   to         String    @db.VarChar(500)
   body       String    @db.VarChar(100000)
   header     String    @db.VarChar(100000)
-  photo      String    @db.VarChar(500)
+  photo      String?    @db.VarChar(500)
   createdAt  DateTime  @default(now())
   updatedAt  DateTime  @updatedAt
   closing    String    @db.VarChar(100000)
