@@ -39,7 +39,7 @@ export interface MailUpdateEntities {
   to?: string;
   body?: string;
   header?: string;
-  photo?: string;
+  photo?: string | null;
   cardId?: number | null;
   envelopeId?: number | null;
   mascotId?: number | null;
